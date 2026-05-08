@@ -161,17 +161,13 @@
   import '/js/app.js';
   import '/js/auth.js';
 
-  window.addEventListener('DOMContentLoaded', () => {
+  window.addEventListener('DOMContentLoaded', async () => {
     window.BSDC.buildNavbar();
     window.BSDC.buildFooter();
 
-    // Redirect if already logged in
-    window.BSDC.auth.subscribe((user) => {
-      if (user) window.location.href = '/';
-    });
-
     const showError = (msg) => {
       const el = document.getElementById('reg-error');
+      if (!el) return;
       el.textContent = msg;
       el.style.display = 'block';
       el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -180,11 +176,25 @@
 
     const showSuccess = (msg) => {
       const el = document.getElementById('reg-success');
+      if (!el) return;
       el.textContent = msg;
       el.style.display = 'block';
     };
 
-    // Username validation
+    // ---- Check redirect error ----
+    if (window.BSDC._redirectError) {
+      showError('Sign-up failed: ' + (window.BSDC._redirectError.message || 'Please try again'));
+      window.BSDC._redirectError = null;
+    }
+
+    // ---- Redirect if already logged in ----
+    await window.BSDC.auth.waitReady();
+    if (window.BSDC.auth.currentUser) {
+      window.location.href = '/';
+      return;
+    }
+
+    // ---- Username validation ----
     const usernameInput = document.getElementById('reg-username');
     let usernameTimer;
     usernameInput?.addEventListener('input', () => {
@@ -192,12 +202,13 @@
       usernameInput.value = val;
       clearTimeout(usernameTimer);
       const checkEl = document.getElementById('username-check');
+      if (!checkEl) return;
 
       if (val.length < 3) {
         checkEl.textContent = '';
         return;
       }
-      checkEl.textContent = '⏳ Checking availability...';
+      checkEl.textContent = '⏳ Checking...';
       checkEl.style.color = '#64748B';
 
       usernameTimer = setTimeout(async () => {
@@ -207,22 +218,22 @@
             checkEl.textContent = '❌ Username taken';
             checkEl.style.color = '#DC2626';
           } else {
-            checkEl.textContent = '✅ Username available!';
+            checkEl.textContent = '✅ Available!';
             checkEl.style.color = '#006A4E';
           }
         } catch(e) {
           checkEl.textContent = '';
         }
-      }, 600);
+      }, 700);
     });
 
-    // Password strength
-    const passwordInput = document.getElementById('reg-password');
-    passwordInput?.addEventListener('input', () => {
-      const val = passwordInput.value;
+    // ---- Password strength ----
+    document.getElementById('reg-password')?.addEventListener('input', (e) => {
+      const val = e.target.value;
       const strengthEl = document.getElementById('password-strength');
       const barEl = document.getElementById('strength-bar');
       const textEl = document.getElementById('strength-text');
+      if (!strengthEl) return;
 
       if (!val) { strengthEl.style.display = 'none'; return; }
       strengthEl.style.display = 'block';
@@ -241,87 +252,104 @@
         { label: 'Strong', color: '#006A4E', width: '80%' },
         { label: 'Very Strong', color: '#006A4E', width: '100%' }
       ];
-
       const level = levels[Math.min(score, 4)];
-      barEl.style.width = level.width;
-      barEl.style.background = level.color;
-      textEl.textContent = `Password strength: ${level.label}`;
-      textEl.style.color = level.color;
+      if (barEl) { barEl.style.width = level.width; barEl.style.background = level.color; }
+      if (textEl) { textEl.textContent = `Strength: ${level.label}`; textEl.style.color = level.color; }
     });
 
-    // Toggle password
+    // ---- Toggle password ----
     document.getElementById('toggle-reg-pass')?.addEventListener('click', () => {
       const input = document.getElementById('reg-password');
       const btn = document.getElementById('toggle-reg-pass');
+      if (!input) return;
       if (input.type === 'password') { input.type = 'text'; btn.textContent = 'Hide'; }
       else { input.type = 'password'; btn.textContent = 'Show'; }
     });
 
-    // Register Form
+    // ---- Register Form ----
     document.getElementById('register-form')?.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const name = document.getElementById('reg-name').value.trim();
-      const username = document.getElementById('reg-username').value.trim().toLowerCase();
-      const email = document.getElementById('reg-email').value.trim();
-      const password = document.getElementById('reg-password').value;
-      const confirm = document.getElementById('reg-confirm').value;
-      const terms = document.getElementById('reg-terms').checked;
+      const name = document.getElementById('reg-name')?.value.trim();
+      const username = document.getElementById('reg-username')?.value.trim().toLowerCase();
+      const email = document.getElementById('reg-email')?.value.trim();
+      const password = document.getElementById('reg-password')?.value;
+      const confirm = document.getElementById('reg-confirm')?.value;
+      const terms = document.getElementById('reg-terms')?.checked;
       const btn = document.getElementById('reg-submit-btn');
 
-      // Validation
-      if (!name) { showError('Please enter your full name.'); return; }
+      if (!name || name.length < 2) { showError('Enter your full name (min 2 chars).'); return; }
       if (!username || username.length < 3) { showError('Username must be at least 3 characters.'); return; }
-      if (!/^[a-z0-9_]+$/.test(username)) { showError('Username can only contain lowercase letters, numbers, and underscores.'); return; }
-      if (!email) { showError('Please enter your email address.'); return; }
+      if (!/^[a-z0-9_]+$/.test(username)) { showError('Username: only lowercase letters, numbers, underscores.'); return; }
+      if (!email) { showError('Please enter your email.'); return; }
       if (password.length < 8) { showError('Password must be at least 8 characters.'); return; }
       if (password !== confirm) { showError('Passwords do not match.'); return; }
-      if (!terms) { showError('Please agree to the Terms of Service.'); return; }
+      if (!terms) { showError('Please accept the Terms of Service.'); return; }
 
       btn.textContent = 'Creating account...';
       btn.disabled = true;
 
       try {
         await window.BSDC.auth.registerEmail(email, password, name, username);
-        showSuccess('Account created successfully! Please check your email for verification. Redirecting...');
-        setTimeout(() => window.location.href = '/', 2000);
+        showSuccess('Account created! Check your email for verification. Redirecting...');
+        setTimeout(() => window.location.href = '/', 1500);
       } catch(err) {
         const messages = {
-          'auth/email-already-in-use': 'This email is already registered. Please log in instead.',
-          'auth/weak-password': 'Password is too weak. Please use at least 8 characters.',
-          'auth/invalid-email': 'Please enter a valid email address.',
+          'auth/email-already-in-use': 'This email is already registered. Please log in.',
+          'auth/weak-password': 'Password too weak. Use 8+ characters.',
+          'auth/invalid-email': 'Invalid email address.',
+          'auth/network-request-failed': 'Network error. Check your connection.'
         };
-        showError(messages[err.code] || err.message || 'Registration failed. Please try again.');
+        showError(messages[err.code] || err.message || 'Registration failed.');
       } finally {
         btn.textContent = '🚀 Create Free Account';
         btn.disabled = false;
       }
     });
 
-    // Google Register
+    // ---- Google Register ----
     document.getElementById('google-reg-btn')?.addEventListener('click', async () => {
       const btn = document.getElementById('google-reg-btn');
       btn.disabled = true;
+      btn.textContent = 'Connecting...';
       try {
-        await window.BSDC.auth.signInGoogle();
+        const result = await window.BSDC.auth.signInGoogle();
+        if (result === null) {
+          btn.textContent = '⏳ Redirecting...';
+          return;
+        }
         window.location.href = '/';
       } catch(err) {
-        showError('Google sign-up failed. Please try again.');
-      } finally {
+        const messages = {
+          'auth/popup-blocked': 'Popup blocked! Allow popups for this site and try again.',
+          'auth/popup-closed-by-user': 'Sign-in popup was closed.',
+          'auth/account-exists-with-different-credential': 'Email already used with another method.'
+        };
+        showError(messages[err.code] || 'Google sign-up failed. Please try again.');
         btn.disabled = false;
+        btn.textContent = 'Sign up with Google';
       }
     });
 
-    // GitHub Register
+    // ---- GitHub Register ----
     document.getElementById('github-reg-btn')?.addEventListener('click', async () => {
       const btn = document.getElementById('github-reg-btn');
       btn.disabled = true;
+      btn.textContent = 'Connecting...';
       try {
-        await window.BSDC.auth.signInGitHub();
+        const result = await window.BSDC.auth.signInGitHub();
+        if (result === null) {
+          btn.textContent = '⏳ Redirecting...';
+          return;
+        }
         window.location.href = '/';
       } catch(err) {
-        showError('GitHub sign-up failed. Please try again.');
-      } finally {
+        const messages = {
+          'auth/popup-blocked': 'Popup blocked! Allow popups and try again.',
+          'auth/popup-closed-by-user': 'Sign-in popup was closed.'
+        };
+        showError(messages[err.code] || 'GitHub sign-up failed. Please try again.');
         btn.disabled = false;
+        btn.textContent = 'Sign up with GitHub';
       }
     });
   });
