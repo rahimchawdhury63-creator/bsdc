@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard — BSDC | Bangladesh Software Development Community</title>
+  <meta name="description" content="Your BSDC dashboard — manage your posts, track reputation, view notifications, and update your profile."/>
+  <meta name="robots" content="noindex"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin/>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23006A4E'/><text y='.9em' font-size='70' x='50%' text-anchor='middle' fill='white' font-weight='900'>B</text></svg>"/>
+  <link rel="stylesheet" href="/css/fabric.css"/>
+  <link rel="stylesheet" href="/css/main.css"/>
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+</head>
+<body style="background:#F8FAFC">
+
+<div id="navbar"></div>
+
+<main role="main" style="padding:1.5rem 1rem 4rem">
+  <div style="max-width:1100px;margin:0 auto">
+
+    <!-- Dashboard Header -->
+    <div id="dash-header" style="background:linear-gradient(135deg,#006A4E,#1E293B);border-radius:0.75rem;padding:1.5rem 2rem;color:white;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+      <div style="display:flex;align-items:center;gap:1rem">
+        <div class="avatar avatar-xl" id="dash-avatar" style="background:#e6f4f0;color:#006A4E;border:3px solid rgba(255,255,255,0.3)">
+          <div class="skeleton" style="width:80px;height:80px;border-radius:50%"></div>
+        </div>
+        <div>
+          <div style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;opacity:0.7;font-weight:600">Welcome back</div>
+          <div id="dash-name" style="font-size:1.5rem;font-weight:900">Loading...</div>
+          <div id="dash-role" style="font-size:0.85rem;opacity:0.8">BSDC Member</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
+        <a href="/submit" class="btn" style="background:rgba(255,255,255,0.15);color:white;border-color:rgba(255,255,255,0.3)">✏️ New Post</a>
+        <a id="dash-profile-link" href="/profile" class="btn" style="background:#4ade80;color:#1E293B;border-color:#4ade80;font-weight:700">👤 View Profile</a>
+      </div>
+    </div>
+
+    <!-- Stats Row -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin-bottom:1.5rem" id="dash-stats">
+      <div class="card card-body" style="text-align:center">
+        <div class="skeleton" style="height:2rem;width:60px;margin:0 auto 0.5rem"></div>
+        <div style="font-size:0.8rem;color:#64748B;font-weight:600;text-transform:uppercase">Total Posts</div>
+      </div>
+      <div class="card card-body" style="text-align:center">
+        <div class="skeleton" style="height:2rem;width:60px;margin:0 auto 0.5rem"></div>
+        <div style="font-size:0.8rem;color:#64748B;font-weight:600;text-transform:uppercase">Answers</div>
+      </div>
+      <div class="card card-body" style="text-align:center">
+        <div class="skeleton" style="height:2rem;width:60px;margin:0 auto 0.5rem"></div>
+        <div style="font-size:0.8rem;color:#006A4E;font-weight:600;text-transform:uppercase">Reputation</div>
+      </div>
+      <div class="card card-body" style="text-align:center">
+        <div class="skeleton" style="height:2rem;width:60px;margin:0 auto 0.5rem"></div>
+        <div style="font-size:0.8rem;color:#64748B;font-weight:600;text-transform:uppercase">Followers</div>
+      </div>
+      <div class="card card-body" style="text-align:center">
+        <div class="skeleton" style="height:2rem;width:60px;margin:0 auto 0.5rem"></div>
+        <div style="font-size:0.8rem;color:#64748B;font-weight:600;text-transform:uppercase">Total Views</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 320px;gap:1.5rem;align-items:start">
+
+      <!-- Main Area -->
+      <div>
+        <!-- My Posts -->
+        <div style="background:white;border:1px solid #E2E8F0;border-radius:0.75rem;overflow:hidden;margin-bottom:1rem">
+          <div style="padding:1rem 1.25rem;border-bottom:1px solid #E2E8F0;display:flex;align-items:center;justify-content:space-between">
+            <h2 style="font-weight:800;color:#1E293B;font-size:1rem">📝 My Posts</h2>
+            <a href="/submit" class="btn btn-primary btn-sm">+ New Post</a>
+          </div>
+          <div id="dash-posts" style="padding:0.5rem">
+            <div class="skeleton-card" style="margin:0.5rem"><div class="skeleton skeleton-title" style="margin-bottom:8px"></div><div class="skeleton skeleton-text" style="width:60%"></div></div>
+            <div class="skeleton-card" style="margin:0.5rem"><div class="skeleton skeleton-title" style="margin-bottom:8px"></div><div class="skeleton skeleton-text" style="width:70%"></div></div>
+            <div class="skeleton-card" style="margin:0.5rem"><div class="skeleton skeleton-title" style="margin-bottom:8px"></div><div class="skeleton skeleton-text" style="width:50%"></div></div>
+          </div>
+        </div>
+
+        <!-- Notifications -->
+        <div style="background:white;border:1px solid #E2E8F0;border-radius:0.75rem;overflow:hidden">
+          <div style="padding:1rem 1.25rem;border-bottom:1px solid #E2E8F0;display:flex;align-items:center;justify-content:space-between">
+            <h2 style="font-weight:800;color:#1E293B;font-size:1rem">🔔 Notifications</h2>
+            <button class="btn btn-ghost btn-sm" id="mark-all-read-btn">Mark all read</button>
+          </div>
+          <div id="dash-notifications" style="padding:0.5rem">
+            <div style="padding:1rem;text-align:center;color:#64748B;font-size:0.875rem">Loading notifications...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div>
+
+        <!-- Quick Actions -->
+        <div class="widget" style="margin-bottom:1rem">
+          <div class="widget-header">⚡ Quick Actions</div>
+          <div style="padding:0.5rem">
+            <a href="/submit?type=question" class="sidebar-nav-item">❓ Ask a Question</a>
+            <a href="/submit?type=blog" class="sidebar-nav-item">📝 Write Blog Post</a>
+            <a href="/submit?type=snippet" class="sidebar-nav-item">💻 Share Snippet</a>
+            <a href="/submit?type=project" class="sidebar-nav-item">🚀 Share Project</a>
+            <a href="/submit?type=wiki" class="sidebar-nav-item">📚 Create Wiki</a>
+          </div>
+        </div>
+
+        <!-- Notification Settings -->
+        <div class="widget">
+          <div class="widget-header">⚙️ Settings</div>
+          <div class="widget-body">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
+              <div>
+                <div style="font-weight:600;font-size:0.875rem;color:#1E293B">Push Notifications</div>
+                <div style="font-size:0.75rem;color:#64748B">Get notified of replies</div>
+              </div>
+              <button class="btn btn-primary btn-sm" id="enable-notif-btn">Enable</button>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div>
+                <div style="font-weight:600;font-size:0.875rem;color:#1E293B">Account</div>
+                <div style="font-size:0.75rem;color:#64748B">Manage your account</div>
+              </div>
+              <a id="dash-edit-profile" href="/profile" class="btn btn-secondary btn-sm">Edit</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="footer"></div>
+
+<script type="module">
+  import '/js/firebase-config.js';
+  import '/js/app.js';
+  import '/js/profile.js';
+  import '/js/notifications.js';
+
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({ appId: "5f367dc9-3fc3-4fd9-b452-e32fa438509b" });
+  });
+
+  window.addEventListener('DOMContentLoaded', async () => {
+    window.BSDC.initPage({ activePage: 'dashboard' });
+
+    // Require auth
+    const user = await window.BSDC.requireAuth('/login');
+
+    // Load profile
+    const profile = await window.BSDC.auth.getProfile(user.uid);
+    if (!profile) return;
+
+    // Update header
+    const dashAvatar = document.getElementById('dash-avatar');
+    const dashName = document.getElementById('dash-name');
+    const dashRole = document.getElementById('dash-role');
+    const dashProfileLink = document.getElementById('dash-profile-link');
+    const dashEditProfile = document.getElementById('dash-edit-profile');
+
+    if (dashAvatar) {
+      const initials = window.BSDC.text.avatarInitials(profile.displayName || 'U');
+      dashAvatar.innerHTML = profile.photoURL
+        ? `<img src="${profile.photoURL}" alt="${profile.displayName}" style="width:80px;height:80px;border-radius:50%;object-fit:cover"/>`
+        : `<span style="font-size:2rem;font-weight:800">${initials}</span>`;
+    }
+    if (dashName) dashName.textContent = profile.displayName || 'Developer';
+    if (dashRole) dashRole.textContent = profile.role || 'BSDC Member';
+    if (dashProfileLink) dashProfileLink.href = `/profile?u=${profile.username}`;
+    if (dashEditProfile) dashEditProfile.href = `/profile?u=${profile.username}`;
+
+    // Load stats
+    const posts = await window.BSDC.db.getPostsByUser(user.uid, 50);
+    const totalViews = posts.reduce((acc, p) => acc + (p.views || 0), 0);
+
+    const dashStats = document.getElementById('dash-stats');
+    if (dashStats) {
+      dashStats.innerHTML = `
+        <div class="card card-body" style="text-align:center">
+          <div style="font-size:2rem;font-weight:900;color:#1E293B;line-height:1;margin-bottom:0.375rem">${window.BSDC.text.formatNumber(profile.postCount || 0)}</div>
+          <div style="font-size:0.8rem;color:#64748B;font-weight:600;text-transform:uppercase">Total Posts</div>
+        </div>
+        <div class="card card-body" style="text-align:center">
+          <div style="font-size:2rem;font-weight:900;color:#1E293B;line-height:1;margin-bottom:0.375rem">${window.BSDC.text.formatNumber(profile.answerCount || 0)}</div>
+          <div style="font-size:0.8rem;color:#64748B;font-weight:600;text-transform:uppercase">Answers</div>
+        </div>
+        <div class="card card-body" style="text-align:center">
+          <div style="font-size:2rem;font-weight:900;color:#006A4E;line-height:1;margin-bottom:0.375rem">${window.BSDC.text.formatNumber(profile.reputation || 0)}</div>
+          <div style="font-size:0.8rem;color:#006A4E;font-weight:600;text-transform:uppercase">Reputation</div>
+        </div>
+        <div class="card card-body" style="text-align:center">
+          <div style="font-size:2rem;font-weight:900;color:#1E293B;line-height:1;margin-bottom:0.375rem">${(profile.followers || []).length}</div>
+          <div style="font-size:0.8rem;color:#64748B;font-weight:600;text-transform:uppercase">Followers</div>
+        </div>
+        <div class="card card-body" style="text-align:center">
+          <div style="font-size:2rem;font-weight:900;color:#1E293B;line-height:1;margin-bottom:0.375rem">${window.BSDC.text.formatNumber(totalViews)}</div>
+          <div style="font-size:0.8rem;color:#64748B;font-weight:600;text-transform:uppercase">Total Views</div>
+        </div>
+      `;
+    }
+
+    // Load posts
+    const dashPostsEl = document.getElementById('dash-posts');
+    if (dashPostsEl) {
+      if (posts.length === 0) {
+        dashPostsEl.innerHTML = `
+          <div style="text-align:center;padding:2rem;color:#64748B">
+            <div style="font-size:2.5rem;margin-bottom:0.75rem">📭</div>
+            <p style="margin-bottom:0.75rem">You haven't posted anything yet.</p>
+            <a href="/submit" class="btn btn-primary btn-sm">Create Your First Post</a>
+          </div>
+        `;
+      } else {
+        dashPostsEl.innerHTML = posts.map(post => {
+          const votes = (post.upvotes || 0) - (post.downvotes || 0);
+          const typeIcons = { question:'❓', blog:'📝', wiki:'📚', snippet:'💻', project:'🚀', discussion:'💬' };
+          return `
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1rem;border-radius:0.5rem;hover:background:#F8FAFC;gap:1rem;border-bottom:1px solid #F1F5F9">
+              <div style="flex:1;min-width:0">
+                <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.25rem">
+                  <span style="font-size:0.9rem">${typeIcons[post.type] || '📄'}</span>
+                  <a href="/post?slug=${post.slug}" class="line-clamp-1" style="font-weight:600;font-size:0.9rem;color:#1E293B;text-decoration:none;hover:color:#006A4E">${post.title}</a>
+                </div>
+                <div style="font-size:0.75rem;color:#94A3B8">${window.BSDC.time.ago(post.createdAt)} · ▲ ${votes} · 👁️ ${window.BSDC.text.formatNumber(post.views || 0)}</div>
+              </div>
+              <div style="display:flex;gap:0.375rem;flex-shrink:0">
+                <a href="/submit?edit=${post.id}&slug=${post.slug}" class="btn btn-ghost btn-sm" style="padding:0.25rem 0.5rem;font-size:0.75rem">✏️</a>
+                <button class="btn btn-ghost btn-sm delete-post-btn" data-id="${post.id}" style="padding:0.25rem 0.5rem;font-size:0.75rem;color:#DC2626">🗑️</button>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        // Delete handlers
+        dashPostsEl.querySelectorAll('.delete-post-btn').forEach(btn => {
+          btn.addEventListener('click', async () => {
+            if (!confirm('Delete this post permanently?')) return;
+            try {
+              await window.BSDC.db.deletePost(btn.dataset.id);
+              btn.closest('div[style]').remove();
+              window.BSDC.toast.success('Post deleted');
+            } catch(e) {
+              window.BSDC.toast.error('Failed to delete post');
+            }
+          });
+        });
+      }
+    }
+
+    // Load notifications
+    const notifEl = document.getElementById('dash-notifications');
+    const notifications = await window.BSDC.db.getNotifications(user.uid);
+    if (notifEl) {
+      if (notifications.length === 0) {
+        notifEl.innerHTML = `
+          <div style="padding:1.5rem;text-align:center;color:#64748B;font-size:0.875rem">
+            <div style="font-size:2rem;margin-bottom:0.5rem">🔔</div>
+            No notifications yet
+          </div>
+        `;
+      } else {
+        notifEl.innerHTML = notifications.map(n => `
+          <div style="display:flex;gap:0.75rem;padding:0.75rem 1rem;border-radius:0.5rem;${!n.isRead ? 'background:#f0faf7' : ''};border-bottom:1px solid #F1F5F9">
+            <span style="font-size:1.25rem;flex-shrink:0">🔔</span>
+            <div style="flex:1">
+              <p style="font-size:0.875rem;color:#1E293B;margin-bottom:0.2rem;font-weight:${n.isRead ? '400' : '600'}">${n.message || 'New notification'}</p>
+              <span style="font-size:0.75rem;color:#94A3B8">${window.BSDC.time.ago(n.createdAt)}</span>
+            </div>
+            ${!n.isRead ? '<div style="width:8px;height:8px;background:#006A4E;border-radius:50%;flex-shrink:0;margin-top:6px"></div>' : ''}
+          </div>
+        `).join('');
+      }
+    }
+
+    // Mark all read
+    document.getElementById('mark-all-read-btn')?.addEventListener('click', async () => {
+      await window.BSDC.db.markNotificationsRead(user.uid);
+      document.querySelectorAll('#dash-notifications > div').forEach(el => {
+        el.style.background = '';
+        const dot = el.querySelector('[style*="background:#006A4E;border-radius:50%"]');
+        if (dot) dot.remove();
+      });
+      window.BSDC.toast.success('All notifications marked as read');
+    });
+
+    // Enable notifications
+    document.getElementById('enable-notif-btn')?.addEventListener('click', async () => {
+      await window.BSDC.notifications.init();
+      const granted = await window.BSDC.notifications.requestPermission();
+      if (granted) {
+        window.BSDC.toast.success('Push notifications enabled!');
+        document.getElementById('enable-notif-btn').textContent = '✅ Enabled';
+        document.getElementById('enable-notif-btn').disabled = true;
+      } else {
+        window.BSDC.toast.warning('Permission denied. Enable notifications in browser settings.');
+      }
+    });
+
+    // Init notifications
+    window.BSDC.notifications.init();
+  });
+</script>
+</body>
+</html>
