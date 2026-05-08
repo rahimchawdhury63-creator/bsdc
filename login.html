@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Log In — BSDC | Bangladesh Software Development Community</title>
+  <meta name="description" content="Log in to BSDC — Bangladesh Software Development Community. Access your developer profile, posts, and community features."/>
+  <meta name="robots" content="noindex"/>
+  <link rel="canonical" href="https://www.bsdc.info.bd/login"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin/>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23006A4E'/><text y='.9em' font-size='70' x='50%' text-anchor='middle' fill='white' font-weight='900'>B</text></svg>"/>
+  <link rel="stylesheet" href="/css/fabric.css"/>
+  <link rel="stylesheet" href="/css/main.css"/>
+</head>
+<body style="background:#F8FAFC">
+
+<div id="navbar"></div>
+
+<main role="main" style="min-height:calc(100vh - 64px);display:flex;align-items:center;justify-content:center;padding:2rem 1rem">
+  <div style="width:100%;max-width:440px">
+
+    <!-- Logo -->
+    <div style="text-align:center;margin-bottom:2rem">
+      <div style="width:56px;height:56px;background:linear-gradient(135deg,#006A4E,#00a878);border-radius:14px;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:1.5rem;margin:0 auto 0.75rem;box-shadow:0 4px 14px rgba(0,106,78,0.3)">B</div>
+      <h1 style="font-size:1.5rem;font-weight:800;color:#1E293B">Welcome back to BSDC</h1>
+      <p style="color:#64748B;margin-top:0.25rem;font-size:0.9rem">Bangladesh Software Development Community</p>
+    </div>
+
+    <!-- Card -->
+    <div style="background:white;border:1px solid #E2E8F0;border-radius:1rem;padding:2rem;box-shadow:0 4px 20px rgba(0,0,0,0.05)">
+
+      <!-- Error Alert -->
+      <div id="auth-error" class="alert alert-error" style="display:none"></div>
+      <div id="auth-success" class="alert alert-success" style="display:none"></div>
+
+      <!-- OAuth Buttons -->
+      <button class="btn btn-full btn-slate" id="google-btn" style="margin-bottom:0.75rem;gap:0.75rem">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%23FFC107' d='M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z'/%3E%3Cpath fill='%23FF3D00' d='m6.306 14.691 6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z'/%3E%3Cpath fill='%234CAF50' d='M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z'/%3E%3Cpath fill='%231976D2' d='M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z'/%3E%3C/svg%3E" width="20" height="20" alt="Google"/>
+        Continue with Google
+      </button>
+
+      <button class="btn btn-full" id="github-btn" style="background:#24292e;color:white;border-color:#24292e;margin-bottom:1.5rem;gap:0.75rem">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+        Continue with GitHub
+      </button>
+
+      <div class="divider-text">or sign in with email</div>
+
+      <!-- Email Form -->
+      <form id="login-form" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="login-email">Email Address</label>
+          <input type="email" id="login-email" class="form-input" placeholder="you@example.com" required autocomplete="email"/>
+        </div>
+        <div class="form-group" style="margin-bottom:0.5rem">
+          <label class="form-label" for="login-password">Password</label>
+          <div style="position:relative">
+            <input type="password" id="login-password" class="form-input" placeholder="Enter your password" required autocomplete="current-password"/>
+            <button type="button" id="toggle-pass" style="position:absolute;right:0.875rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#64748B;font-size:0.875rem">Show</button>
+          </div>
+        </div>
+        <div style="text-align:right;margin-bottom:1.25rem">
+          <button type="button" id="forgot-password-btn" class="btn btn-ghost btn-sm" style="font-size:0.8rem;color:#006A4E;padding:0">Forgot Password?</button>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full btn-lg" id="login-submit-btn">
+          Log In to BSDC
+        </button>
+      </form>
+
+      <div style="text-align:center;margin-top:1.5rem">
+        <p style="color:#64748B;font-size:0.9rem">
+          Don't have an account? <a href="/register" style="color:#006A4E;font-weight:600">Join BSDC Free</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal-overlay" id="forgot-modal">
+      <div class="modal">
+        <button class="modal-close" onclick="window.BSDC.modal.close('forgot-modal')" aria-label="Close">✕</button>
+        <h2 style="font-size:1.25rem;font-weight:800;color:#1E293B;margin-bottom:0.5rem">Reset Password</h2>
+        <p style="color:#64748B;font-size:0.9rem;margin-bottom:1.25rem">Enter your email address and we'll send you a password reset link.</p>
+        <div id="forgot-error" class="alert alert-error" style="display:none"></div>
+        <div id="forgot-success" class="alert alert-success" style="display:none"></div>
+        <div class="form-group">
+          <label class="form-label" for="forgot-email">Email Address</label>
+          <input type="email" id="forgot-email" class="form-input" placeholder="you@example.com"/>
+        </div>
+        <button class="btn btn-primary btn-full" id="forgot-submit-btn">Send Reset Link</button>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<div id="footer"></div>
+
+<script type="module">
+  import '/js/firebase-config.js';
+  import '/js/app.js';
+  import '/js/auth.js';
+
+  window.addEventListener('DOMContentLoaded', () => {
+    window.BSDC.buildNavbar();
+    window.BSDC.buildFooter();
+
+    // Redirect if already logged in
+    window.BSDC.auth.subscribe((user) => {
+      if (user) {
+        const next = new URLSearchParams(window.location.search).get('next') || '/';
+        window.location.href = next;
+      }
+    });
+
+    const showError = (msg) => {
+      const el = document.getElementById('auth-error');
+      el.textContent = msg;
+      el.style.display = 'block';
+      setTimeout(() => el.style.display = 'none', 6000);
+    };
+
+    const showSuccess = (msg) => {
+      const el = document.getElementById('auth-success');
+      el.textContent = msg;
+      el.style.display = 'block';
+    };
+
+    // Toggle password visibility
+    document.getElementById('toggle-pass')?.addEventListener('click', () => {
+      const input = document.getElementById('login-password');
+      const btn = document.getElementById('toggle-pass');
+      if (input.type === 'password') {
+        input.type = 'text';
+        btn.textContent = 'Hide';
+      } else {
+        input.type = 'password';
+        btn.textContent = 'Show';
+      }
+    });
+
+    // Email Login
+    document.getElementById('login-form')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('login-submit-btn');
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value;
+
+      if (!email || !password) {
+        showError('Please enter your email and password.');
+        return;
+      }
+
+      btn.textContent = 'Logging in...';
+      btn.disabled = true;
+
+      try {
+        await window.BSDC.auth.signInEmail(email, password);
+        showSuccess('Login successful! Redirecting...');
+        const next = new URLSearchParams(window.location.search).get('next') || '/';
+        setTimeout(() => window.location.href = next, 800);
+      } catch(err) {
+        const messages = {
+          'auth/user-not-found': 'No account found with this email. Please register first.',
+          'auth/wrong-password': 'Incorrect password. Please try again.',
+          'auth/too-many-requests': 'Too many failed attempts. Please try again later.',
+          'auth/invalid-email': 'Please enter a valid email address.',
+          'auth/invalid-credential': 'Invalid email or password. Please try again.'
+        };
+        showError(messages[err.code] || err.message || 'Login failed. Please try again.');
+      } finally {
+        btn.textContent = 'Log In to BSDC';
+        btn.disabled = false;
+      }
+    });
+
+    // Google Login
+    document.getElementById('google-btn')?.addEventListener('click', async () => {
+      const btn = document.getElementById('google-btn');
+      btn.textContent = 'Connecting to Google...';
+      btn.disabled = true;
+      try {
+        await window.BSDC.auth.signInGoogle();
+        const next = new URLSearchParams(window.location.search).get('next') || '/';
+        window.location.href = next;
+      } catch(err) {
+        showError('Google sign-in failed. Please try again.');
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    // GitHub Login
+    document.getElementById('github-btn')?.addEventListener('click', async () => {
+      const btn = document.getElementById('github-btn');
+      btn.disabled = true;
+      try {
+        await window.BSDC.auth.signInGitHub();
+        const next = new URLSearchParams(window.location.search).get('next') || '/';
+        window.location.href = next;
+      } catch(err) {
+        showError('GitHub sign-in failed. Please try again.');
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    // Forgot Password
+    document.getElementById('forgot-password-btn')?.addEventListener('click', () => {
+      window.BSDC.modal.open('forgot-modal');
+    });
+
+    document.getElementById('forgot-submit-btn')?.addEventListener('click', async () => {
+      const email = document.getElementById('forgot-email').value.trim();
+      const errEl = document.getElementById('forgot-error');
+      const sucEl = document.getElementById('forgot-success');
+      errEl.style.display = 'none';
+      sucEl.style.display = 'none';
+
+      if (!email) {
+        errEl.textContent = 'Please enter your email address.';
+        errEl.style.display = 'block';
+        return;
+      }
+
+      try {
+        await window.BSDC.auth.resetPassword(email);
+        sucEl.textContent = 'Password reset email sent! Please check your inbox.';
+        sucEl.style.display = 'block';
+      } catch(err) {
+        errEl.textContent = 'Failed to send reset email. Please check your email address.';
+        errEl.style.display = 'block';
+      }
+    });
+  });
+</script>
+</body>
+</html>
