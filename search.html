@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Search — BSDC | Bangladesh Software Development Community</title>
+  <meta name="description" content="Search questions, blog posts, code snippets, wiki articles, and projects on BSDC — Bangladesh Software Development Community."/>
+  <meta name="keywords" content="search Bangladesh developer community, find coding help Bangladesh, search programming questions BD, BSDC search"/>
+  <link rel="canonical" href="https://www.bsdc.info.bd/search"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin/>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23006A4E'/><text y='.9em' font-size='70' x='50%' text-anchor='middle' fill='white' font-weight='900'>B</text></svg>"/>
+  <link rel="stylesheet" href="/css/fabric.css"/>
+  <link rel="stylesheet" href="/css/main.css"/>
+</head>
+<body>
+
+<div id="navbar"></div>
+
+<main role="main">
+  <!-- Search Hero -->
+  <div style="background:linear-gradient(135deg,#006A4E,#1E293B);padding:2.5rem 1rem 3rem">
+    <div class="container" style="text-align:center">
+      <h1 style="font-size:1.75rem;font-weight:900;color:white;margin-bottom:1rem">
+        🔍 Search BSDC
+      </h1>
+      <div class="search-bar-large">
+        <span style="font-size:1.25rem;color:#64748B;flex-shrink:0">🔍</span>
+        <input type="search" id="search-input" placeholder="Search questions, code, wiki, projects..." autocomplete="off" aria-label="Search BSDC content" style="color:#1E293B"/>
+        <button class="btn btn-primary btn-sm" id="search-btn" aria-label="Search">Search</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" style="padding-top:1.5rem;padding-bottom:3rem">
+    <div class="page-layout-2col" style="padding:0">
+
+      <!-- Results Area -->
+      <div>
+        <!-- Filters -->
+        <div style="background:white;border:1px solid #E2E8F0;border-radius:0.75rem;padding:1rem;margin-bottom:1rem">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;margin-bottom:0.75rem">
+            <div style="font-weight:700;color:#1E293B;font-size:0.9rem" id="results-count">Loading...</div>
+            <!-- Sort -->
+            <div style="display:flex;gap:0.375rem">
+              <button class="sort-btn search-filter-btn active" data-sort="latest" aria-label="Sort by latest">⚡ Latest</button>
+              <button class="sort-btn search-filter-btn" data-sort="trending" aria-label="Sort by trending">🔥 Trending</button>
+            </div>
+          </div>
+          <!-- Type Filters -->
+          <div class="search-filters" role="group" aria-label="Filter by content type">
+            <button class="search-filter-btn" data-type="" aria-label="All types">All</button>
+            <button class="search-filter-btn" data-type="question" aria-label="Questions">❓ Questions</button>
+            <button class="search-filter-btn" data-type="blog" aria-label="Blog posts">📝 Blog</button>
+            <button class="search-filter-btn" data-type="wiki" aria-label="Wiki articles">📚 Wiki</button>
+            <button class="search-filter-btn" data-type="snippet" aria-label="Code snippets">💻 Snippets</button>
+            <button class="search-filter-btn" data-type="project" aria-label="Projects">🚀 Projects</button>
+            <button class="search-filter-btn" data-type="discussion" aria-label="Discussions">💬 Discussions</button>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div class="feed" id="search-results" aria-live="polite" aria-label="Search results">
+          <!-- Skeleton -->
+          <div class="skeleton-card"><div class="skeleton skeleton-title" style="margin-bottom:10px"></div><div class="skeleton skeleton-text" style="margin-bottom:6px"></div><div class="skeleton skeleton-text" style="width:70%"></div></div>
+          <div class="skeleton-card"><div class="skeleton skeleton-title" style="margin-bottom:10px"></div><div class="skeleton skeleton-text" style="margin-bottom:6px"></div><div class="skeleton skeleton-text" style="width:60%"></div></div>
+          <div class="skeleton-card"><div class="skeleton skeleton-title" style="margin-bottom:10px"></div><div class="skeleton skeleton-text" style="margin-bottom:6px"></div><div class="skeleton skeleton-text" style="width:80%"></div></div>
+        </div>
+
+        <!-- Load More -->
+        <div id="search-load-more" style="display:none;text-align:center;padding:1.5rem 0">
+          <button class="btn btn-secondary" id="search-load-more-btn">Load More Results</button>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="sidebar hide-mobile">
+        <div class="widget">
+          <div class="widget-header">🏷️ Popular Tags</div>
+          <div class="widget-body" style="display:flex;flex-wrap:wrap;gap:0.5rem">
+            ${['javascript','python','php','laravel','react','nodejs','android','flutter','mysql','wordpress','css','html','git','docker','aws'].map(t =>
+              `<a href="/tag?t=${t}" class="tag">${t}</a>`
+            ).join('')}
+          </div>
+        </div>
+        <div class="widget">
+          <div class="widget-header">✏️ Share Your Knowledge</div>
+          <div class="widget-body">
+            <p style="font-size:0.875rem;color:#64748B;margin-bottom:1rem;line-height:1.6">Have knowledge to share? Help the Bangladesh developer community!</p>
+            <a href="/submit" class="btn btn-primary btn-full btn-sm">Create a Post</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<div id="footer"></div>
+
+<script type="module">
+  import '/js/firebase-config.js';
+  import '/js/seo.js';
+  import '/js/skeleton.js';
+  import '/js/app.js';
+  import '/js/search.js';
+
+  window.addEventListener('DOMContentLoaded', async () => {
+    window.BSDC.initPage({ activePage: 'search' });
+    await window.BSDC.searchEngine.init();
+
+    // Search input handler
+    const searchInput = document.getElementById('search-input');
+    const searchBtn = document.getElementById('search-btn');
+
+    const doSearch = () => {
+      const q = searchInput?.value.trim() || '';
+      window.BSDC.searchEngine.currentQuery = q;
+      window.BSDC.searchEngine.updateURL();
+      window.BSDC.searchEngine.performSearch();
+    };
+
+    searchBtn?.addEventListener('click', doSearch);
+    searchInput?.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') doSearch();
+    });
+
+    // Type filter buttons
+    document.querySelectorAll('.search-filter-btn[data-type]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.search-filter-btn[data-type]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        window.BSDC.searchEngine.currentType = btn.dataset.type || null;
+        window.BSDC.searchEngine.updateURL();
+        window.BSDC.searchEngine.performSearch();
+      });
+    });
+
+    // Sort buttons
+    document.querySelectorAll('.sort-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        window.BSDC.searchEngine.currentSort = btn.dataset.sort;
+        window.BSDC.searchEngine.updateURL();
+        window.BSDC.searchEngine.performSearch();
+      });
+    });
+
+    // Load more
+    document.getElementById('search-load-more-btn')?.addEventListener('click', async () => {
+      const btn = document.getElementById('search-load-more-btn');
+      if (!window.BSDC.searchEngine.lastDoc) return;
+      btn.textContent = 'Loading...';
+      btn.disabled = true;
+      try {
+        const more = await window.BSDC.db.getPosts({
+          lim: 10,
+          after: window.BSDC.searchEngine.lastDoc,
+          type: window.BSDC.searchEngine.currentType,
+          orderField: window.BSDC.searchEngine.currentSort === 'trending' ? 'upvotes' : 'createdAt'
+        });
+        window.BSDC.searchEngine.lastDoc = more[more.length - 1]?._snap || null;
+        const resultsEl = document.getElementById('search-results');
+        resultsEl.insertAdjacentHTML('beforeend', more.map(p => window.BSDC.searchEngine.renderSearchCard(p)).join(''));
+        if (!window.BSDC.searchEngine.lastDoc || more.length < 10) {
+          document.getElementById('search-load-more').style.display = 'none';
+        }
+      } catch(e) {
+        window.BSDC.toast.error('Failed to load more results');
+      } finally {
+        btn.textContent = 'Load More Results';
+        btn.disabled = false;
+      }
+    });
+  });
+</script>
+</body>
+</html>
