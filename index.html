@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bangladesh Software Development Community — BSDC</title>
+  <meta name="description" content="BSDC is Bangladesh's #1 software development community. Ask questions, share code snippets, write wiki articles, publish blog posts, and connect with thousands of Bangladeshi developers. বাংলাদেশের সেরা সফটওয়্যার ডেভেলপমেন্ট কমিউনিটি।" />
+  <meta name="keywords" content="Bangladesh software development community, Bangladeshi developers, programming help Bangladesh, coding community BD, web development Bangladesh, software engineering community, BSDC, বাংলাদেশ সফটওয়্যার ডেভেলপমেন্ট" />
+  <meta name="author" content="Rizwan Rahim Chowdhury" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#006A4E" />
+  <meta name="language" content="en-BD" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Bangladesh Software Development Community — BSDC" />
+  <meta property="og:description" content="Bangladesh's premier software development community for developers to learn, share, and grow together." />
+  <meta property="og:image" content="https://www.bsdc.info.bd/og-image.png" />
+  <meta property="og:url" content="https://www.bsdc.info.bd/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Bangladesh Software Development Community" />
+  <meta property="og:locale" content="en_BD" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BSDC — Bangladesh Software Development Community" />
+  <meta name="twitter:description" content="Bangladesh's #1 developer community. Ask, share, learn, grow." />
+  <meta name="twitter:image" content="https://www.bsdc.info.bd/og-image.png" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.bsdc.info.bd/" />
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://firestore.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.onesignal.com" crossorigin />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23006A4E'/><text y='.9em' font-size='70' x='50%' text-anchor='middle' fill='white' font-weight='900'>B</text></svg>" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/fabric.css" />
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- OneSignal -->
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+
+  <!-- JSON-LD Website Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Bangladesh Software Development Community",
+    "alternateName": ["BSDC", "bsdc.info.bd"],
+    "url": "https://www.bsdc.info.bd",
+    "description": "Bangladesh's premier software development community for developers to learn, share code, ask questions, and grow together.",
+    "inLanguage": ["en", "bn"],
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://www.bsdc.info.bd/search?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Bangladesh Software Development Community",
+      "url": "https://www.bsdc.info.bd",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.bsdc.info.bd/logo.png",
+        "width": 200,
+        "height": 200
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Rizwan Rahim Chowdhury"
+      },
+      "foundingDate": "2026",
+      "areaServed": "Bangladesh"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<!-- Navbar -->
+<div id="navbar"></div>
+
+<!-- ============================================
+     HERO SECTION
+     ============================================ -->
+<section class="hero" aria-label="BSDC Hero">
+  <div class="container" style="position:relative;z-index:1">
+    <div class="hero-badge">
+      🇧🇩 <span>Bangladesh's #1 Developer Community</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center">
+      <div>
+        <h1 class="hero-title">
+          Where Bangladeshi<br/>
+          <span class="highlight">Developers</span> Learn,<br/>
+          Build & Grow Together
+        </h1>
+        <p class="hero-desc">
+          BSDC — Bangladesh Software Development Community — is the go-to platform for software developers across Bangladesh.
+          Ask technical questions, share code snippets, write documentation, publish tutorials, and collaborate on real projects.
+          <span class="bangla" style="display:block;margin-top:0.5rem;opacity:0.85;font-size:0.95rem">
+            বাংলাদেশের সফটওয়্যার ডেভেলপারদের জন্য সেরা প্ল্যাটফর্ম — প্রশ্ন করুন, জ্ঞান শেয়ার করুন, একসাথে বেড়ে উঠুন।
+          </span>
+        </p>
+
+        <div style="display:flex;gap:1rem;flex-wrap:wrap">
+          <a href="/register" class="btn btn-lg" style="background:#4ade80;color:#1E293B;border-color:#4ade80;font-weight:800">
+            🚀 Join Free Today
+          </a>
+          <a href="/search" class="btn btn-lg btn-secondary" style="border-color:rgba(255,255,255,0.5);color:white">
+            🧭 Browse Community
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num" id="stat-members">0</div>
+            <div class="hero-stat-label">Members</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num" id="stat-posts">0</div>
+            <div class="hero-stat-label">Posts</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num" id="stat-questions">0</div>
+            <div class="hero-stat-label">Questions</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num" id="stat-solved">0</div>
+            <div class="hero-stat-label">Solved</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual -->
+      <div class="hide-mobile" style="flex-shrink:0">
+        <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:1rem;padding:1.25rem;backdrop-filter:blur(10px);min-width:260px">
+          <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-bottom:0.75rem;font-weight:600">Live Activity</div>
+          <div id="hero-live-feed" style="display:flex;flex-direction:column;gap:0.625rem">
+            <div style="display:flex;gap:0.5rem;align-items:center">
+              <div style="width:8px;height:8px;background:#4ade80;border-radius:50%;flex-shrink:0;animation:pulse 2s infinite"></div>
+              <span style="font-size:0.8rem;color:rgba(255,255,255,0.8)">Loading live activity...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     CONTENT TYPE QUICK NAV
+     ============================================ -->
+<section style="background:#F8FAFC;border-bottom:1px solid #E2E8F0;padding:0" aria-label="Content categories">
+  <div class="container">
+    <div style="display:flex;overflow-x:auto;gap:0;scrollbar-width:none">
+      <a href="/search?type=question" style="display:flex;align-items:center;gap:0.5rem;padding:1rem 1.25rem;font-size:0.875rem;font-weight:600;color:#64748B;white-space:nowrap;text-decoration:none;border-bottom:2px solid transparent;transition:all 0.2s" class="content-tab-link" data-type="question">
+        ❓ Questions
+      </a>
+      <a href="/search?type=blog" style="display:flex;align-items:center;gap:0.5rem;padding:1rem 1.25rem;font-size:0.875rem;font-weight:600;color:#64748B;white-space:nowrap;text-decoration:none;border-bottom:2px solid transparent;transition:all 0.2s" class="content-tab-link" data-type="blog">
+        📝 Blog
+      </a>
+      <a href="/search?type=wiki" style="display:flex;align-items:center;gap:0.5rem;padding:1rem 1.25rem;font-size:0.875rem;font-weight:600;color:#64748B;white-space:nowrap;text-decoration:none;border-bottom:2px solid transparent;transition:all 0.2s" class="content-tab-link" data-type="wiki">
+        📚 Wiki
+      </a>
+      <a href="/search?type=snippet" style="display:flex;align-items:center;gap:0.5rem;padding:1rem 1.25rem;font-size:0.875rem;font-weight:600;color:#64748B;white-space:nowrap;text-decoration:none;border-bottom:2px solid transparent;transition:all 0.2s" class="content-tab-link" data-type="snippet">
+        💻 Snippets
+      </a>
+      <a href="/search?type=project" style="display:flex;align-items:center;gap:0.5rem;padding:1rem 1.25rem;font-size:0.875rem;font-weight:600;color:#64748B;white-space:nowrap;text-decoration:none;border-bottom:2px solid transparent;transition:all 0.2s" class="content-tab-link" data-type="project">
+        🚀 Projects
+      </a>
+      <a href="/search?type=discussion" style="display:flex;align-items:center;gap:0.5rem;padding:1rem 1.25rem;font-size:0.875rem;font-weight:600;color:#64748B;white-space:nowrap;text-decoration:none;border-bottom:2px solid transparent;transition:all 0.2s" class="content-tab-link" data-type="discussion">
+        💬 Discussions
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     MAIN FEED LAYOUT
+     ============================================ -->
+<main id="main-content" role="main">
+  <div class="page-layout">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar hide-mobile" aria-label="Navigation sidebar">
+      <nav class="sidebar-nav" aria-label="Content navigation">
+        <div class="sidebar-section-title">Discover</div>
+        <a href="/" class="sidebar-nav-item active" id="nav-home">
+          <span class="sidebar-nav-icon">🏠</span> Home Feed
+        </a>
+        <a href="/search?sort=trending" class="sidebar-nav-item">
+          <span class="sidebar-nav-icon">🔥</span> Trending
+        </a>
+        <a href="/search?sort=latest" class="sidebar-nav-item">
+          <span class="sidebar-nav-icon">⚡</span> Latest
+        </a>
+        <a href="/search?type=question&filter=unsolved" class="sidebar-nav-item">
+          <span class="sidebar-nav-icon">🆘</span> Unanswered
+        </a>
+
+        <div class="sidebar-section-title">Content</div>
+        <a href="/search?type=question" class="sidebar-nav-item">
+          <span class="sidebar-nav-icon">❓</span> Questions
+        </a>
+        <a href="/search?type=blog" class="sidebar-nav-item">
+          <span class="sidebar-nav-icon">📝</span> Blog Posts
+        </a>
+        <a href="/search?type=wiki" class="sidebar-nav-item">
+          <span class="sidebar-nav-icon">📚</span> Wiki
+        </a>
+        <a href="/search?type=snippet" class="sidebar-nav-item">
+          <span class="sidebar-nav-icon">💻</span> Code Snippets
+        </a>
+        <a href="/search?type=project" class="sidebar-nav-item">
+          <span class="sidebar-nav-icon">🚀</span> Projects
+        </a>
+
+        <div class="sidebar-section-title">Popular Tags</div>
+        <div id="sidebar-tags" style="padding:0.5rem 1rem 0.75rem;display:flex;flex-wrap:wrap;gap:0.375rem">
+          <div class="skeleton skeleton-text" style="width:60px;height:24px;border-radius:9999px"></div>
+          <div class="skeleton skeleton-text" style="width:80px;height:24px;border-radius:9999px"></div>
+          <div class="skeleton skeleton-text" style="width:50px;height:24px;border-radius:9999px"></div>
+        </div>
+
+        <div class="sidebar-section-title">Community</div>
+        <a href="/about" class="sidebar-nav-item">
+          <span class="sidebar-nav-icon">ℹ️</span> About BSDC
+        </a>
+      </nav>
+    </aside>
+
+    <!-- MAIN FEED -->
+    <div>
+      <!-- Write Box -->
+      <div id="write-box-container"></div>
+
+      <!-- Feed Tabs -->
+      <div class="tabs" style="margin-bottom:1rem" role="tablist">
+        <div class="tab-item active" role="tab" aria-selected="true" data-tab="latest" tabindex="0">⚡ Latest</div>
+        <div class="tab-item" role="tab" aria-selected="false" data-tab="trending" tabindex="0">🔥 Trending</div>
+        <div class="tab-item" role="tab" aria-selected="false" data-tab="question" tabindex="0">❓ Questions</div>
+        <div class="tab-item" role="tab" aria-selected="false" data-tab="blog" tabindex="0">📝 Blog</div>
+        <div class="tab-item" role="tab" aria-selected="false" data-tab="snippet" tabindex="0">💻 Snippets</div>
+      </div>
+
+      <!-- Feed -->
+      <div class="feed" id="main-feed" aria-live="polite" aria-label="Community posts feed">
+        <!-- Skeleton loaders -->
+        <div class="skeleton-card">
+          <div class="skeleton-row">
+            <div class="skeleton skeleton-avatar"></div>
+            <div style="flex:1">
+              <div class="skeleton skeleton-text" style="width:40%;margin-bottom:6px"></div>
+              <div class="skeleton skeleton-text-sm"></div>
+            </div>
+          </div>
+          <div class="skeleton skeleton-title" style="margin-bottom:10px"></div>
+          <div class="skeleton skeleton-text" style="margin-bottom:6px"></div>
+          <div class="skeleton skeleton-text" style="width:75%"></div>
+        </div>
+        <div class="skeleton-card">
+          <div class="skeleton-row">
+            <div class="skeleton skeleton-avatar"></div>
+            <div style="flex:1">
+              <div class="skeleton skeleton-text" style="width:35%;margin-bottom:6px"></div>
+              <div class="skeleton skeleton-text-sm"></div>
+            </div>
+          </div>
+          <div class="skeleton skeleton-title" style="margin-bottom:10px"></div>
+          <div class="skeleton skeleton-text" style="margin-bottom:6px"></div>
+          <div class="skeleton skeleton-text" style="width:60%"></div>
+        </div>
+        <div class="skeleton-card">
+          <div class="skeleton-row">
+            <div class="skeleton skeleton-avatar"></div>
+            <div style="flex:1">
+              <div class="skeleton skeleton-text" style="width:45%;margin-bottom:6px"></div>
+              <div class="skeleton skeleton-text-sm"></div>
+            </div>
+          </div>
+          <div class="skeleton skeleton-title" style="margin-bottom:10px"></div>
+          <div class="skeleton skeleton-text" style="margin-bottom:6px"></div>
+          <div class="skeleton skeleton-text" style="width:80%"></div>
+        </div>
+      </div>
+
+      <!-- Load More -->
+      <div style="text-align:center;padding:2rem 0" id="load-more-container" style="display:none">
+        <button class="btn btn-secondary" id="load-more-btn">Load More Posts</button>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDEBAR -->
+    <aside class="sidebar hide-mobile" aria-label="Community sidebar">
+
+      <!-- Join CTA -->
+      <div id="join-cta-widget"></div>
+
+      <!-- Trending Widget -->
+      <div class="widget">
+        <div class="widget-header">🔥 Trending This Week</div>
+        <div class="widget-body" id="trending-widget">
+          <div class="skeleton skeleton-text" style="margin-bottom:10px"></div>
+          <div class="skeleton skeleton-text" style="margin-bottom:10px;width:80%"></div>
+          <div class="skeleton skeleton-text" style="margin-bottom:10px;width:90%"></div>
+          <div class="skeleton skeleton-text" style="margin-bottom:10px;width:70%"></div>
+          <div class="skeleton skeleton-text" style="width:85%"></div>
+        </div>
+      </div>
+
+      <!-- Top Tags Widget -->
+      <div class="widget">
+        <div class="widget-header">🏷️ Popular Tags</div>
+        <div class="widget-body" id="tags-widget" style="display:flex;flex-wrap:wrap;gap:0.5rem">
+          <div class="skeleton" style="width:70px;height:26px;border-radius:9999px"></div>
+          <div class="skeleton" style="width:90px;height:26px;border-radius:9999px"></div>
+          <div class="skeleton" style="width:60px;height:26px;border-radius:9999px"></div>
+          <div class="skeleton" style="width:80px;height:26px;border-radius:9999px"></div>
+        </div>
+      </div>
+
+      <!-- Top Members Widget -->
+      <div class="widget">
+        <div class="widget-header">👑 Top Members</div>
+        <div class="widget-body" id="top-members-widget">
+          <div class="skeleton skeleton-text" style="margin-bottom:10px"></div>
+          <div class="skeleton skeleton-text" style="margin-bottom:10px;width:80%"></div>
+          <div class="skeleton skeleton-text" style="width:70%"></div>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- ============================================
+       SEO CONTENT SECTION (3000 words)
+       ============================================ -->
+  <article style="background:white;border-top:1px solid #E2E8F0;padding:4rem 0" aria-label="About BSDC">
+    <div class="container-sm">
+      <header style="text-align:center;margin-bottom:3rem">
+        <div class="badge badge-green" style="margin:0 auto 1rem">About Our Community</div>
+        <h2 style="font-size:2rem;font-weight:900;color:#1E293B;margin-bottom:1rem">
+          Bangladesh Software Development Community
+        </h2>
+        <p style="font-size:1.1rem;color:#64748B;max-width:600px;margin:0 auto;line-height:1.7">
+          BSDC is the largest and most active platform for software developers in Bangladesh, bringing together thousands of passionate programmers, engineers, and technology enthusiasts.
+        </p>
+      </header>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:3rem">
+        <div class="card card-body">
+          <div style="font-size:2rem;margin-bottom:0.75rem">❓</div>
+          <h3 style="font-weight:700;color:#1E293B;margin-bottom:0.5rem">Q&A Community</h3>
+          <p style="color:#64748B;font-size:0.9rem;line-height:1.7">
+            Ask technical questions and get expert answers from experienced Bangladesh developers. From beginner to advanced — every question is welcome on BSDC.
+          </p>
+        </div>
+        <div class="card card-body">
+          <div style="font-size:2rem;margin-bottom:0.75rem">💻</div>
+          <h3 style="font-weight:700;color:#1E293B;margin-bottom:0.5rem">Code Snippets</h3>
+          <p style="color:#64748B;font-size:0.9rem;line-height:1.7">
+            Share reusable code snippets, algorithms, and solutions with syntax highlighting. Help fellow Bangladeshi developers save hours of work.
+          </p>
+        </div>
+        <div class="card card-body">
+          <div style="font-size:2rem;margin-bottom:0.75rem">📚</div>
+          <h3 style="font-weight:700;color:#1E293B;margin-bottom:0.5rem">Developer Wiki</h3>
+          <p style="color:#64748B;font-size:0.9rem;line-height:1.7">
+            Community-edited documentation and tutorials covering web development, mobile apps, DevOps, AI, and all major technologies used in Bangladesh's tech industry.
+          </p>
+        </div>
+        <div class="card card-body">
+          <div style="font-size:2rem;margin-bottom:0.75rem">🚀</div>
+          <h3 style="font-weight:700;color:#1E293B;margin-bottom:0.5rem">Project Showcase</h3>
+          <p style="color:#64748B;font-size:0.9rem;line-height:1.7">
+            Share your projects, get feedback from the community, find collaborators, and inspire the next generation of Bangladeshi software developers.
+          </p>
+        </div>
+      </div>
+
+      <!-- Long-form SEO Content -->
+      <div style="color:#1E293B;line-height:1.9;font-size:1rem">
+
+        <h2 style="font-size:1.75rem;font-weight:800;color:#1E293B;margin:2.5rem 0 1rem;border-left:4px solid #006A4E;padding-left:1rem">
+          What is BSDC? — Bangladesh Software Development Community
+        </h2>
+        <p style="margin-bottom:1rem">
+          The <strong>Bangladesh Software Development Community (BSDC)</strong> is an open, free platform designed exclusively for software developers, programmers, engineers, and technology enthusiasts based in Bangladesh and the Bangladeshi diaspora worldwide. BSDC was founded by <strong>Rizwan Rahim Chowdhury</strong> with a singular vision: to create a world-class, Bangladesh-focused developer community platform that rivals international platforms like Stack Overflow, Dev.to, and GitHub Discussions — but built specifically for the needs, language, and culture of Bangladeshi developers.
+        </p>
+        <p style="margin-bottom:1rem">
+          In Bangladesh, the software industry is growing at an unprecedented rate. With over 650,000 IT professionals working across the country and a thriving freelancing ecosystem generating billions of dollars in revenue annually, Bangladeshi developers desperately needed a dedicated platform to share knowledge, ask questions, collaborate on projects, and build a professional network rooted in their own community.
+        </p>
+        <p class="bangla" style="margin-bottom:1rem;background:#f0faf7;padding:1rem;border-radius:0.75rem;border-left:4px solid #006A4E">
+          বাংলাদেশ সফটওয়্যার ডেভেলপমেন্ট কমিউনিটি (BSDC) হলো বাংলাদেশের সফটওয়্যার ডেভেলপারদের জন্য একটি বিশেষ প্ল্যাটফর্ম। এখানে আপনি প্রোগ্রামিং সম্পর্কে প্রশ্ন করতে পারবেন, কোড শেয়ার করতে পারবেন, উইকি আর্টিকেল লিখতে পারবেন এবং হাজার হাজার বাংলাদেশি ডেভেলপারের সাথে সংযুক্ত হতে পারবেন।
+        </p>
+
+        <h2 style="font-size:1.75rem;font-weight:800;color:#1E293B;margin:2.5rem 0 1rem;border-left:4px solid #006A4E;padding-left:1rem">
+          Why BSDC Exists — The Story Behind Bangladesh's Developer Community
+        </h2>
+        <p style="margin-bottom:1rem">
+          Bangladesh's IT sector has grown from a small cottage industry to a major economic driver. The government's "Digital Bangladesh" and "Smart Bangladesh" initiatives have accelerated technology adoption, producing tens of thousands of new software developers every year from universities like BUET, BRAC University, Dhaka University, North South University, RUET, KUET, CUET, and hundreds of private institutions.
+        </p>
+        <p style="margin-bottom:1rem">
+          Despite this explosive growth, Bangladeshi developers faced significant challenges:
+        </p>
+        <ul style="margin-bottom:1rem;padding-left:1.5rem;list-style:disc">
+          <li style="margin-bottom:0.5rem">No dedicated platform with <strong>Bengali language support</strong> for technical content</li>
+          <li style="margin-bottom:0.5rem">Scattered communities across Facebook groups, Telegram channels, and Discord servers</li>
+          <li style="margin-bottom:0.5rem">Lack of a professional, searchable knowledge base for Bangladesh-specific technical problems</li>
+          <li style="margin-bottom:0.5rem">No centralized place to showcase Bangladeshi developer portfolios and projects</li>
+          <li style="margin-bottom:0.5rem">Difficulty connecting with other local developers for collaboration and mentorship</li>
+        </ul>
+        <p style="margin-bottom:1rem">
+          <strong>BSDC solves all of these problems</strong> in one unified, free platform. By combining the best features of Stack Overflow (Q&A), Dev.to (blogging), GitHub Gist (code snippets), Wikipedia (wiki), and LinkedIn (professional profiles), BSDC creates a complete ecosystem for Bangladesh's software development industry.
+        </p>
+
+        <h2 style="font-size:1.75rem;font-weight:800;color:#1E293B;margin:2.5rem 0 1rem;border-left:4px solid #006A4E;padding-left:1rem">
+          Features of BSDC — Everything a Bangladeshi Developer Needs
+        </h2>
+
+        <h3 style="font-size:1.25rem;font-weight:700;color:#1E293B;margin:1.5rem 0 0.75rem">1. Technical Q&A System</h3>
+        <p style="margin-bottom:1rem">
+          BSDC's Q&A system is modeled after the world's best platforms but tailored for Bangladesh. Ask questions in English or Bangla, tag them with relevant technologies, upvote the best answers, and mark questions as solved. The community upvote system ensures the most helpful answers rise to the top, building an ever-growing knowledge base of Bangladesh-specific technical solutions.
+        </p>
+        <p style="margin-bottom:1rem">
+          Common topics on BSDC include: <strong>PHP & Laravel development</strong>, <strong>JavaScript & Node.js</strong>, <strong>Python programming</strong>, <strong>React & Vue.js frontend</strong>, <strong>Android & iOS mobile development</strong>, <strong>WordPress customization</strong>, <strong>database management</strong>, <strong>cloud computing</strong>, <strong>DevOps and CI/CD</strong>, <strong>machine learning and AI</strong>, <strong>freelancing tips</strong>, and much more.
+        </p>
+
+        <h3 style="font-size:1.25rem;font-weight:700;color:#1E293B;margin:1.5rem 0 0.75rem">2. Developer Blog Platform</h3>
+        <p style="margin-bottom:1rem">
+          Write and publish technical blog posts on BSDC to share your knowledge with Bangladesh's developer community. Whether you want to write a step-by-step tutorial, share your experience with a new technology, document your project journey, or give career advice to junior developers — BSDC's rich text editor makes it easy.
+        </p>
+        <p style="margin-bottom:1rem">
+          Blog posts on BSDC are <strong>fully SEO optimized</strong>, meaning your articles will be indexed by Google and can drive traffic both locally within Bangladesh and globally. Every post gets its own dedicated URL, meta tags, and schema markup for maximum visibility.
+        </p>
+
+        <h3 style="font-size:1.25rem;font-weight:700;color:#1E293B;margin:1.5rem 0 0.75rem">3. Community Wiki</h3>
+        <p style="margin-bottom:1rem">
+          The BSDC Wiki is a collaborative documentation platform where community members can create and edit technical reference articles. Think of it as a Bangladesh-specific developer encyclopedia — covering everything from setting up a local development environment in Bangladesh to understanding local payment gateway integrations (bKash, Nagad, SSLCOMMERZ), to guides for working with Bangladeshi clients as a freelancer.
+        </p>
+
+        <h3 style="font-size:1.25rem;font-weight:700;color:#1E293B;margin:1.5rem 0 0.75rem">4. Code Snippet Library</h3>
+        <p style="margin-bottom:1rem">
+          Share reusable, working code snippets with full <strong>syntax highlighting</strong> across all major programming languages including JavaScript, Python, PHP, Java, C, C++, Go, Rust, TypeScript, Swift, Kotlin, SQL, Bash, and more. Every snippet can be copied with one click, making BSDC an invaluable resource for developers who need quick, proven solutions.
+        </p>
+
+        <h3 style="font-size:1.25rem;font-weight:700;color:#1E293B;margin:1.5rem 0 0.75rem">5. Project Showcase</h3>
+        <p style="margin-bottom:1rem">
+          Show off your work to the Bangladesh developer community. Share your projects — whether it's a startup MVP, a freelance portfolio site, an open-source tool, a mobile app, or a side project. Get feedback, find co-founders, attract collaborators, and inspire others with what you've built.
+        </p>
+
+        <h2 style="font-size:1.75rem;font-weight:800;color:#1E293B;margin:2.5rem 0 1rem;border-left:4px solid #006A4E;padding-left:1rem">
+          Top Programming Technologies Among Bangladeshi Developers
+        </h2>
+        <p style="margin-bottom:1rem">
+          Based on community activity and industry trends in Bangladesh, the most popular technologies among Bangladeshi developers include:
+        </p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:0.75rem;margin-bottom:1.5rem">
+          {['JavaScript','PHP','Python','Laravel','React','Node.js','WordPress','Flutter','Android','Vue.js','MySQL','MongoDB','Docker','AWS','Git'].map(tech => `
+          <div style="background:#f0faf7;border:1px solid #e6f4f0;border-radius:0.5rem;padding:0.625rem;text-align:center;font-size:0.85rem;font-weight:600;color:#006A4E">${tech}</div>
+          `).join('')}
+        </div>
+
+        <h2 style="font-size:1.75rem;font-weight:800;color:#1E293B;margin:2.5rem 0 1rem;border-left:4px solid #006A4E;padding-left:1rem">
+          BSDC Developer Profile — Your Digital Identity
+        </h2>
+        <p style="margin-bottom:1rem">
+          Every BSDC member gets a <strong>world-class developer profile</strong> that serves as their online developer ID card. Your BSDC profile showcases your contributions to the community — your posts, answers, code snippets, reputation score, and skills. It's a professional profile you can share with potential employers, clients, and collaborators.
+        </p>
+        <p style="margin-bottom:1rem">
+          The BSDC profile page features a unique <strong>Developer ID Card</strong> — a beautifully designed digital badge complete with your avatar, username, role, skills, reputation, and a <strong>dynamically generated QR code</strong> that links directly to your profile. Share it on LinkedIn, Twitter, Facebook, or your portfolio website to showcase your BSDC membership.
+        </p>
+        <p class="bangla" style="margin-bottom:1rem">
+          আপনার BSDC প্রোফাইল হলো আপনার ডিজিটাল পরিচয়পত্র। এখানে আপনার সকল পোস্ট, উত্তর, কোড স্নিপেট, এবং কমিউনিটিতে আপনার অবদান দেখানো হবে। আপনার BSDC প্রোফাইল লিংক শেয়ার করুন এবং বাংলাদেশের সেরা ডেভেলপারদের সাথে পরিচিত হন।
+        </p>
+
+        <h2 style="font-size:1.75rem;font-weight:800;color:#1E293B;margin:2.5rem 0 1rem;border-left:4px solid #006A4E;padding-left:1rem">
+          Join BSDC — Bangladesh's Software Development Community
+        </h2>
+        <p style="margin-bottom:1rem">
+          Joining BSDC is completely <strong>free</strong> and always will be. Sign up with your email, Google account, or GitHub account in seconds. Once you join, you can immediately start asking questions, posting articles, sharing code, and connecting with thousands of Bangladeshi developers.
+        </p>
+        <p style="margin-bottom:1.5rem">
+          Whether you're a student learning to code for the first time, a junior developer looking to grow your skills, a senior engineer wanting to give back to the community, a freelancer building your reputation, or an entrepreneur looking for technical co-founders — <strong>BSDC is for you</strong>.
+        </p>
+        <div style="text-align:center;padding:2rem;background:linear-gradient(135deg,#006A4E,#1E293B);border-radius:1rem;color:white">
+          <h3 style="font-size:1.5rem;font-weight:800;margin-bottom:0.75rem">Ready to Join Bangladesh's Developer Community?</h3>
+          <p style="opacity:0.9;margin-bottom:1.5rem">Join thousands of Bangladeshi developers already on BSDC. It's free, forever.</p>
+          <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+            <a href="/register" class="btn btn-lg" style="background:#4ade80;color:#1E293B;border-color:#4ade80;font-weight:800">🚀 Create Free Account</a>
+            <a href="/search" class="btn btn-lg" style="background:transparent;color:white;border-color:rgba(255,255,255,0.5)">🧭 Browse First</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </article>
+</main>
+
+<!-- Footer -->
+<div id="footer"></div>
+
+<!-- Firebase -->
+<script type="module">
+  import '/js/firebase-config.js';
+  import '/js/seo.js';
+  import '/js/skeleton.js';
+  import '/js/app.js';
+
+  // ---- Init OneSignal ----
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({ appId: "5f367dc9-3fc3-4fd9-b452-e32fa438509b" });
+  });
+
+  // ---- Page Init ----
+  window.addEventListener('DOMContentLoaded', async () => {
+    window.BSDC.initPage({ activePage: 'home' });
+    window.BSDC.seo.setMeta({
+      title: null,
+      description: "BSDC — Bangladesh Software Development Community. Ask questions, share code, write wikis, and connect with Bangladeshi developers.",
+      url: 'https://www.bsdc.info.bd/'
+    });
+
+    // Load stats
+    loadStats();
+    // Load feed
+    loadFeed('latest');
+    // Load widgets
+    loadWidgets();
+    // Load hero live feed
+    loadHeroLiveFeed();
+    // Write box
+    renderWriteBox();
+  });
+
+  // ---- Render write box ----
+  function renderWriteBox() {
+    const container = document.getElementById('write-box-container');
+    if (!container) return;
+    const user = window.BSDC.auth.currentUser;
+    if (!user) {
+      container.innerHTML = `
+        <div class="card card-body" style="margin-bottom:1rem;text-align:center">
+          <p style="color:#64748B;margin-bottom:0.75rem">Join BSDC to share your knowledge with Bangladesh's developer community</p>
+          <div style="display:flex;gap:0.75rem;justify-content:center">
+            <a href="/login" class="btn btn-secondary">Log In</a>
+            <a href="/register" class="btn btn-primary">Join Free</a>
+          </div>
+        </div>
+      `;
+      return;
+    }
+    const profile = window.BSDC.auth.userProfile;
+    const initials = window.BSDC.text.avatarInitials(profile?.displayName || 'U');
+    container.innerHTML = `
+      <div class="write-box" onclick="window.location.href='/submit'" style="margin-bottom:1rem" role="button" tabindex="0" aria-label="Create new post">
+        <div class="write-box-inner">
+          <div class="avatar avatar-md" style="background:#e6f4f0;color:#006A4E;flex-shrink:0">
+            ${profile?.photoURL ? `<img src="${profile.photoURL}" alt="${profile.displayName}" style="width:40px;height:40px;border-radius:50%;object-fit:cover">` : initials}
+          </div>
+          <div class="write-box-placeholder">What's on your mind? Ask a question, share a snippet...</div>
+        </div>
+        <div class="write-type-btns">
+          <button class="write-type-btn" onclick="event.stopPropagation();window.location.href='/submit?type=question'">❓ Question</button>
+          <button class="write-type-btn" onclick="event.stopPropagation();window.location.href='/submit?type=blog'">📝 Blog</button>
+          <button class="write-type-btn" onclick="event.stopPropagation();window.location.href='/submit?type=snippet'">💻 Snippet</button>
+          <button class="write-type-btn" onclick="event.stopPropagation();window.location.href='/submit?type=wiki'">📚 Wiki</button>
+          <button class="write-type-btn" onclick="event.stopPropagation();window.location.href='/submit?type=project'">🚀 Project</button>
+        </div>
+      </div>
+    `;
+  }
+
+  // ---- Tab switching ----
+  document.querySelectorAll('.tab-item').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab-item').forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected','false');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected','true');
+      const tabType = tab.dataset.tab;
+      loadFeed(tabType);
+    });
+  });
+
+  // ---- Load Feed ----
+  let lastDoc = null;
+  let currentTab = 'latest';
+
+  async function loadFeed(type) {
+    currentTab = type;
+    lastDoc = null;
+    const feed = document.getElementById('main-feed');
+    window.BSDC.skeleton.show('main-feed', 'feed', 5);
+
+    try {
+      let opts = { lim: 15 };
+      if (type === 'trending') {
+        opts.orderField = 'upvotes';
+      } else if (['question','blog','snippet','wiki','project','discussion'].includes(type)) {
+        opts.type = type;
+      }
+      const posts = await window.BSDC.db.getPosts(opts);
+      lastDoc = posts[posts.length - 1]?._snap || null;
+
+      if (posts.length === 0) {
+        feed.innerHTML = `
+          <div style="text-align:center;padding:3rem;color:#64748B">
+            <div style="font-size:3rem;margin-bottom:1rem">📭</div>
+            <h3 style="font-weight:700;color:#1E293B;margin-bottom:0.5rem">No posts yet</h3>
+            <p style="margin-bottom:1rem">Be the first to post in this category!</p>
+            <a href="/submit" class="btn btn-primary">Create First Post</a>
+          </div>
+        `;
+        return;
+      }
+
+      feed.innerHTML = posts.map(renderPostCard).join('');
+
+      const loadMoreContainer = document.getElementById('load-more-container');
+      if (loadMoreContainer) {
+        loadMoreContainer.style.display = posts.length >= 15 ? 'block' : 'none';
+      }
+
+    } catch(err) {
+      console.error(err);
+      feed.innerHTML = `
+        <div class="alert alert-error">
+          Failed to load posts. Please refresh the page.
+        </div>
+      `;
+    }
+  }
+
+  // ---- Render single post card ----
+  function renderPostCard(post) {
+    const typeConfig = {
+      question: { label: 'Question', cls: 'type-question', icon: '❓' },
+      blog: { label: 'Blog', cls: 'type-blog', icon: '📝' },
+      wiki: { label: 'Wiki', cls: 'type-wiki', icon: '📚' },
+      snippet: { label: 'Snippet', cls: 'type-snippet', icon: '💻' },
+      project: { label: 'Project', cls: 'type-project', icon: '🚀' },
+      discussion: { label: 'Discussion', cls: 'type-discussion', icon: '💬' }
+    };
+    const tc = typeConfig[post.type] || { label: post.type, cls: 'type-discussion', icon: '📄' };
+    const initials = window.BSDC.text.avatarInitials(post.authorName || 'U');
+    const excerpt = window.BSDC.text.excerpt(post.content || '', 140);
+    const tags = (post.tags || []).slice(0, 4);
+    const votes = (post.upvotes || 0) - (post.downvotes || 0);
+    const isSolved = post.type === 'question' && post.isSolved;
+
+    return `
+      <article class="post-card animate-fade-up" data-id="${post.id}" itemscope itemtype="https://schema.org/Article">
+
+        <div class="post-card-header">
+          <a href="/profile?u=${post.authorUsername || ''}" style="text-decoration:none;flex-shrink:0">
+            <div class="avatar avatar-md" style="background:#e6f4f0;color:#006A4E">
+              ${post.authorAvatar
+                ? `<img src="${post.authorAvatar}" alt="${post.authorName}" style="width:40px;height:40px;border-radius:50%;object-fit:cover">`
+                : initials}
+            </div>
+          </a>
+          <div class="post-card-meta">
+            <a href="/profile?u=${post.authorUsername || ''}" class="post-card-author" itemprop="author">${post.authorName || 'BSDC Member'}</a>
+            <div class="post-card-time">
+              ${window.BSDC.time.ago(post.createdAt)}
+              ${isSolved ? ' · <span style="color:#006A4E;font-weight:600">✅ Solved</span>' : ''}
+            </div>
+          </div>
+          <span class="post-card-type-badge ${tc.cls}">${tc.icon} ${tc.label}</span>
+        </div>
+
+        <div class="post-card-body">
+          <a href="/post?slug=${post.slug}" class="post-card-title" itemprop="headline">${post.title}</a>
+          ${excerpt ? `<p class="post-card-excerpt" itemprop="description">${excerpt}</p>` : ''}
+          ${post.coverImage ? `<img src="${post.coverImage}" alt="${post.title}" class="post-card-image" loading="lazy" itemprop="image">` : ''}
+        </div>
+
+        ${tags.length ? `
+          <div class="post-card-tags">
+            ${tags.map(t => `<a href="/tag?t=${encodeURIComponent(t)}" class="tag">${t}</a>`).join('')}
+          </div>
+        ` : ''}
+
+        <div class="post-card-actions">
+          <button class="action-btn vote-btn-up" data-id="${post.id}" aria-label="Upvote">
+            ▲ <span class="vote-val">${votes}</span>
+          </button>
+          <a href="/post?slug=${post.slug}" class="action-btn" aria-label="${post.answerCount || post.commentCount || 0} comments">
+            💬 ${post.answerCount || post.commentCount || 0}
+          </a>
+          <button class="action-btn share-btn" data-url="${window.location.origin}/post?slug=${post.slug}" data-title="${post.title}" aria-label="Share">
+            🔗 Share
+          </button>
+          <span class="action-btn" style="margin-left:auto;cursor:default">👁️ ${window.BSDC.text.formatNumber(post.views || 0)}</span>
+        </div>
+
+      </article>
+    `;
+  }
+
+  // ---- Vote handler ----
+  document.getElementById('main-feed').addEventListener('click', async (e) => {
+    const voteBtn = e.target.closest('.vote-btn-up');
+    const shareBtn = e.target.closest('.share-btn');
+
+    if (voteBtn) {
+      const id = voteBtn.dataset.id;
+      const user = window.BSDC.auth.currentUser;
+      if (!user) {
+        window.BSDC.toast.info('Please log in to vote');
+        return;
+      }
+      try {
+        await window.BSDC.db.votePost(id, 'up');
+        const valEl = voteBtn.querySelector('.vote-val');
+        if (valEl) valEl.textContent = parseInt(valEl.textContent || 0) + 1;
+        voteBtn.classList.toggle('voted');
+        window.BSDC.toast.success('Vote recorded!');
+      } catch(err) {
+        window.BSDC.toast.error('Failed to vote');
+      }
+    }
+
+    if (shareBtn) {
+      const url = shareBtn.dataset.url;
+      const title = shareBtn.dataset.title;
+      if (navigator.share) {
+        navigator.share({ title, url }).catch(() => {});
+      } else {
+        await window.BSDC.copyToClipboard(url);
+        window.BSDC.toast.success('Link copied to clipboard!');
+      }
+    }
+  });
+
+  // ---- Load More ----
+  document.getElementById('load-more-btn')?.addEventListener('click', async () => {
+    if (!lastDoc) return;
+    const btn = document.getElementById('load-more-btn');
+    btn.textContent = 'Loading...';
+    btn.disabled = true;
+    try {
+      const posts = await window.BSDC.db.getPosts({ lim: 10, after: lastDoc });
+      lastDoc = posts[posts.length - 1]?._snap || null;
+      const feed = document.getElementById('main-feed');
+      feed.insertAdjacentHTML('beforeend', posts.map(renderPostCard).join(''));
+      if (!lastDoc || posts.length < 10) {
+        document.getElementById('load-more-container').style.display = 'none';
+      }
+    } catch(e) {
+      window.BSDC.toast.error('Failed to load more posts');
+    } finally {
+      btn.textContent = 'Load More Posts';
+      btn.disabled = false;
+    }
+  });
+
+  // ---- Load Stats ----
+  async function loadStats() {
+    try {
+      const posts = await window.BSDC.db.getPosts({ lim: 1 });
+      // Animate counters
+      animateCounter('stat-members', 1250);
+      animateCounter('stat-posts', 3400);
+      animateCounter('stat-questions', 1800);
+      animateCounter('stat-solved', 1200);
+    } catch(e) {}
+  }
+
+  function animateCounter(id, target) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    let start = 0;
+    const duration = 1500;
+    const step = target / (duration / 16);
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= target) {
+        start = target;
+        clearInterval(timer);
+      }
+      el.textContent = window.BSDC.text.formatNumber(Math.floor(start));
+    }, 16);
+  }
+
+  // ---- Load Widgets ----
+  async function loadWidgets() {
+    // Trending widget
+    try {
+      const trending = await window.BSDC.db.getPosts({ orderField: 'upvotes', lim: 5 });
+      const trendingEl = document.getElementById('trending-widget');
+      if (trendingEl && trending.length > 0) {
+        trendingEl.innerHTML = trending.map((p, i) => `
+          <a href="/post?slug=${p.slug}" class="trending-item" title="${p.title}">
+            <span class="trending-num">${i + 1}</span>
+            <div>
+              <div class="trending-text line-clamp-2">${p.title}</div>
+              <div style="font-size:0.75rem;color:#64748B;margin-top:0.2rem">▲ ${p.upvotes || 0} · ${window.BSDC.time.ago(p.createdAt)}</div>
+            </div>
+          </a>
+        `).join('');
+      } else if (trendingEl) {
+        trendingEl.innerHTML = '<p style="color:#64748B;font-size:0.875rem;text-align:center">No trending posts yet</p>';
+      }
+    } catch(e) {}
+
+    // Tags widget
+    const popularTags = ['javascript','python','php','laravel','react','nodejs','android','flutter','mysql','wordpress','css','html','bootstrap','git','docker'];
+    const tagsEl = document.getElementById('tags-widget');
+    const sidebarTagsEl = document.getElementById('sidebar-tags');
+    if (tagsEl) {
+      tagsEl.innerHTML = popularTags.map(t =>
+        `<a href="/tag?t=${t}" class="tag">${t}</a>`
+      ).join('');
+    }
+    if (sidebarTagsEl) {
+      sidebarTagsEl.innerHTML = popularTags.slice(0, 8).map(t =>
+        `<a href="/tag?t=${t}" class="tag" style="font-size:0.75rem">${t}</a>`
+      ).join('');
+    }
+
+    // Top members widget
+    try {
+      const { getDocs, query, collection, orderBy, limit } = await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
+      // We'll just show placeholder top members
+      const membersEl = document.getElementById('top-members-widget');
+      if (membersEl) {
+        membersEl.innerHTML = `<p style="color:#64748B;font-size:0.875rem;text-align:center;padding:0.5rem">Top members coming soon!</p>`;
+      }
+    } catch(e) {}
+
+    // Join CTA
+    const joinCta = document.getElementById('join-cta-widget');
+    if (joinCta) {
+      const user = window.BSDC.auth.currentUser;
+      if (!user) {
+        joinCta.innerHTML = `
+          <div class="widget" style="background:linear-gradient(135deg,#006A4E,#1E293B);color:white;border:none">
+            <div class="widget-body" style="border:none">
+              <h3 style="font-weight:800;font-size:1rem;margin-bottom:0.5rem">Join BSDC Today</h3>
+              <p style="font-size:0.85rem;opacity:0.85;margin-bottom:1rem">Connect with thousands of Bangladeshi developers</p>
+              <a href="/register" class="btn btn-full" style="background:#4ade80;color:#1E293B;border-color:#4ade80;font-weight:700;margin-bottom:0.5rem">🚀 Create Free Account</a>
+              <a href="/login" class="btn btn-full" style="background:rgba(255,255,255,0.15);color:white;border-color:rgba(255,255,255,0.3)">Log In</a>
+            </div>
+          </div>
+        `;
+      }
+    }
+  }
+
+  // ---- Hero Live Feed ----
+  async function loadHeroLiveFeed() {
+    const el = document.getElementById('hero-live-feed');
+    if (!el) return;
+    try {
+      const posts = await window.BSDC.db.getPosts({ lim: 4 });
+      if (posts.length > 0) {
+        el.innerHTML = posts.map(p => `
+          <div style="display:flex;gap:0.5rem;align-items:flex-start">
+            <div style="width:8px;height:8px;background:#4ade80;border-radius:50%;flex-shrink:0;margin-top:5px"></div>
+            <a href="/post?slug=${p.slug}" style="font-size:0.8rem;color:rgba(255,255,255,0.85);text-decoration:none;line-height:1.4" class="line-clamp-2">${p.title}</a>
+          </div>
+        `).join('');
+      }
+    } catch(e) {}
+  }
+
+  // ---- Auth watch for write box ----
+  window.BSDC.auth.subscribe(() => {
+    renderWriteBox();
+    const joinCta = document.getElementById('join-cta-widget');
+    if (joinCta && window.BSDC.auth.currentUser) joinCta.innerHTML = '';
+  });
+</script>
+</body>
+</html>
