@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.bsdc.info.bd/sitemap.xml
+
+# Block private routes
+Disallow: /dashboard
+Disallow: /submit
+Disallow: /login
+Disallow: /register
+
+# Allow all content pages
+Allow: /post
+Allow: /profile
+Allow: /tag
+Allow: /search
+Allow: /about
