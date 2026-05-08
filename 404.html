@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 — Page Not Found | BSDC</title>
+  <meta name="description" content="Page not found on BSDC — Bangladesh Software Development Community."/>
+  <meta name="robots" content="noindex, nofollow"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23006A4E'/><text y='.9em' font-size='70' x='50%' text-anchor='middle' fill='white' font-weight='900'>B</text></svg>"/>
+  <link rel="stylesheet" href="/css/fabric.css"/>
+  <link rel="stylesheet" href="/css/main.css"/>
+</head>
+<body>
+
+<div id="navbar"></div>
+
+<main role="main" style="min-height:70vh;display:flex;align-items:center;justify-content:center;padding:2rem">
+  <div style="text-align:center;max-width:500px">
+    <div style="font-size:6rem;margin-bottom:1rem;line-height:1">🔍</div>
+    <div style="font-size:6rem;font-weight:900;color:#E2E8F0;line-height:1;margin-bottom:1rem">404</div>
+    <h1 style="font-size:1.75rem;font-weight:800;color:#1E293B;margin-bottom:0.75rem">Page Not Found</h1>
+    <p style="color:#64748B;margin-bottom:0.5rem;line-height:1.7">
+      The page you're looking for doesn't exist or has been moved. Let's get you back to the Bangladesh developer community.
+    </p>
+    <p class="bangla" style="color:#64748B;margin-bottom:2rem;font-size:0.9rem">
+      আপনি যে পেজটি খুঁজছেন সেটি পাওয়া যাচ্ছে না।
+    </p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="/" class="btn btn-primary btn-lg">🏠 Go Home</a>
+      <a href="/search" class="btn btn-secondary btn-lg">🧭 Browse Posts</a>
+    </div>
+    <div style="margin-top:2rem;padding:1.25rem;background:#f0faf7;border-radius:0.75rem">
+      <p style="font-size:0.875rem;color:#64748B;margin-bottom:0.75rem">Or try searching for what you need:</p>
+      <div style="display:flex;gap:0.5rem">
+        <input type="search" placeholder="Search BSDC..." id="err-search" class="form-input" style="flex:1"/>
+        <button class="btn btn-primary" id="err-search-btn">Search</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="footer"></div>
+
+<script type="module">
+  import '/js/firebase-config.js';
+  import '/js/app.js';
+
+  window.addEventListener('DOMContentLoaded', () => {
+    window.BSDC.initPage({});
+    document.getElementById('err-search-btn')?.addEventListener('click', () => {
+      const q = document.getElementById('err-search')?.value.trim();
+      if (q) window.location.href = `/search?q=${encodeURIComponent(q)}`;
+    });
+    document.getElementById('err-search')?.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') document.getElementById('err-search-btn').click();
+    });
+  });
+</script>
+</body>
+</html>
