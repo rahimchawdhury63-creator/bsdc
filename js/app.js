@@ -543,16 +543,69 @@ window.BSDC.getParam = function(name) {
 // ============================================
 // REQUIRE AUTH GUARD
 // ============================================
-window.BSDC.requireAuth = function(redirectTo = '/login') {
+// FIND and REPLACE this entire function in js/app.js
+
+window.BSDC.requireAuth = function(redirectTo = '/login.html') {
   return new Promise((resolve) => {
-    let called = false;
-    window.BSDC.auth.subscribe((user) => {
-      if (called) return;
-      called = true;
-      if (!user) {
-        window.location.href = `${redirectTo}?next=${encodeURIComponent(window.location.pathname + window.location.search)}`;
-      } else {
+
+    // Give Firebase max 8 seconds to restore auth state
+    let resolved = false;
+    let attempts = 0;
+    const maxWait = 8000;
+    const checkInterval = 100;
+
+    const finish = (user) => {
+      if (resolved) return;
+      resolved = true;
+
+      if (user) {
         resolve(user);
+      } else {
+        const currentPath = window.location.pathname + window.location.search;
+        const next = encodeURIComponent(currentPath);
+        window.location.href = `${redirectTo}?next=${next}`;
+      }
+    };
+
+    // Check if already ready
+    if (window.BSDC.auth._ready) {
+      finish(window.BSDC.auth.currentUser);
+      return;
+    }
+
+    // Poll until ready
+    const poll = setInterval(() => {
+      attempts += checkInterval;
+
+      if (window.BSDC.auth._ready) {
+        clearInterval(poll);
+        finish(window.BSDC.auth.currentUser);
+        return;
+      }
+
+      if (attempts >= maxWait) {
+        clearInterval(poll);
+        // Timeout — check localStorage for cached auth
+        const hasCachedAuth = Object.keys(localStorage).some(k =>
+          k.includes('firebase') || k.includes('firebaseLocalStorage')
+        );
+        if (hasCachedAuth) {
+          // User was logged in before, wait a bit more
+          setTimeout(() => {
+            finish(window.BSDC.auth.currentUser);
+          }, 2000);
+        } else {
+          finish(null);
+        }
+      }
+    }, checkInterval);
+
+    // Also subscribe to auth state changes as backup
+    const unsubscribe = window.BSDC.auth.subscribe((user) => {
+      if (window.BSDC.auth._ready) {
+        clearInterval(poll);
+        unsubscribe();
+        finish(user);
       }
     });
   });
