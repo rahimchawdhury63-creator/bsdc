@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Loading tag... — BSDC</title>
+  <meta name="description" content="Browse posts by tag on BSDC — Bangladesh Software Development Community."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin/>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23006A4E'/><text y='.9em' font-size='70' x='50%' text-anchor='middle' fill='white' font-weight='900'>B</text></svg>"/>
+  <link rel="stylesheet" href="/css/fabric.css"/>
+  <link rel="stylesheet" href="/css/main.css"/>
+</head>
+<body>
+
+<div id="navbar"></div>
+
+<main role="main">
+  <div class="container" style="padding:1.5rem 1rem 3rem">
+
+    <!-- Tag Header -->
+    <div class="tag-header" id="tag-header">
+      <div class="skeleton" style="height:1.75rem;width:200px;margin-bottom:0.75rem"></div>
+      <div class="skeleton skeleton-text" style="width:400px"></div>
+    </div>
+
+    <div class="page-layout-2col" style="padding:0;margin-top:1.5rem">
+
+      <!-- Feed -->
+      <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
+          <div style="font-weight:700;color:#1E293B" id="tag-count">Loading...</div>
+          <div style="display:flex;gap:0.5rem">
+            <button class="search-filter-btn active" data-sort="latest" id="sort-latest">⚡ Latest</button>
+            <button class="search-filter-btn" data-sort="trending" id="sort-trending">🔥 Trending</button>
+          </div>
+        </div>
+
+        <div class="feed" id="tag-feed" aria-live="polite">
+          <div class="skeleton-card"><div class="skeleton skeleton-title" style="margin-bottom:10px"></div><div class="skeleton skeleton-text" style="margin-bottom:6px"></div><div class="skeleton skeleton-text" style="width:70%"></div></div>
+          <div class="skeleton-card"><div class="skeleton skeleton-title" style="margin-bottom:10px"></div><div class="skeleton skeleton-text" style="margin-bottom:6px"></div><div class="skeleton skeleton-text" style="width:80%"></div></div>
+          <div class="skeleton-card"><div class="skeleton skeleton-title" style="margin-bottom:10px"></div><div class="skeleton skeleton-text" style="margin-bottom:6px"></div><div class="skeleton skeleton-text" style="width:60%"></div></div>
+        </div>
+
+        <div id="tag-load-more" style="display:none;text-align:center;padding:1.5rem 0">
+          <button class="btn btn-secondary" id="tag-load-more-btn">Load More</button>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="sidebar hide-mobile">
+        <div class="widget">
+          <div class="widget-header">🏷️ Related Tags</div>
+          <div class="widget-body" id="related-tags-widget" style="display:flex;flex-wrap:wrap;gap:0.5rem">
+            <div class="skeleton" style="width:70px;height:26px;border-radius:9999px"></div>
+            <div class="skeleton" style="width:90px;height:26px;border-radius:9999px"></div>
+            <div class="skeleton" style="width:60px;height:26px;border-radius:9999px"></div>
+          </div>
+        </div>
+        <div class="widget">
+          <div class="widget-header">📊 All Tags</div>
+          <div class="widget-body" style="display:flex;flex-wrap:wrap;gap:0.5rem">
+            ${['javascript','python','php','laravel','react','nodejs','android','flutter','mysql','wordpress','css','html','bootstrap','git','docker','aws','django','vue','typescript','mongodb'].map(t =>
+              `<a href="/tag?t=${t}" class="tag" style="font-size:0.75rem">${t}</a>`
+            ).join('')}
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<div id="footer"></div>
+
+<script type="module">
+  import '/js/firebase-config.js';
+  import '/js/seo.js';
+  import '/js/skeleton.js';
+  import '/js/app.js';
+
+  const tagDescriptions = {
+    javascript: 'JavaScript is the world\'s most popular programming language, used for web development, server-side with Node.js, and much more.',
+    python: 'Python is a versatile, beginner-friendly programming language widely used in web development, data science, AI, and automation.',
+    php: 'PHP is a server-side scripting language widely used in Bangladesh for web development, especially with WordPress and Laravel.',
+    laravel: 'Laravel is Bangladesh\'s most popular PHP framework, known for elegant syntax and powerful features like Eloquent ORM and Blade templates.',
+    react: 'React is a JavaScript library for building user interfaces, created by Facebook. Widely used by Bangladeshi frontend developers.',
+    nodejs: 'Node.js lets you run JavaScript on the server side, enabling full-stack JavaScript development.',
+    android: 'Android development questions, tips, and tutorials for building mobile apps for the world\'s most popular mobile OS.',
+    flutter: 'Flutter is Google\'s UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase.',
+    mysql: 'MySQL is the world\'s most popular open-source relational database, widely used by Bangladeshi developers.',
+    wordpress: 'WordPress powers over 40% of all websites. A huge topic in Bangladesh\'s freelancing and web development community.',
+    default: 'Browse all posts tagged with this topic on BSDC — Bangladesh Software Development Community.'
+  };
+
+  window.addEventListener('DOMContentLoaded', async () => {
+    window.BSDC.initPage({ activePage: '' });
+
+    const tag = window.BSDC.getParam('t');
+    if (!tag) {
+      window.location.href = '/search';
+      return;
+    }
+
+    // Set page meta
+    document.title = `#${tag} — BSDC | Bangladesh Software Development Community`;
+    window.BSDC.seo.setMeta({
+      title: `#${tag} posts`,
+      description: `Browse all ${tag} posts on BSDC — Bangladesh Software Development Community. ${tagDescriptions[tag] || tagDescriptions.default}`,
+      keywords: `${tag}, Bangladesh ${tag} developer, ${tag} tutorial Bangladesh, BSDC ${tag}`,
+      url: `https://www.bsdc.info.bd/tag?t=${tag}`
+    });
+
+    // Render tag header
+    const tagHeader = document.getElementById('tag-header');
+    if (tagHeader) {
+      tagHeader.innerHTML = `
+        <div style="display:flex;align-items:flex-start;gap:1.25rem;flex-wrap:wrap">
+          <div style="width:60px;height:60px;background:#e6f4f0;border-radius:0.75rem;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;border:2px solid #006A4E">🏷️</div>
+          <div>
+            <h1 style="font-size:2rem;font-weight:900;color:#1E293B;margin-bottom:0.375rem">#${tag}</h1>
+            <p style="color:#64748B;line-height:1.6;max-width:600px">${tagDescriptions[tag] || tagDescriptions.default}</p>
+            <div style="margin-top:0.75rem;display:flex;gap:0.75rem">
+              <a href="/submit?type=question" class="btn btn-primary btn-sm">❓ Ask about ${tag}</a>
+              <a href="/submit?type=snippet" class="btn btn-secondary btn-sm">💻 Share ${tag} snippet</a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Load posts
+    let lastDoc = null;
+    let currentSort = 'latest';
+
+    async function loadTagPosts(reset = true) {
+      if (reset) lastDoc = null;
+      window.BSDC.skeleton.show('tag-feed', 'feed', 5);
+
+      try {
+        const posts = await window.BSDC.db.getPosts({
+          tag,
+          lim: 15,
+          orderField: currentSort === 'trending' ? 'upvotes' : 'createdAt',
+          after: reset ? null : lastDoc
+        });
+
+        lastDoc = posts[posts.length - 1]?._snap || null;
+
+        const countEl = document.getElementById('tag-count');
+        if (countEl && reset) {
+          countEl.textContent = `${posts.length}${posts.length === 15 ? '+' : ''} post${posts.length !== 1 ? 's' : ''} tagged #${tag}`;
+        }
+
+        const feed = document.getElementById('tag-feed');
+        if (posts.length === 0) {
+          feed.innerHTML = `
+            <div style="text-align:center;padding:3rem;background:white;border:1px solid #E2E8F0;border-radius:0.75rem">
+              <div style="font-size:3rem;margin-bottom:1rem">📭</div>
+              <h3 style="font-weight:700;color:#1E293B;margin-bottom:0.5rem">No posts tagged #${tag} yet</h3>
+              <p style="color:#64748B;margin-bottom:1rem">Be the first to share something about ${tag}!</p>
+              <a href="/submit" class="btn btn-primary">Create First Post</a>
+            </div>
+          `;
+          return;
+        }
+
+        const renderCard = (post) => {
+          const typeConfig = {
+            question: { label: 'Question', cls: 'type-question', icon: '❓' },
+            blog: { label: 'Blog', cls: 'type-blog', icon: '📝' },
+            wiki: { label: 'Wiki', cls: 'type-wiki', icon: '📚' },
+            snippet: { label: 'Snippet', cls: 'type-snippet', icon: '💻' },
+            project: { label: 'Project', cls: 'type-project', icon: '🚀' },
+            discussion: { label: 'Discussion', cls: 'type-discussion', icon: '💬' }
+          };
+          const tc = typeConfig[post.type] || { label: 'Post', cls: 'type-discussion', icon: '📄' };
+          const initials = window.BSDC.text.avatarInitials(post.authorName || 'U');
+          const votes = (post.upvotes || 0) - (post.downvotes || 0);
+
+          return `
+            <article class="post-card animate-fade-up">
+              <div class="post-card-header">
+                <a href="/profile?u=${post.authorUsername || ''}" style="text-decoration:none">
+                  <div class="avatar avatar-md" style="background:#e6f4f0;color:#006A4E">
+                    ${post.authorAvatar
+                      ? `<img src="${post.authorAvatar}" alt="${post.authorName}" style="width:40px;height:40px;border-radius:50%;object-fit:cover">`
+                      : initials}
+                  </div>
+                </a>
+                <div class="post-card-meta">
+                  <a href="/profile?u=${post.authorUsername || ''}" class="post-card-author">${post.authorName || 'BSDC Member'}</a>
+                  <div class="post-card-time">${window.BSDC.time.ago(post.createdAt)}</div>
+                </div>
+                <span class="post-card-type-badge ${tc.cls}">${tc.icon} ${tc.label}</span>
+              </div>
+              <div class="post-card-body">
+                <a href="/post?slug=${post.slug}" class="post-card-title">${post.title}</a>
+                ${post.excerpt ? `<p class="post-card-excerpt">${post.excerpt}</p>` : ''}
+              </div>
+              ${post.tags?.length ? `
+                <div class="post-card-tags">
+                  ${post.tags.slice(0, 4).map(t => `<a href="/tag?t=${encodeURIComponent(t)}" class="tag" style="${t === tag ? 'background:#006A4E;color:white' : ''}">${t}</a>`).join('')}
+                </div>
+              ` : ''}
+              <div class="post-card-actions">
+                <span class="action-btn">▲ ${votes}</span>
+                <a href="/post?slug=${post.slug}" class="action-btn">💬 ${post.answerCount || post.commentCount || 0}</a>
+                <span class="action-btn" style="margin-left:auto;cursor:default">👁️ ${window.BSDC.text.formatNumber(post.views || 0)}</span>
+              </div>
+            </article>
+          `;
+        };
+
+        if (reset) {
+          feed.innerHTML = posts.map(renderCard).join('');
+        } else {
+          feed.insertAdjacentHTML('beforeend', posts.map(renderCard).join(''));
+        }
+
+        const loadMoreEl = document.getElementById('tag-load-more');
+        if (loadMoreEl) loadMoreEl.style.display = posts.length >= 15 ? 'block' : 'none';
+
+      } catch(e) {
+        document.getElementById('tag-feed').innerHTML = `<div class="alert alert-error">Failed to load posts.</div>`;
+      }
+    }
+
+    // Sort buttons
+    document.getElementById('sort-latest')?.addEventListener('click', () => {
+      currentSort = 'latest';
+      document.getElementById('sort-latest').classList.add('active');
+      document.getElementById('sort-trending').classList.remove('active');
+      loadTagPosts(true);
+    });
+
+    document.getElementById('sort-trending')?.addEventListener('click', () => {
+      currentSort = 'trending';
+      document.getElementById('sort-trending').classList.add('active');
+      document.getElementById('sort-latest').classList.remove('active');
+      loadTagPosts(true);
+    });
+
+    // Load more
+    document.getElementById('tag-load-more-btn')?.addEventListener('click', async () => {
+      const btn = document.getElementById('tag-load-more-btn');
+      btn.textContent = 'Loading...';
+      btn.disabled = true;
+      await loadTagPosts(false);
+      btn.textContent = 'Load More';
+      btn.disabled = false;
+    });
+
+    // Related tags (static suggestions)
+    const allTags = ['javascript','python','php','laravel','react','nodejs','android','flutter','mysql','wordpress','css','html','git','docker','aws','django','vue','typescript','mongodb','bootstrap'];
+    const related = allTags.filter(t => t !== tag).slice(0, 10);
+    const relatedEl = document.getElementById('related-tags-widget');
+    if (relatedEl) {
+      relatedEl.innerHTML = related.map(t => `<a href="/tag?t=${t}" class="tag">${t}</a>`).join('');
+    }
+
+    // Initial load
+    await loadTagPosts(true);
+  });
+</script>
+</body>
+</html>
