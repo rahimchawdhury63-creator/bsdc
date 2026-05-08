@@ -6,37 +6,58 @@
   <title>Create Post — BSDC | Bangladesh Software Development Community</title>
   <meta name="description" content="Share your knowledge with Bangladesh's developer community. Ask questions, write blog posts, share code snippets, create wikis, and showcase projects on BSDC."/>
   <meta name="robots" content="noindex"/>
-  <link rel="canonical" href="https://www.bsdc.info.bd/submit"/>
+  <link rel="canonical" href="https://www.bsdc.info.bd/submit.html"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link rel="preconnect" href="https://www.gstatic.com" crossorigin/>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23006A4E'/><text y='.9em' font-size='70' x='50%' text-anchor='middle' fill='white' font-weight='900'>B</text></svg>"/>
   <link rel="stylesheet" href="/css/fabric.css"/>
   <link rel="stylesheet" href="/css/main.css"/>
+  <style>
+    .auth-loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      gap: 1rem;
+    }
+    .auth-loading p {
+      color: #64748B;
+      font-size: 0.95rem;
+    }
+  </style>
 </head>
 <body style="background:#F8FAFC">
 
 <div id="navbar"></div>
 
 <main role="main" style="padding:1.5rem 1rem 4rem">
-  <!-- Auth Check Banner -->
-  <div id="auth-required-banner" style="display:none;max-width:860px;margin:0 auto 1.5rem">
-    <div class="alert alert-warning" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
-      <span>🔐 You need to be logged in to post on BSDC.</span>
-      <div style="display:flex;gap:0.5rem">
-        <a href="/login" class="btn btn-primary btn-sm">Log In</a>
-        <a href="/register" class="btn btn-secondary btn-sm">Register</a>
-      </div>
+
+  <!-- Loading state — shown while checking auth -->
+  <div id="auth-checking" class="auth-loading">
+    <div class="spinner spinner-lg"></div>
+    <p>Checking your session...</p>
+  </div>
+
+  <!-- Not logged in state -->
+  <div id="auth-required" style="display:none;max-width:500px;margin:0 auto;text-align:center;padding:3rem 1rem">
+    <div style="font-size:4rem;margin-bottom:1rem">🔐</div>
+    <h2 style="font-size:1.5rem;font-weight:800;color:#1E293B;margin-bottom:0.5rem">Login Required</h2>
+    <p style="color:#64748B;margin-bottom:1.5rem;line-height:1.6">
+      You need to be logged in to post on BSDC — Bangladesh Software Development Community.
+    </p>
+    <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap">
+      <a href="/login.html?next=/submit.html" class="btn btn-primary btn-lg">🔑 Log In</a>
+      <a href="/register.html" class="btn btn-secondary btn-lg">🚀 Create Account</a>
     </div>
   </div>
 
-  <div id="submit-container">
+  <!-- Submit form — shown only when logged in -->
+  <div id="submit-container" style="display:none">
     <!-- Rendered by submit.js -->
-    <div style="max-width:860px;margin:0 auto;text-align:center;padding:3rem">
-      <div class="spinner spinner-lg mx-auto" style="margin-bottom:1rem"></div>
-      <p style="color:#64748B">Loading editor...</p>
-    </div>
   </div>
+
 </main>
 
 <div id="footer"></div>
@@ -48,28 +69,94 @@
   import '/js/post.js';
   import '/js/submit.js';
 
-  window.addEventListener('DOMContentLoaded', async () => {
-    window.BSDC.initPage({ activePage: 'submit' });
+  window.addEventListener('DOMContentLoaded', () => {
+    // Build navbar and footer immediately
+    window.BSDC.buildNavbar('submit');
+    window.BSDC.buildFooter();
 
     window.BSDC.seo.setMeta({
       title: 'Create Post',
-      description: 'Share your knowledge with Bangladesh\'s developer community on BSDC',
-      url: 'https://www.bsdc.info.bd/submit'
+      description: "Share your knowledge with Bangladesh's developer community on BSDC",
+      url: 'https://www.bsdc.info.bd/submit.html'
     });
 
-    // Wait for auth
-    const user = await window.BSDC.requireAuth('/login');
+    // Check type param for SEO title
+    const type = window.BSDC.getParam('type');
+    const typeLabels = {
+      question: 'Ask a Question',
+      blog: 'Write a Blog Post',
+      wiki: 'Create Wiki Article',
+      snippet: 'Share Code Snippet',
+      project: 'Share a Project',
+      discussion: 'Start a Discussion'
+    };
+    if (type && typeLabels[type]) {
+      document.title = `${typeLabels[type]} — BSDC`;
+    }
 
-    // Init submit engine
-    window.BSDC.submitEngine.init();
+    // Wait for auth state with timeout
+    let authHandled = false;
 
-    // Auth watch for re-init
-    window.BSDC.auth.subscribe((user) => {
-      if (!user) {
-        document.getElementById('auth-required-banner').style.display = 'block';
-        document.getElementById('submit-container').innerHTML = '';
+    const handleAuthState = (user) => {
+      if (authHandled) return;
+
+      // Only act once Firebase marks auth as ready
+      if (!window.BSDC.auth._ready) return;
+
+      authHandled = true;
+
+      const loadingEl = document.getElementById('auth-checking');
+      const requiredEl = document.getElementById('auth-required');
+      const submitEl = document.getElementById('submit-container');
+
+      if (user) {
+        // User is logged in — show submit form
+        if (loadingEl) loadingEl.style.display = 'none';
+        if (requiredEl) requiredEl.style.display = 'none';
+        if (submitEl) submitEl.style.display = 'block';
+
+        // Init submit engine
+        window.BSDC.submitEngine.init();
+
+      } else {
+        // User is NOT logged in — show login prompt (no redirect)
+        if (loadingEl) loadingEl.style.display = 'none';
+        if (requiredEl) requiredEl.style.display = 'block';
+        if (submitEl) submitEl.style.display = 'none';
       }
+    };
+
+    // Subscribe to auth changes
+    window.BSDC.auth.subscribe((user) => {
+      handleAuthState(user);
     });
+
+    // Fallback: if auth takes too long, check again
+    setTimeout(() => {
+      if (!authHandled) {
+        // Force check after 5 seconds
+        authHandled = false; // reset so it can trigger
+        window.BSDC.auth._ready = true;
+        handleAuthState(window.BSDC.auth.currentUser);
+      }
+    }, 5000);
+
+    // Extra fallback: check localStorage for Firebase auth
+    setTimeout(() => {
+      if (!authHandled) {
+        const hasFirebaseAuth = Object.keys(localStorage).some(k =>
+          k.startsWith('firebase:authUser') ||
+          k.includes('firebaseLocalStorage')
+        );
+
+        if (!hasFirebaseAuth) {
+          // Definitely not logged in
+          authHandled = true;
+          document.getElementById('auth-checking').style.display = 'none';
+          document.getElementById('auth-required').style.display = 'block';
+        }
+      }
+    }, 3000);
   });
 </script>
 </body>
