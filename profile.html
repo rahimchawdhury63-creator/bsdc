@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Default title — overridden by JS for perfect SEO -->
+  <title>BSDC Developer Profile — Bangladesh Software Development Community</title>
+  <meta name="description" content="View this developer's profile on BSDC — Bangladesh Software Development Community. See their posts, answers, skills, reputation, and developer ID card."/>
+  <meta name="keywords" content="BSDC developer profile, Bangladesh software developer, BSDC member, developer profile Bangladesh"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="Bangladesh Software Development Community"/>
+
+  <!-- Open Graph (overridden by JS) -->
+  <meta property="og:type" content="profile"/>
+  <meta property="og:site_name" content="Bangladesh Software Development Community"/>
+  <meta property="og:image" content="https://www.bsdc.info.bd/og-image.png"/>
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:site" content="@bsdc_bd"/>
+
+  <!-- Canonical (overridden by JS) -->
+  <link rel="canonical" href="https://www.bsdc.info.bd/profile"/>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin/>
+  <link rel="preconnect" href="https://api.qrserver.com" crossorigin/>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23006A4E'/><text y='.9em' font-size='70' x='50%' text-anchor='middle' fill='white' font-weight='900'>B</text></svg>"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/fabric.css"/>
+  <link rel="stylesheet" href="/css/main.css"/>
+
+  <!-- OneSignal -->
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+</head>
+<body>
+
+<div id="navbar"></div>
+
+<main role="main" id="profile-main">
+
+  <!-- Profile skeleton while loading -->
+  <div id="profile-loading-state">
+    <div style="background:linear-gradient(135deg,#006A4E,#1E293B);height:200px;"></div>
+    <div class="container" style="padding-top:1rem;padding-bottom:3rem">
+      <div style="background:white;border:1px solid #E2E8F0;border-radius:0 0 0.75rem 0.75rem;padding:1.5rem;margin-bottom:1.5rem">
+        <div style="display:flex;gap:1rem;align-items:flex-end;margin-bottom:1rem">
+          <div class="skeleton" style="width:100px;height:100px;border-radius:1rem;margin-top:-50px;flex-shrink:0"></div>
+          <div style="flex:1;padding-bottom:0.5rem">
+            <div class="skeleton" style="height:1.5rem;width:200px;margin-bottom:0.5rem"></div>
+            <div class="skeleton skeleton-text-sm" style="width:120px"></div>
+          </div>
+        </div>
+        <div class="skeleton skeleton-text" style="margin-bottom:6px"></div>
+        <div class="skeleton skeleton-text" style="width:70%;margin-bottom:1rem"></div>
+        <div style="display:flex;gap:2rem">
+          <div class="skeleton" style="width:60px;height:40px;border-radius:0.5rem"></div>
+          <div class="skeleton" style="width:60px;height:40px;border-radius:0.5rem"></div>
+          <div class="skeleton" style="width:60px;height:40px;border-radius:0.5rem"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Actual profile content (hidden until loaded) -->
+  <div id="profile-content" style="display:none">
+
+    <!-- Profile Header -->
+    <div id="profile-header-container" class="container" style="padding-top:0;padding-bottom:0">
+      <div id="profile-header-inner"></div>
+    </div>
+
+    <!-- Profile Body -->
+    <div class="container" style="padding-top:1.5rem;padding-bottom:3rem">
+      <div style="display:grid;grid-template-columns:1fr 360px;gap:1.5rem;align-items:start" id="profile-body-grid">
+
+        <!-- Left: Posts + Activity -->
+        <div>
+          <!-- Content Tabs -->
+          <div class="tabs" style="margin-bottom:1rem" role="tablist">
+            <div class="tab-item active" role="tab" aria-selected="true" data-ptab="posts" tabindex="0">📝 Posts</div>
+            <div class="tab-item" role="tab" aria-selected="false" data-ptab="answers" tabindex="0">💬 Answers</div>
+            <div class="tab-item" role="tab" aria-selected="false" data-ptab="questions" tabindex="0">❓ Questions</div>
+            <div class="tab-item" role="tab" aria-selected="false" data-ptab="snippets" tabindex="0">💻 Snippets</div>
+          </div>
+
+          <!-- Posts Feed -->
+          <div id="profile-posts-container">
+            <div class="skeleton-card">
+              <div class="skeleton skeleton-title" style="margin-bottom:10px"></div>
+              <div class="skeleton skeleton-text" style="margin-bottom:6px"></div>
+              <div class="skeleton skeleton-text" style="width:70%"></div>
+            </div>
+            <div class="skeleton-card" style="margin-top:1rem">
+              <div class="skeleton skeleton-title" style="margin-bottom:10px"></div>
+              <div class="skeleton skeleton-text" style="margin-bottom:6px"></div>
+              <div class="skeleton skeleton-text" style="width:60%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: ID Card + Widgets -->
+        <div>
+
+          <!-- Developer ID Card -->
+          <div style="margin-bottom:1rem">
+            <div style="font-size:0.8rem;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem">
+              🆔 Developer ID Card
+              <span style="background:#e6f4f0;color:#006A4E;font-size:0.65rem;padding:0.1rem 0.4rem;border-radius:9999px;font-weight:700">OFFICIAL</span>
+            </div>
+            <div id="id-card-container">
+              <!-- Skeleton -->
+              <div style="width:340px;background:white;border-radius:1.25rem;overflow:hidden;border:1px solid #E2E8F0">
+                <div class="skeleton" style="height:90px;border-radius:0;margin:0"></div>
+                <div class="skeleton" style="height:6px;border-radius:0;margin:0"></div>
+                <div style="padding:1.25rem 1.5rem">
+                  <div style="display:flex;gap:1rem;margin-bottom:1rem">
+                    <div class="skeleton" style="width:75px;height:75px;border-radius:0.75rem;flex-shrink:0"></div>
+                    <div style="flex:1">
+                      <div class="skeleton skeleton-title" style="margin-bottom:8px;width:70%"></div>
+                      <div class="skeleton skeleton-text-sm" style="width:50%;margin-bottom:6px"></div>
+                      <div class="skeleton skeleton-text-sm" style="width:40%"></div>
+                    </div>
+                  </div>
+                  <div class="skeleton skeleton-text" style="margin-bottom:8px"></div>
+                  <div class="skeleton skeleton-text" style="width:75%;margin-bottom:16px"></div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text"></div>
+                  </div>
+                </div>
+                <div style="padding:0.875rem 1.5rem;background:#F8FAFC;display:flex;justify-content:space-between;align-items:center">
+                  <div class="skeleton" style="width:60px;height:60px;border-radius:0.5rem"></div>
+                  <div style="flex:1;margin-left:1rem">
+                    <div class="skeleton skeleton-text-sm" style="margin-bottom:6px;width:60%"></div>
+                    <div class="skeleton skeleton-text-sm" style="width:40%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- About Widget -->
+          <div class="widget" id="about-widget" style="display:none">
+            <div class="widget-header">👤 About</div>
+            <div class="widget-body" id="about-widget-body"></div>
+          </div>
+
+          <!-- Recent Activity Widget -->
+          <div class="widget">
+            <div class="widget-header">⚡ Recent Activity</div>
+            <div class="widget-body" id="activity-widget">
+              <div class="skeleton skeleton-text" style="margin-bottom:10px"></div>
+              <div class="skeleton skeleton-text" style="margin-bottom:10px;width:80%"></div>
+              <div class="skeleton skeleton-text" style="width:60%"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Not Found State -->
+  <div id="profile-not-found" style="display:none;text-align:center;padding:4rem 1rem">
+    <div style="font-size:4rem;margin-bottom:1rem">👤</div>
+    <h2 style="font-size:1.5rem;font-weight:800;color:#1E293B;margin-bottom:0.5rem">Developer Not Found</h2>
+    <p style="color:#64748B;margin-bottom:1.5rem">This profile doesn't exist or the username is incorrect.</p>
+    <a href="/" class="btn btn-primary">🏠 Go Home</a>
+  </div>
+
+</main>
+
+<div id="footer"></div>
+
+<script type="module">
+  import '/js/firebase-config.js';
+  import '/js/seo.js';
+  import '/js/skeleton.js';
+  import '/js/app.js';
+  import '/js/profile.js';
+
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({ appId: "5f367dc9-3fc3-4fd9-b452-e32fa438509b" });
+  });
+
+  window.addEventListener('DOMContentLoaded', async () => {
+    window.BSDC.initPage({ activePage: 'profile' });
+
+    const username = window.BSDC.getParam('u');
+
+    if (!username) {
+      // If no username, check if logged in and redirect to own profile
+      window.BSDC.auth.subscribe((user, profile) => {
+        if (user && profile?.username) {
+          window.location.href = `/profile?u=${profile.username}`;
+        } else if (!user) {
+          window.location.href = '/login';
+        }
+      });
+      return;
+    }
+
+    try {
+      // Load profile by username
+      const profile = await window.BSDC.auth.getProfileByUsername(username);
+
+      if (!profile) {
+        document.getElementById('profile-loading-state').style.display = 'none';
+        document.getElementById('profile-not-found').style.display = 'block';
+        document.title = 'Profile Not Found — BSDC';
+        return;
+      }
+
+      // ============================================
+      // WORLD-CLASS PROFILE SEO
+      // Forces Google to show: "BSDC - username"
+      // ============================================
+      const profileUrl = `https://www.bsdc.info.bd/profile?u=${profile.username}`;
+      const profileTitle = `BSDC - ${profile.displayName}`;
+      const profileDesc = `${profile.displayName} (@${profile.username}) is a ${profile.role || 'software developer'} on BSDC — Bangladesh Software Development Community. ${profile.bio ? profile.bio + ' ' : ''}${profile.postCount || 0} posts · ${profile.answerCount || 0} answers · ${profile.reputation || 0} reputation. Joined from ${profile.location || 'Bangladesh'}.`;
+
+      // Set all meta
+      document.title = profileTitle;
+
+      // Full SEO injection
+      window.BSDC.seo.setMeta({
+        title: `BSDC - ${profile.displayName}`,
+        description: profileDesc,
+        keywords: `${profile.displayName}, @${profile.username}, BSDC ${profile.username}, Bangladesh developer ${profile.username}, ${(profile.skills || []).join(', ')}, BSDC member`,
+        url: profileUrl,
+        type: 'profile',
+        author: profile.displayName,
+        image: profile.photoURL || 'https://www.bsdc.info.bd/og-image.png'
+      });
+
+      // Extended profile-specific schemas
+      const existingSchemas = document.querySelectorAll('script[data-bsdc-schema]');
+      existingSchemas.forEach(s => s.remove());
+
+      // 1. WebSite Schema (forces site name in Google)
+      const websiteSchema = document.createElement('script');
+      websiteSchema.type = 'application/ld+json';
+      websiteSchema.setAttribute('data-bsdc-schema', 'true');
+      websiteSchema.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Bangladesh Software Development Community",
+        "alternateName": ["BSDC", "bsdc.info.bd"],
+        "url": "https://www.bsdc.info.bd",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.bsdc.info.bd/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      });
+      document.head.appendChild(websiteSchema);
+
+      // 2. Person Schema (for the developer profile)
+      const personSchema = document.createElement('script');
+      personSchema.type = 'application/ld+json';
+      personSchema.setAttribute('data-bsdc-schema', 'true');
+      personSchema.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": profile.displayName,
+        "givenName": profile.displayName.split(' ')[0] || profile.displayName,
+        "alternateName": `@${profile.username}`,
+        "description": profileDesc,
+        "url": profileUrl,
+        "identifier": {
+          "@type": "PropertyValue",
+          "name": "BSDC Username",
+          "value": profile.username
+        },
+        "image": profile.photoURL || '',
+        "jobTitle": profile.role || 'Software Developer',
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Bangladesh Software Development Community",
+          "url": "https://www.bsdc.info.bd"
+        },
+        "memberOf": {
+          "@type": "Organization",
+          "name": "Bangladesh Software Development Community",
+          "url": "https://www.bsdc.info.bd"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": profile.location || "Bangladesh",
+          "addressCountry": "BD"
+        },
+        "knowsAbout": profile.skills || [],
+        "sameAs": [
+          profile.github ? `https://github.com/${profile.github}` : null,
+          profile.website || null
+        ].filter(Boolean),
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": profileUrl,
+          "name": `BSDC - ${profile.displayName}`,
+          "description": profileDesc,
+          "isPartOf": {
+            "@type": "WebSite",
+            "name": "Bangladesh Software Development Community",
+            "url": "https://www.bsdc.info.bd"
+          }
+        }
+      });
+      document.head.appendChild(personSchema);
+
+      // 3. ProfilePage Schema
+      const profilePageSchema = document.createElement('script');
+      profilePageSchema.type = 'application/ld+json';
+      profilePageSchema.setAttribute('data-bsdc-schema', 'true');
+      profilePageSchema.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "name": `BSDC - ${profile.displayName} Profile`,
+        "description": profileDesc,
+        "url": profileUrl,
+        "mainEntity": {
+          "@type": "Person",
+          "name": profile.displayName,
+          "alternateName": `@${profile.username}`,
+          "url": profileUrl
+        },
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "Bangladesh Software Development Community",
+          "url": "https://www.bsdc.info.bd"
+        },
+        "dateModified": new Date().toISOString()
+      });
+      document.head.appendChild(profilePageSchema);
+
+      // 4. BreadcrumbList Schema
+      const breadcrumbSchema = document.createElement('script');
+      breadcrumbSchema.type = 'application/ld+json';
+      breadcrumbSchema.setAttribute('data-bsdc-schema', 'true');
+      breadcrumbSchema.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "BSDC Home",
+            "item": "https://www.bsdc.info.bd"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Developers",
+            "item": "https://www.bsdc.info.bd/search"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": `BSDC - ${profile.displayName}`,
+            "item": profileUrl
+          }
+        ]
+      });
+      document.head.appendChild(breadcrumbSchema);
+
+      // Update Open Graph dynamically
+      const setOG = (prop, content) => {
+        let el = document.querySelector(`meta[property="${prop}"]`);
+        if (!el) {
+          el = document.createElement('meta');
+          el.setAttribute('property', prop);
+          document.head.appendChild(el);
+        }
+        el.setAttribute('content', content);
+      };
+
+      setOG('og:title', `BSDC - ${profile.displayName} (@${profile.username})`);
+      setOG('og:description', profileDesc);
+      setOG('og:url', profileUrl);
+      setOG('og:type', 'profile');
+      setOG('og:image', profile.photoURL || 'https://www.bsdc.info.bd/og-image.png');
+      setOG('profile:username', profile.username);
+
+      // Update canonical
+      let canonical = document.querySelector('link[rel="canonical"]');
+      if (!canonical) {
+        canonical = document.createElement('link');
+        canonical.rel = 'canonical';
+        document.head.appendChild(canonical);
+      }
+      canonical.href = profileUrl;
+
+      // Twitter
+      const setTwitter = (name, content) => {
+        let el = document.querySelector(`meta[name="${name}"]`);
+        if (!el) {
+          el = document.createElement('meta');
+          el.setAttribute('name', name);
+          document.head.appendChild(el);
+        }
+        el.setAttribute('content', content);
+      };
+      setTwitter('twitter:title', `BSDC - ${profile.displayName} (@${profile.username})`);
+      setTwitter('twitter:description', profileDesc);
+      setTwitter('twitter:image', profile.photoURL || 'https://www.bsdc.info.bd/og-image.png');
+
+      // ============================================
+      // Wait for auth then render
+      // ============================================
+      await new Promise(resolve => {
+        let done = false;
+        window.BSDC.auth.subscribe(() => {
+          if (!done) { done = true; resolve(); }
+        });
+      });
+
+      const isOwnProfile = window.BSDC.auth.currentUser?.uid === profile.uid;
+
+      // Show content, hide skeleton
+      document.getElementById('profile-loading-state').style.display = 'none';
+      document.getElementById('profile-content').style.display = 'block';
+
+      // Render Profile Header
+      window.BSDC.profileEngine.renderProfileHeader(
+        profile,
+        isOwnProfile,
+        document.getElementById('profile-header-inner')
+      );
+
+      // Render ID Card
+      window.BSDC.profileEngine.renderIDCard(
+        profile,
+        document.getElementById('id-card-container')
+      );
+
+      // About Widget
+      if (profile.bio || profile.skills?.length) {
+        const aboutWidget = document.getElementById('about-widget');
+        const aboutBody = document.getElementById('about-widget-body');
+        if (aboutWidget) aboutWidget.style.display = 'block';
+        if (aboutBody) {
+          aboutBody.innerHTML = `
+            ${profile.bio ? `<p style="font-size:0.875rem;color:#475569;line-height:1.7;margin-bottom:0.875rem">${profile.bio}</p>` : ''}
+            ${profile.skills?.length ? `
+              <div>
+                <div style="font-size:0.75rem;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem">Skills</div>
+                <div style="display:flex;flex-wrap:wrap;gap:0.375rem">
+                  ${profile.skills.map(s => `<a href="/tag?t=${encodeURIComponent(s.toLowerCase())}" class="tag" style="font-size:0.78rem">${s}</a>`).join('')}
+                </div>
+              </div>
+            ` : ''}
+          `;
+        }
+      }
+
+      // Load posts
+      const allPosts = await window.BSDC.db.getPostsByUser(profile.uid, 30);
+
+      // Tab filtering
+      const filterAndRender = (tabType) => {
+        let filtered = allPosts;
+        if (tabType === 'answers') {
+          // Show answers placeholder
+          document.getElementById('profile-posts-container').innerHTML = `
+            <div style="text-align:center;padding:2rem;background:white;border:1px solid #E2E8F0;border-radius:0.75rem;color:#64748B">
+              <div style="font-size:2rem;margin-bottom:0.75rem">💬</div>
+              <p>Answer history coming soon!</p>
+            </div>
+          `;
+          return;
+        }
+        if (tabType !== 'posts') {
+          filtered = allPosts.filter(p => p.type === tabType.replace('s','').replace('snippet','snippet'));
+        }
+        if (tabType === 'questions') filtered = allPosts.filter(p => p.type === 'question');
+        if (tabType === 'snippets') filtered = allPosts.filter(p => p.type === 'snippet');
+
+        window.BSDC.profileEngine.renderUserPosts(
+          filtered,
+          document.getElementById('profile-posts-container'),
+          profile.username
+        );
+      };
+
+      // Initial render
+      filterAndRender('posts');
+
+      // Tab events
+      document.querySelectorAll('[data-ptab]').forEach(tab => {
+        tab.addEventListener('click', () => {
+          document.querySelectorAll('[data-ptab]').forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected', 'true');
+          filterAndRender(tab.dataset.ptab);
+        });
+      });
+
+      // Activity Widget
+      const activityEl = document.getElementById('activity-widget');
+      if (activityEl) {
+        const recentPosts = allPosts.slice(0, 5);
+        if (recentPosts.length > 0) {
+          activityEl.innerHTML = recentPosts.map(p => `
+            <a href="/post?slug=${p.slug}" style="display:flex;align-items:flex-start;gap:0.625rem;padding:0.5rem 0;border-bottom:1px solid #F1F5F9;text-decoration:none;transition:color 0.15s" class="trending-item">
+              <span style="font-size:0.9rem;flex-shrink:0">${
+                p.type === 'question' ? '❓' :
+                p.type === 'blog' ? '📝' :
+                p.type === 'snippet' ? '💻' :
+                p.type === 'wiki' ? '📚' :
+                p.type === 'project' ? '🚀' : '💬'
+              }</span>
+              <div style="flex:1;min-width:0">
+                <div class="line-clamp-2" style="font-size:0.82rem;font-weight:600;color:#1E293B;line-height:1.4">${p.title}</div>
+                <div style="font-size:0.72rem;color:#94A3B8;margin-top:0.15rem">${window.BSDC.time.ago(p.createdAt)}</div>
+              </div>
+            </a>
+          `).join('');
+        } else {
+          activityEl.innerHTML = '<p style="color:#64748B;font-size:0.875rem;text-align:center">No recent activity</p>';
+        }
+      }
+
+      // Responsive: stack on mobile
+      const bodyGrid = document.getElementById('profile-body-grid');
+      if (window.innerWidth <= 768 && bodyGrid) {
+        bodyGrid.style.gridTemplateColumns = '1fr';
+        // Move ID card section after header on mobile
+        const idCardSection = bodyGrid.lastElementChild;
+        bodyGrid.insertBefore(idCardSection, bodyGrid.firstElementChild);
+      }
+
+      // Init notifications for own profile
+      if (isOwnProfile) {
+        setTimeout(() => {
+          window.BSDC.notifications.init();
+          setTimeout(() => window.BSDC.notifications.showPromptBanner(), 3000);
+        }, 1000);
+      }
+
+    } catch(err) {
+      console.error('Profile load error:', err);
+      document.getElementById('profile-loading-state').style.display = 'none';
+      document.getElementById('profile-not-found').style.display = 'block';
+    }
+  });
+</script>
+</body>
+</html>
