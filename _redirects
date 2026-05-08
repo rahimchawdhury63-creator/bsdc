@@ -1,0 +1,10 @@
+/post/*     /post.html    200
+/profile/*  /profile.html 200
+/tag/*      /tag.html     200
+/search/*   /search.html  200
+/dashboard  /dashboard.html 200
+/submit     /submit.html  200
+/login      /login.html   200
+/register   /register.html 200
+/about      /about.html   200
+/*          /404.html     404
