@@ -31,13 +31,16 @@ const auth = getAuth(app);
 
 // Enable offline persistence
 try {
-  enableIndexedDbPersistence(db).catch((err) => {
-    if (err.code === 'failed-precondition') {
-      console.warn("BSDC: Multiple tabs open. Persistence enabled in one tab only.");
-    } else if (err.code === 'unimplemented') {
-      console.warn("BSDC: Browser doesn't support offline persistence.");
-    }
-  });
+  // Enable offline persistence
+enableIndexedDbPersistence(db).catch((err) => {
+  if (err.code === 'failed-precondition') {
+    console.warn('BSDC: Multiple tabs — persistence in one tab only.');
+  } else if (err.code === 'unimplemented') {
+    console.warn('BSDC: Browser does not support persistence.');
+  } else {
+    console.warn('BSDC persistence error:', err.code);
+  }
+});
 } catch(e) {}
 
 // Export for all modules
