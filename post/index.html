@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Loading... — BSDC</title>
+  <meta name="description" id="page-desc" content="Read this post on BSDC — Bangladesh Software Development Community." />
+  <meta name="keywords" id="page-keywords" content="BSDC, Bangladesh software development community" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <link rel="canonical" id="page-canonical" href="https://www.bsdc.info.bd/post" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Bangladesh Software Development Community" />
+  <meta property="og:title" id="og-title" content="BSDC Post" />
+  <meta property="og:description" id="og-desc" content="Read on BSDC" />
+  <meta property="og:url" id="og-url" content="https://www.bsdc.info.bd/post" />
+  <meta property="og:image" id="og-image" content="https://www.bsdc.info.bd/assets/img/og-cover.png" />
+  <meta property="article:author" id="og-author" content="" />
+  <meta property="article:published_time" id="og-published" content="" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" id="tw-title" content="BSDC Post" />
+  <meta name="twitter:description" id="tw-desc" content="Read on BSDC" />
+  <meta name="twitter:image" id="tw-image" content="https://www.bsdc.info.bd/assets/img/og-cover.png" />
+
+  <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+
+  <!-- JSON-LD injected dynamically by seo.js -->
+  <script id="jsonld-post" type="application/ld+json">{}</script>
+
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function(OneSignal) {
+      await OneSignal.init({ appId: "5f367dc9-3fc3-4fd9-b452-e32fa438509b" });
+    });
+  </script>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Navbar -->
+<header class="navbar" role="banner">
+  <div class="container navbar-inner">
+    <a href="/" class="navbar-brand" aria-label="BSDC Home">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+        <rect width="36" height="36" rx="8" fill="#006A4E"/>
+        <text x="18" y="25" font-family="Inter,sans-serif" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">B</text>
+        <circle cx="28" cy="8" r="4" fill="#FFFFFF" opacity="0.3"/>
+      </svg>
+      <span class="brand-text">BSDC</span>
+    </a>
+    <div class="navbar-search" role="search">
+      <form action="/search" method="GET">
+        <div class="search-wrapper">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="search" name="q" placeholder="Search BSDC..." aria-label="Search" />
+        </div>
+      </form>
+    </div>
+    <nav class="navbar-actions" aria-label="Main navigation">
+      <a href="/ask" class="btn btn-primary btn-sm">Ask</a>
+      <a href="/write" class="btn btn-outline btn-sm">Write</a>
+      <div class="nav-auth" id="nav-auth">
+        <a href="/login" class="btn btn-ghost btn-sm">Login</a>
+        <a href="/register" class="btn btn-primary btn-sm">Join</a>
+      </div>
+      <div class="nav-user hidden" id="nav-user">
+        <a href="#" id="nav-notifications" class="icon-btn" aria-label="Notifications">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        </a>
+        <div class="avatar-menu" id="avatar-menu-wrapper">
+          <button class="avatar-btn" id="avatar-btn" aria-label="User menu" aria-expanded="false">
+            <img src="/assets/img/avatar-placeholder.svg" id="nav-avatar" alt="User" width="34" height="34" />
+          </button>
+          <div class="dropdown-menu" id="avatar-dropdown" role="menu">
+            <a href="#" id="dropdown-profile" role="menuitem">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              My Profile
+            </a>
+            <hr/>
+            <button id="logout-btn" role="menuitem">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+              Logout
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- SKELETON LOADER -->
+<div id="post-skeleton" class="container" style="padding-top:32px;padding-bottom:60px;display:grid;grid-template-columns:1fr 280px;gap:24px;" aria-hidden="true">
+  <div>
+    <div class="card">
+      <div class="skeleton skeleton-line w-80" style="height:28px;margin-bottom:16px;"></div>
+      <div class="skeleton skeleton-line w-40" style="margin-bottom:24px;"></div>
+      <div class="skeleton skeleton-line w-90"></div>
+      <div class="skeleton skeleton-line w-85"></div>
+      <div class="skeleton skeleton-line w-70"></div>
+      <div class="skeleton skeleton-line w-95"></div>
+      <div class="skeleton skeleton-line w-60"></div>
+    </div>
+  </div>
+  <div>
+    <div class="side-card">
+      <div class="skeleton skeleton-line w-70"></div>
+      <div class="skeleton skeleton-line w-50"></div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT (populated by JS) -->
+<div id="post-content-wrapper" class="hidden">
+  <div class="container" style="padding-top:32px;padding-bottom:60px;display:grid;grid-template-columns:1fr 280px;gap:24px;align-items:start;" id="main-content">
+
+    <main id="post-main" role="main">
+
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" style="margin-bottom:16px;">
+        <ol style="display:flex;align-items:center;gap:8px;list-style:none;font-size:0.825rem;color:#64748B;" itemscope itemtype="https://schema.org/BreadcrumbList">
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href="/" itemprop="item" style="color:#006A4E;"><span itemprop="name">BSDC</span></a>
+            <meta itemprop="position" content="1" />
+          </li>
+          <li aria-hidden="true">›</li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span id="breadcrumb-type" itemprop="name" style="color:#64748B;">Post</span>
+            <meta itemprop="position" content="2" />
+          </li>
+          <li aria-hidden="true">›</li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span id="breadcrumb-title" itemprop="name" style="color:#1E293B;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:300px;display:inline-block;"></span>
+            <meta itemprop="position" content="3" />
+          </li>
+        </ol>
+      </nav>
+
+      <!-- Post Card -->
+      <article class="card" id="post-article" itemscope itemtype="https://schema.org/Article">
+
+        <!-- Post Header -->
+        <header id="post-header">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap;">
+            <span id="post-type-badge" class="post-type-badge"></span>
+            <span id="post-solved-badge" class="solved-badge hidden">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Solved
+            </span>
+            <span id="post-lang-badge" class="hidden" style="background:#F0FDF4;color:#15803D;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:9999px;"></span>
+          </div>
+
+          <h1 id="post-title" itemprop="headline" style="font-size:clamp(1.3rem,3vw,1.8rem);font-weight:800;color:#1E293B;line-height:1.3;margin-bottom:16px;"></h1>
+
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid #E2E8F0;margin-bottom:20px;">
+            <a id="post-author-link" href="#" style="display:flex;align-items:center;gap:8px;text-decoration:none;" itemprop="author" itemscope itemtype="https://schema.org/Person">
+              <img id="post-author-avatar" src="/assets/img/avatar-placeholder.svg" alt="Author" width="36" height="36" style="border-radius:50%;object-fit:cover;" itemprop="image" />
+              <div>
+                <div id="post-author-name" itemprop="name" style="font-size:0.875rem;font-weight:700;color:#1E293B;"></div>
+                <div id="post-author-username" style="font-size:0.75rem;color:#006A4E;"></div>
+              </div>
+            </a>
+            <div style="display:flex;gap:16px;font-size:0.8rem;color:#64748B;flex-wrap:wrap;">
+              <span id="post-date" itemprop="datePublished"></span>
+              <span id="post-views">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                <span id="post-view-count">0</span> views
+              </span>
+            </div>
+            <!-- Share buttons -->
+            <div style="margin-left:auto;display:flex;gap:6px;" id="share-buttons">
+              <button class="icon-btn" id="share-twitter" aria-label="Share on Twitter" title="Share on Twitter">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </button>
+              <button class="icon-btn" id="share-copy" aria-label="Copy link" title="Copy link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <!-- Cover Image -->
+        <div id="cover-img-wrapper" class="hidden" style="margin-bottom:24px;">
+          <img id="post-cover-img" src="" alt="" style="width:100%;max-height:400px;object-fit:cover;border-radius:12px;" itemprop="image" loading="eager" />
+        </div>
+
+        <!-- Post Body -->
+        <div id="post-body" itemprop="articleBody" style="line-height:1.85;font-size:1rem;color:#1E293B;">
+          <!-- Rendered by JS -->
+        </div>
+
+        <!-- Project Links -->
+        <div id="project-links" class="hidden" style="margin-top:24px;padding:16px;background:#F1F5F9;border-radius:12px;display:flex;gap:12px;flex-wrap:wrap;">
+          <a id="project-github-link" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" style="display:none;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            View on GitHub
+          </a>
+          <a id="project-demo-link" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="display:none;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            Live Demo
+          </a>
+          <div id="project-stack-display" style="display:none;font-size:0.825rem;color:#64748B;align-self:center;"></div>
+        </div>
+
+        <!-- Tags -->
+        <div id="post-tags" style="margin-top:20px;display:flex;gap:6px;flex-wrap:wrap;"></div>
+
+        <!-- Vote & Actions Bar -->
+        <div style="margin-top:24px;padding-top:20px;border-top:1px solid #E2E8F0;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:4px;">
+            <button class="vote-btn" id="post-upvote" aria-label="Upvote this post">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+            </button>
+            <span id="post-vote-count" style="font-weight:700;font-size:1rem;min-width:30px;text-align:center;color:#1E293B;">0</span>
+            <button class="vote-btn" id="post-downvote" aria-label="Downvote this post">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+
+          <button class="btn btn-ghost btn-sm" id="bookmark-btn" aria-label="Bookmark">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            Bookmark
+          </button>
+
+          <div id="author-actions" class="hidden" style="margin-left:auto;display:flex;gap:8px;">
+            <a href="#" id="edit-post-btn" class="btn btn-outline btn-sm">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              Edit
+            </a>
+            <button id="delete-post-btn" class="btn btn-danger btn-sm">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+              Delete
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- ANSWERS SECTION (for questions) -->
+      <section id="answers-section" class="hidden" aria-label="Answers">
+        <h2 id="answers-heading" style="font-size:1.1rem;font-weight:700;color:#1E293B;margin:24px 0 16px;display:flex;align-items:center;gap:8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#006A4E" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span id="answer-count-text">0 Answers</span>
+        </h2>
+        <div id="answers-list" aria-live="polite"></div>
+
+        <!-- Answer Form -->
+        <div class="answer-form-wrapper" id="answer-form-wrapper">
+          <h3 style="font-size:1rem;font-weight:700;color:#1E293B;margin-bottom:14px;">Your Answer</h3>
+          <div id="answer-login-prompt" class="hidden" style="text-align:center;padding:24px;background:#F1F5F9;border-radius:12px;">
+            <p style="color:#64748B;margin-bottom:12px;">You must be logged in to answer.</p>
+            <a href="/login" class="btn btn-primary btn-sm">Login to Answer</a>
+          </div>
+          <form id="answer-form" class="hidden" novalidate>
+            <div class="editor-toolbar" role="toolbar">
+              <button type="button" class="toolbar-btn" data-action="bold"><strong>B</strong></button>
+              <button type="button" class="toolbar-btn" data-action="italic"><em>I</em></button>
+              <button type="button" class="toolbar-btn" data-action="code">`code`</button>
+              <button type="button" class="toolbar-btn" data-action="codeblock">```</button>
+            </div>
+            <textarea id="answer-body" class="form-input editor-textarea" rows="8" placeholder="Write a clear, detailed answer. Include code examples where relevant.&#10;&#10;বাংলায় উত্তর দিতে পারেন।" required aria-required="true" maxlength="10000"></textarea>
+            <div style="display:flex;justify-content:space-between;margin-top:4px;">
+              <span class="form-hint">Markdown supported. Be specific and helpful.</span>
+              <span class="char-count"><span id="answer-count">0</span>/10000</span>
+            </div>
+            <button type="submit" class="btn btn-primary" id="answer-submit" style="margin-top:12px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Post Answer
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- COMMENTS SECTION (for non-question posts) -->
+      <section id="comments-section" class="hidden" aria-label="Comments">
+        <h2 style="font-size:1.1rem;font-weight:700;color:#1E293B;margin:24px 0 16px;display:flex;align-items:center;gap:8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#006A4E" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Comments
+        </h2>
+        <div id="comments-list" aria-live="polite"></div>
+        <div class="answer-form-wrapper" style="margin-top:16px;">
+          <div id="comment-login-prompt" class="hidden" style="text-align:center;padding:20px;background:#F1F5F9;border-radius:12px;">
+            <p style="color:#64748B;margin-bottom:12px;">Login to leave a comment.</p>
+            <a href="/login" class="btn btn-primary btn-sm">Login</a>
+          </div>
+          <form id="comment-form" class="hidden" novalidate>
+            <textarea id="comment-body" class="form-input" rows="3" placeholder="Leave a comment... (বাংলায় লিখতে পারেন)" maxlength="2000" aria-label="Comment"></textarea>
+            <button type="submit" class="btn btn-primary btn-sm" style="margin-top:8px;" id="comment-submit">Post Comment</button>
+          </form>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- RIGHT SIDEBAR -->
+    <aside role="complementary" aria-label="Post sidebar">
+
+      <!-- Author Card -->
+      <div class="side-card" id="author-card" style="margin-bottom:16px;">
+        <h3 class="side-card-title">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#006A4E" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Author
+        </h3>
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;">
+          <a href="#" id="sidebar-author-link">
+            <img id="sidebar-author-avatar" src="/assets/img/avatar-placeholder.svg" alt="Author" width="56" height="56" style="border-radius:50%;object-fit:cover;border:2px solid #E8F5F0;" loading="lazy" />
+          </a>
+          <div id="sidebar-author-name" style="font-weight:700;color:#1E293B;font-size:0.925rem;"></div>
+          <div id="sidebar-author-bio" style="font-size:0.8rem;color:#64748B;line-height:1.5;"></div>
+          <a href="#" id="sidebar-profile-btn" class="btn btn-outline btn-sm w-full">View Profile</a>
+        </div>
+      </div>
+
+      <!-- Table of Contents -->
+      <div class="side-card" id="toc-card" style="margin-bottom:16px;display:none;">
+        <h3 class="side-card-title">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#006A4E" stroke-width="2" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          Contents
+        </h3>
+        <nav id="toc-list" aria-label="Table of contents" style="display:flex;flex-direction:column;gap:4px;"></nav>
+      </div>
+
+      <!-- Related Posts -->
+      <div class="side-card" id="related-posts-card">
+        <h3 class="side-card-title">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#006A4E" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+          Related Posts
+        </h3>
+        <div id="related-posts-list">
+          <div class="skeleton skeleton-line w-80"></div>
+          <div class="skeleton skeleton-line w-60"></div>
+          <div class="skeleton skeleton-line w-70"></div>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+</div>
+
+<!-- ERROR STATE -->
+<div id="post-error" class="hidden container" style="padding:80px 20px;text-align:center;">
+  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5" style="margin:0 auto 20px;" aria-hidden="true">
+    <circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
+  </svg>
+  <h1 style="font-size:1.5rem;color:#1E293B;margin-bottom:8px;">Post Not Found</h1>
+  <p style="color:#64748B;margin-bottom:20px;">This post may have been removed or the link is incorrect.</p>
+  <a href="/" class="btn btn-primary">← Back to Home</a>
+</div>
+
+<div class="toast-container" id="toast-container" aria-live="assertive"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script type="module" src="/assets/js/firebase-init.js"></script>
+<script type="module" src="/assets/js/auth.js"></script>
+<script type="module" src="/assets/js/seo.js"></script>
+
+<script type="module">
+import { db, auth, showToast, timeAgo, sanitizeHTML, formatNum } from '/assets/js/firebase-init.js';
+import { getCurrentUser, requireAuth } from '/assets/js/auth.js';
+import { parseMarkdown, handleVote, initEditorToolbar, initCharCount } from '/assets/js/post.js';
+import { injectPostSEO } from '/assets/js/seo.js';
+import {
+  collection, doc, getDoc, getDocs, addDoc, updateDoc, deleteDoc,
+  query, where, orderBy, limit, increment, serverTimestamp, setDoc
+} from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
+
+const params = new URLSearchParams(window.location.search);
+const slug = params.get('slug');
+let currentPost = null;
+let currentPostId = null;
+
+if (!slug) {
+  showError();
+} else {
+  loadPost(slug);
+}
+
+async function loadPost(slug) {
+  try {
+    const postsRef = collection(db, 'posts');
+    const q = query(postsRef, where('slug', '==', slug), where('status', '==', 'published'), limit(1));
+    const snap = await getDocs(q);
+
+    if (snap.empty) { showError(); return; }
+
+    const docSnap = snap.docs[0];
+    currentPost = { id: docSnap.id, ...docSnap.data() };
+    currentPostId = docSnap.id;
+
+    // Increment view count
+    updateDoc(doc(db, 'posts', currentPostId), { viewCount: increment(1) });
+
+    renderPost(currentPost);
+    injectPostSEO(currentPost);
+    loadRelatedPosts(currentPost.tags, currentPostId);
+    buildTOC();
+
+    // Auth-dependent elements
+    onAuthStateChanged(auth, (user) => {
+      setupAuthElements(user, currentPost);
+    });
+
+  } catch(err) {
+    console.error(err);
+    showError();
+  }
+}
+
+function renderPost(post) {
+  document.getElementById('post-skeleton').classList.add('hidden');
+  document.getElementById('post-content-wrapper').classList.remove('hidden');
+
+  // Breadcrumb
+  document.getElementById('breadcrumb-type').textContent = post.type.charAt(0).toUpperCase() + post.type.slice(1);
+  document.getElementById('breadcrumb-title').textContent = post.title;
+
+  // Type badge
+  const typeColors = { question:'badge-question', wiki:'badge-wiki', blog:'badge-blog', snippet:'badge-snippet', project:'badge-project', post:'badge-post' };
+  const badge = document.getElementById('post-type-badge');
+  badge.textContent = post.type.toUpperCase();
+  badge.className = `post-type-badge ${typeColors[post.type] || 'badge-post'}`;
+
+  // Solved badge
+  if (post.isSolved) document.getElementById('post-solved-badge').classList.remove('hidden');
+
+  // Language badge (snippet)
+  if (post.type === 'snippet' && post.language) {
+    const lb = document.getElementById('post-lang-badge');
+    lb.textContent = post.language;
+    lb.classList.remove('hidden');
+  }
+
+  // Title
+  document.getElementById('post-title').textContent = post.title;
+
+  // Author
+  const authorLink = document.getElementById('post-author-link');
+  authorLink.href = `/profile?uid=${post.authorId}`;
+  document.getElementById('post-author-avatar').src = post.authorPhoto || '/assets/img/avatar-placeholder.svg';
+  document.getElementById('post-author-avatar').alt = post.authorName || 'Author';
+  document.getElementById('post-author-name').textContent = post.authorName || 'Anonymous';
+  document.getElementById('post-author-username').textContent = post.authorUsername ? `@${post.authorUsername}` : '';
+
+  // Date & views
+  const date = post.createdAt?.toDate ? post.createdAt.toDate() : new Date();
+  document.getElementById('post-date').textContent = date.toLocaleDateString('en-BD', { year:'numeric', month:'long', day:'numeric' });
+  document.getElementById('post-view-count').textContent = formatNum(post.viewCount || 0);
+
+  // Cover image
+  if (post.coverImage || post.imageUrl) {
+    const wrapper = document.getElementById('cover-img-wrapper');
+    const img = document.getElementById('post-cover-img');
+    img.src = post.coverImage || post.imageUrl;
+    img.alt = post.title;
+    wrapper.classList.remove('hidden');
+  }
+
+  // Body - render markdown
+  const bodyEl = document.getElementById('post-body');
+  bodyEl.innerHTML = parseMarkdown(post.body);
+  bodyEl.querySelectorAll('pre code').forEach(el => { if (window.hljs) window.hljs.highlightElement(el); });
+
+  // Project links
+  if (post.type === 'project') {
+    const projectLinks = document.getElementById('project-links');
+    projectLinks.classList.remove('hidden');
+    if (post.githubUrl) {
+      const gl = document.getElementById('project-github-link');
+      gl.href = post.githubUrl;
+      gl.style.display = 'inline-flex';
+    }
+    if (post.demoUrl) {
+      const dl = document.getElementById('project-demo-link');
+      dl.href = post.demoUrl;
+      dl.style.display = 'inline-flex';
+    }
+    if (post.techStack) {
+      const sd = document.getElementById('project-stack-display');
+      sd.textContent = `Stack: ${post.techStack}`;
+      sd.style.display = 'block';
+    }
+  }
+
+  // Tags
+  const tagsEl = document.getElementById('post-tags');
+  (post.tags || []).forEach(tag => {
+    tagsEl.insertAdjacentHTML('beforeend',
+      `<a href="/tag?name=${encodeURIComponent(tag)}" class="tag-pill">${sanitizeHTML(tag)}</a>`
+    );
+  });
+
+  // Vote count
+  document.getElementById('post-vote-count').textContent = post.voteCount || 0;
+
+  // Sidebar author
+  document.getElementById('sidebar-author-link').href = `/profile?uid=${post.authorId}`;
+  document.getElementById('sidebar-author-avatar').src = post.authorPhoto || '/assets/img/avatar-placeholder.svg';
+  document.getElementById('sidebar-author-name').textContent = post.authorName || 'Anonymous';
+  document.getElementById('sidebar-profile-btn').href = `/profile?uid=${post.authorId}`;
+
+  // Load author bio
+  getDoc(doc(db, 'users', post.authorId)).then(snap => {
+    if (snap.exists()) {
+      const u = snap.data();
+      document.getElementById('sidebar-author-bio').textContent = u.bio || 'BSDC Community Member';
+    }
+  });
+
+  // Q&A or Comments
+  if (post.type === 'question') {
+    document.getElementById('answers-section').classList.remove('hidden');
+    loadAnswers(currentPostId, post);
+  } else {
+    document.getElementById('comments-section').classList.remove('hidden');
+    loadComments(currentPostId);
+  }
+
+  // Vote buttons
+  document.getElementById('post-upvote').addEventListener('click', () => {
+    handleVote(currentPostId, 1);
+    const el = document.getElementById('post-vote-count');
+    el.textContent = (parseInt(el.textContent) || 0) + 1;
+  });
+  document.getElementById('post-downvote').addEventListener('click', () => {
+    handleVote(currentPostId, -1);
+    const el = document.getElementById('post-vote-count');
+    el.textContent = (parseInt(el.textContent) || 0) - 1;
+  });
+
+  // Share buttons
+  document.getElementById('share-twitter').addEventListener('click', () => {
+    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(window.location.href)}`, '_blank');
+  });
+  document.getElementById('share-copy').addEventListener('click', () => {
+    navigator.clipboard.writeText(window.location.href).then(() => showToast('Link copied! 🔗'));
+  });
+
+  // Bookmark
+  document.getElementById('bookmark-btn').addEventListener('click', () => {
+    const user = getCurrentUser();
+    if (!user) { showToast('Login to bookmark posts.', 'warning'); return; }
+    setDoc(doc(db, `users/${user.uid}/bookmarks/${currentPostId}`), {
+      postId: currentPostId, slug: post.slug, title: post.title, savedAt: serverTimestamp()
+    }, { merge: true }).then(() => showToast('Bookmarked! 🔖'));
+  });
+
+  // Answer form toolbar
+  initEditorToolbar('.answer-form-wrapper .editor-toolbar', 'answer-body', null, null, null);
+  initCharCount('answer-body', 'answer-count');
+}
+
+async function setupAuthElements(user, post) {
+  const answerForm = document.getElementById('answer-form');
+  const answerLoginPrompt = document.getElementById('answer-login-prompt');
+  const commentForm = document.getElementById('comment-form');
+  const commentLoginPrompt = document.getElementById('comment-login-prompt');
+  const authorActions = document.getElementById('author-actions');
+
+  if (user) {
+    answerForm?.classList.remove('hidden');
+    answerLoginPrompt?.classList.add('hidden');
+    commentForm?.classList.remove('hidden');
+    commentLoginPrompt?.classList.add('hidden');
+
+    // Author controls
+    if (post.authorId === user.uid || post.isAdmin) {
+      authorActions?.classList.remove('hidden');
+      document.getElementById('edit-post-btn').href = `/write?edit=${currentPostId}`;
+      document.getElementById('delete-post-btn').addEventListener('click', async () => {
+        if (!confirm('Are you sure you want to delete this post?')) return;
+        await updateDoc(doc(db, 'posts', currentPostId), { status: 'deleted' });
+        showToast('Post deleted.');
+        setTimeout(() => window.location.href = '/', 1000);
+      });
+    }
+  } else {
+    answerForm?.classList.add('hidden');
+    answerLoginPrompt?.classList.remove('hidden');
+    commentForm?.classList.add('hidden');
+    commentLoginPrompt?.classList.remove('hidden');
+  }
+
+  // Answer submit
+  document.getElementById('answer-form')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!user) return;
+    const body = document.getElementById('answer-body').value.trim();
+    if (!body || body.length < 10) { showToast('Please write a more detailed answer.', 'warning'); return; }
+
+    const btn = document.getElementById('answer-submit');
+    btn.disabled = true;
+    btn.textContent = 'Posting...';
+
+    try {
+      const userSnap = await getDoc(doc(db, 'users', user.uid));
+      const userData = userSnap.data() || {};
+
+      await addDoc(collection(db, `posts/${currentPostId}/answers`), {
+        body,
+        authorId: user.uid,
+        authorName: user.displayName || userData.displayName || 'Anonymous',
+        authorPhoto: user.photoURL || userData.photoURL || '',
+        authorUsername: userData.username || '',
+        voteCount: 0,
+        isAccepted: false,
+        createdAt: serverTimestamp()
+      });
+
+      await updateDoc(doc(db, 'posts', currentPostId), { answerCount: increment(1) });
+      await updateDoc(doc(db, 'users', user.uid), { answerCount: increment(1), points: increment(3) });
+
+      document.getElementById('answer-body').value = '';
+      showToast('Answer posted! 🎉');
+      loadAnswers(currentPostId, currentPost);
+    } catch(err) {
+      showToast('Failed to post answer.', 'error');
+    }
+    btn.disabled = false;
+    btn.textContent = 'Post Answer';
+  });
+
+  // Comment submit
+  document.getElementById('comment-form')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!user) return;
+    const body = document.getElementById('comment-body').value.trim();
+    if (!body) return;
+
+    const userSnap = await getDoc(doc(db, 'users', user.uid));
+    const userData = userSnap.data() || {};
+
+    await addDoc(collection(db, `posts/${currentPostId}/comments`), {
+      body,
+      authorId: user.uid,
+      authorName: user.displayName || userData.displayName || 'Anonymous',
+      authorPhoto: user.photoURL || userData.photoURL || '',
+      createdAt: serverTimestamp()
+    });
+    await updateDoc(doc(db, 'posts', currentPostId), { commentCount: increment(1) });
+    document.getElementById('comment-body').value = '';
+    showToast('Comment posted!');
+    loadComments(currentPostId);
+  });
+}
+
+async function loadAnswers(postId, post) {
+  const container = document.getElementById('answers-list');
+  const countText = document.getElementById('answer-count-text');
+  container.innerHTML = `<div class="skeleton skeleton-line w-90" style="margin-bottom:8px;"></div>`;
+
+  const snap = await getDocs(query(collection(db, `posts/${postId}/answers`), orderBy('isAccepted', 'desc'), orderBy('voteCount', 'desc')));
+  countText.textContent = `${snap.size} ${snap.size === 1 ? 'Answer' : 'Answers'}`;
+
+  if (snap.empty) {
+    container.innerHTML = `<div style="text-align:center;padding:32px;color:#64748B;background:#F1F5F9;border-radius:12px;margin-bottom:16px;">
+      <p>No answers yet. Be the first to help!</p>
+    </div>`;
+    return;
+  }
+
+  container.innerHTML = '';
+  const user = getCurrentUser();
+
+  snap.forEach(d => {
+    const a = { id: d.id, ...d.data() };
+    const isAuthor = user && post.authorId === user.uid;
+    const date = a.createdAt?.toDate ? a.createdAt.toDate() : new Date();
+
+    container.insertAdjacentHTML('beforeend', `
+      <div class="answer-card ${a.isAccepted ? 'accepted' : ''}" id="answer-${a.id}" role="article">
+        ${a.isAccepted ? `<div class="answer-accepted-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Accepted Answer</div>` : ''}
+        <div style="display:flex;gap:12px;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;min-width:40px;">
+            <button class="vote-btn ans-up" data-id="${a.id}" aria-label="Upvote answer">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+            </button>
+            <span id="ans-vote-${a.id}" style="font-weight:700;font-size:0.9rem;">${a.voteCount || 0}</span>
+            <button class="vote-btn ans-down" data-id="${a.id}" aria-label="Downvote answer">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            ${isAuthor && !post.isSolved ? `<button class="btn btn-outline btn-sm accept-btn" data-id="${a.id}" style="margin-top:4px;padding:4px 8px;font-size:0.7rem;" title="Accept this answer" aria-label="Accept this answer">✓ Accept</button>` : ''}
+          </div>
+          <div style="flex:1;min-width:0;">
+            <div style="line-height:1.7;margin-bottom:12px;">${parseMarkdown(a.body)}</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:0.8rem;color:#64748B;">
+              <a href="/profile?uid=${a.authorId}" style="display:flex;align-items:center;gap:6px;color:#1E293B;text-decoration:none;">
+                <img src="${a.authorPhoto || '/assets/img/avatar-placeholder.svg'}" alt="${sanitizeHTML(a.authorName)}" width="24" height="24" style="border-radius:50%;" loading="lazy" />
+                <strong>${sanitizeHTML(a.authorName)}</strong>
+              </a>
+              <span>${timeAgo(a.createdAt)}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    `);
+  });
+
+  // Highlight code
+  container.querySelectorAll('pre code').forEach(el => { if (window.hljs) window.hljs.highlightElement(el); });
+
+  // Accept answer buttons
+  container.querySelectorAll('.accept-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const answerId = btn.dataset.id;
+      await updateDoc(doc(db, `posts/${postId}/answers/${answerId}`), { isAccepted: true });
+      await updateDoc(doc(db, 'posts', postId), { isSolved: true, acceptedAnswerId: answerId });
+      const answerSnap = await getDoc(doc(db, `posts/${postId}/answers/${answerId}`));
+      if (answerSnap.exists()) {
+        await updateDoc(doc(db, 'users', answerSnap.data().authorId), { solvedCount: increment(1), points: increment(15) });
+      }
+      showToast('Answer accepted! ✅');
+      loadAnswers(postId, { ...post, isSolved: true });
+    });
+  });
+}
+
+async function loadComments(postId) {
+  const container = document.getElementById('comments-list');
+  const snap = await getDocs(query(collection(db, `posts/${postId}/comments`), orderBy('createdAt', 'asc'), limit(20)));
+
+  if (snap.empty) { container.innerHTML = '<p style="color:#94A3B8;font-size:0.875rem;padding:8px 0;">No comments yet.</p>'; return; }
+
+  container.innerHTML = '';
+  snap.forEach(d => {
+    const c = d.data();
+    container.insertAdjacentHTML('beforeend', `
+      <div style="display:flex;gap:10px;padding:12px 0;border-bottom:1px solid #E2E8F0;">
+        <img src="${c.authorPhoto || '/assets/img/avatar-placeholder.svg'}" alt="${sanitizeHTML(c.authorName)}" width="32" height="32" style="border-radius:50%;flex-shrink:0;" loading="lazy" />
+        <div>
+          <div style="font-size:0.8rem;font-weight:700;color:#1E293B;">${sanitizeHTML(c.authorName)} <span style="font-weight:400;color:#94A3B8;">${timeAgo(c.createdAt)}</span></div>
+          <div style="font-size:0.875rem;color:#1E293B;margin-top:2px;">${sanitizeHTML(c.body)}</div>
+        </div>
+      </div>
+    `);
+  });
+}
+
+async function loadRelatedPosts(tags, excludeId) {
+  const container = document.getElementById('related-posts-list');
+  if (!tags || !tags.length) { container.innerHTML = '<p style="font-size:0.8rem;color:#94A3B8;">No related posts.</p>'; return; }
+
+  try {
+    const snap = await getDocs(query(
+      collection(db, 'posts'),
+      where('tags', 'array-contains', tags[0]),
+      where('status', '==', 'published'),
+      limit(6)
+    ));
+
+    const related = snap.docs.filter(d => d.id !== excludeId).slice(0, 4);
+    if (!related.length) { container.innerHTML = '<p style="font-size:0.8rem;color:#94A3B8;">No related posts found.</p>'; return; }
+
+    container.innerHTML = '';
+    related.forEach(d => {
+      const p = d.data();
+      container.insertAdjacentHTML('beforeend', `
+        <a href="/post?slug=${encodeURIComponent(p.slug)}" style="display:block;padding:8px 0;border-bottom:1px solid #E2E8F0;text-decoration:none;">
+          <div style="font-size:0.825rem;font-weight:600;color:#1E293B;line-height:1.4;margin-bottom:4px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">${sanitizeHTML(p.title)}</div>
+          <div style="font-size:0.75rem;color:#94A3B8;">${formatNum(p.voteCount || 0)} votes</div>
+        </a>
+      `);
+    });
+  } catch(e) {
+    container.innerHTML = '';
+  }
+}
+
+function buildTOC() {
+  const body = document.getElementById('post-body');
+  const headings = body.querySelectorAll('h2, h3');
+  if (headings.length < 3) return;
+
+  const tocCard = document.getElementById('toc-card');
+  const tocList = document.getElementById('toc-list');
+  tocCard.style.display = 'block';
+
+  headings.forEach((h, i) => {
+    const id = `toc-${i}`;
+    h.id = id;
+    const link = document.createElement('a');
+    link.href = `#${id}`;
+    link.textContent = h.textContent;
+    link.style.cssText = `font-size:0.8rem;color:#64748B;text-decoration:none;padding:3px 0;border-left:2px solid transparent;padding-left:${h.tagName === 'H3' ? '12' : '4'}px;transition:all 0.2s;`;
+    link.addEventListener('click', (e) => { e.preventDefault(); h.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+    link.addEventListener('mouseenter', () => { link.style.color = '#006A4E'; link.style.borderLeftColor = '#006A4E'; });
+    link.addEventListener('mouseleave', () => { link.style.color = '#64748B'; link.style.borderLeftColor = 'transparent'; });
+    tocList.appendChild(link);
+  });
+}
+
+function showError() {
+  document.getElementById('post-skeleton').classList.add('hidden');
+  document.getElementById('post-error').classList.remove('hidden');
+  document.title = 'Post Not Found — BSDC';
+}
+</script>
+
+<style>
+@media(max-width:900px){
+  #main-content{grid-template-columns:1fr!important;}
+  aside{display:none;}
+}
+</style>
+</body>
+</html>
