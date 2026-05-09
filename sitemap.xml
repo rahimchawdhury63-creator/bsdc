@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.bsdc.info.bd/</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bsdc.info.bd/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://www.bsdc.info.bd/"/>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://www.bsdc.info.bd/about</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Ask -->
+  <url>
+    <loc>https://www.bsdc.info.bd/ask</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Write -->
+  <url>
+    <loc>https://www.bsdc.info.bd/write</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Wiki -->
+  <url>
+    <loc>https://www.bsdc.info.bd/wiki</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Snippets -->
+  <url>
+    <loc>https://www.bsdc.info.bd/snippet</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Search -->
+  <url>
+    <loc>https://www.bsdc.info.bd/search</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Register -->
+  <url>
+    <loc>https://www.bsdc.info.bd/register</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Post viewer (dynamic — Googlebot will crawl via ?slug=) -->
+  <url>
+    <loc>https://www.bsdc.info.bd/post</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Profile viewer -->
+  <url>
+    <loc>https://www.bsdc.info.bd/profile</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Tag viewer -->
+  <url>
+    <loc>https://www.bsdc.info.bd/tag</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+</urlset>
