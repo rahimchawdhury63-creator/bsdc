@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="wiki-page-title">Wiki — BSDC | Bangladesh Software Development Community</title>
+  <meta name="description" id="wiki-page-desc" content="Browse technical wikis on BSDC — Bangladesh Software Development Community. In-depth guides written by Bangladeshi developers." />
+  <meta name="keywords" content="BSDC wiki, Bangladesh software development wiki, technical guides Bangladesh, programming tutorials Bangladesh" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <link rel="canonical" id="wiki-canonical" href="https://www.bsdc.info.bd/wiki" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Bangladesh Software Development Community" />
+  <meta property="og:title" id="wiki-og-title" content="Wiki — BSDC" />
+  <meta property="og:description" id="wiki-og-desc" content="Technical wikis by Bangladeshi developers on BSDC." />
+  <meta property="og:url" content="https://www.bsdc.info.bd/wiki" />
+  <meta property="og:image" content="https://www.bsdc.info.bd/assets/img/og-cover.png" />
+
+  <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "BSDC Wiki — Technical Guides by Bangladeshi Developers",
+    "url": "https://www.bsdc.info.bd/wiki",
+    "description": "Comprehensive technical wikis and guides written by Bangladesh's developer community on BSDC.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Bangladesh Software Development Community",
+      "url": "https://www.bsdc.info.bd"
+    },
+    "about": {
+      "@type": "Thing",
+      "name": "Software Development",
+      "description": "Technical documentation and guides for software development"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="navbar" role="banner">
+  <div class="container navbar-inner">
+    <a href="/" class="navbar-brand" aria-label="BSDC Home">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+        <rect width="36" height="36" rx="8" fill="#006A4E"/>
+        <text x="18" y="25" font-family="Inter,sans-serif" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">B</text>
+        <circle cx="28" cy="8" r="4" fill="#FFFFFF" opacity="0.3"/>
+      </svg>
+      <span class="brand-text">BSDC</span>
+    </a>
+    <div class="navbar-search" role="search">
+      <form action="/search" method="GET">
+        <div class="search-wrapper">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="search" name="q" placeholder="Search wikis..." aria-label="Search wikis" />
+        </div>
+      </form>
+    </div>
+    <nav class="navbar-actions" aria-label="Main navigation">
+      <a href="/" class="btn btn-ghost btn-sm">Home</a>
+      <a href="/write" class="btn btn-primary btn-sm">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Write Wiki
+      </a>
+      <div class="nav-auth" id="nav-auth">
+        <a href="/login" class="btn btn-ghost btn-sm">Login</a>
+        <a href="/register" class="btn btn-primary btn-sm">Join</a>
+      </div>
+      <div class="nav-user hidden" id="nav-user">
+        <div class="avatar-menu" id="avatar-menu-wrapper">
+          <button class="avatar-btn" id="avatar-btn" aria-label="User menu" aria-expanded="false">
+            <img src="/assets/img/avatar-placeholder.svg" id="nav-avatar" alt="User" width="34" height="34" />
+          </button>
+          <div class="dropdown-menu" id="avatar-dropdown" role="menu">
+            <a href="#" id="dropdown-profile" role="menuitem">My Profile</a>
+            <hr/>
+            <button id="logout-btn" role="menuitem">Logout</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="container" style="padding-top:28px;padding-bottom:60px;" id="main-content">
+
+  <!-- Wiki Header -->
+  <div style="background:linear-gradient(135deg,#006A4E,#004d38);border-radius:20px;padding:40px;color:#fff;margin-bottom:28px;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;opacity:0.05;background:url('data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23fff\' fill-opacity=\'1\'%3E%3Cpath d=\'M20 20h1v1h-1z\'/%3E%3C/g%3E%3C/svg%3E');pointer-events:none;"></div>
+    <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;">
+      <div>
+        <nav aria-label="Breadcrumb" style="margin-bottom:12px;">
+          <ol style="display:flex;gap:8px;list-style:none;font-size:0.8rem;color:rgba(255,255,255,0.6);">
+            <li><a href="/" style="color:rgba(255,255,255,0.7);">BSDC</a></li>
+            <li aria-hidden="true">›</li>
+            <li style="color:#4ade80;font-weight:600;">Wiki</li>
+          </ol>
+        </nav>
+        <h1 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:#fff;margin-bottom:10px;display:flex;align-items:center;gap:12px;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="2" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          BSDC Wiki
+        </h1>
+        <p style="color:rgba(255,255,255,0.75);font-size:1rem;max-width:500px;line-height:1.6;">
+          Comprehensive technical documentation, guides, and tutorials — written by Bangladeshi developers, for Bangladeshi developers.
+          <span lang="bn" style="display:block;margin-top:4px;font-size:0.875rem;">বাংলাদেশের ডেভেলপারদের লেখা প্রযুক্তিগত গাইড ও ডকুমেন্টেশন।</span>
+        </p>
+      </div>
+      <a href="/write" class="btn btn-lg" style="background:#fff;color:#006A4E;border:none;flex-shrink:0;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        Contribute a Wiki
+      </a>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:start;">
+
+    <!-- Category Sidebar -->
+    <aside role="complementary" aria-label="Wiki categories" style="position:sticky;top:80px;">
+      <div class="side-card">
+        <h3 class="side-card-title">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#006A4E" stroke-width="2" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          Categories
+        </h3>
+        <nav style="display:flex;flex-direction:column;gap:2px;" aria-label="Wiki categories">
+          <button class="side-nav-item active" data-cat="all" style="text-align:left;border:none;cursor:pointer;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            All Wikis
+          </button>
+          <button class="side-nav-item" data-cat="web-development" style="text-align:left;border:none;cursor:pointer;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            Web Development
+          </button>
+          <button class="side-nav-item" data-cat="mobile" style="text-align:left;border:none;cursor:pointer;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            Mobile Dev
+          </button>
+          <button class="side-nav-item" data-cat="devops" style="text-align:left;border:none;cursor:pointer;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            DevOps & Cloud
+          </button>
+          <button class="side-nav-item" data-cat="database" style="text-align:left;border:none;cursor:pointer;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            Database
+          </button>
+          <button class="side-nav-item" data-cat="algorithms" style="text-align:left;border:none;cursor:pointer;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Algorithms & DSA
+          </button>
+          <button class="side-nav-item" data-cat="security" style="text-align:left;border:none;cursor:pointer;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Security
+          </button>
+          <button class="side-nav-item" data-cat="machine-learning" style="text-align:left;border:none;cursor:pointer;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            AI & ML
+          </button>
+        </nav>
+      </div>
+
+      <!-- Quick Stats -->
+      <div class="side-card" style="margin-top:16px;">
+        <h3 class="side-card-title">Wiki Stats</h3>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;justify-content:space-between;font-size:0.825rem;">
+            <span style="color:#64748B;">Total Wikis</span>
+            <span id="total-wikis" style="font-weight:700;color:#006A4E;">—</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:0.825rem;">
+            <span style="color:#64748B;">Contributors</span>
+            <span id="wiki-contributors" style="font-weight:700;color:#006A4E;">—</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:0.825rem;">
+            <span style="color:#64748B;">This Month</span>
+            <span id="wiki-this-month" style="font-weight:700;color:#006A4E;">—</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Wiki List -->
+    <main role="main" aria-label="Wiki articles">
+      <!-- Search & Sort -->
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap;">
+        <div class="search-wrapper" style="flex:1;max-width:400px;">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="search" id="wiki-search" class="form-input" style="padding-left:38px;" placeholder="Search wikis..." aria-label="Search wikis" />
+        </div>
+        <select id="wiki-sort" class="form-select" style="width:auto;padding:9px 14px;" aria-label="Sort wikis">
+          <option value="latest">Latest</option>
+          <option value="popular">Most Popular</option>
+          <option value="updated">Recently Updated</option>
+        </select>
+      </div>
+
+      <!-- Wiki Grid -->
+      <div id="wiki-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;" role="list" aria-live="polite">
+        <!-- Skeleton -->
+        <div style="background:#fff;border:1px solid #E2E8F0;border-radius:16px;padding:20px;" aria-hidden="true">
+          <div class="skeleton skeleton-line w-80" style="height:18px;margin-bottom:10px;"></div>
+          <div class="skeleton skeleton-line w-60" style="margin-bottom:6px;"></div>
+          <div class="skeleton skeleton-line w-90" style="margin-bottom:6px;"></div>
+          <div class="skeleton skeleton-line w-40"></div>
+        </div>
+        <div style="background:#fff;border:1px solid #E2E8F0;border-radius:16px;padding:20px;" aria-hidden="true">
+          <div class="skeleton skeleton-line w-70" style="height:18px;margin-bottom:10px;"></div>
+          <div class="skeleton skeleton-line w-85" style="margin-bottom:6px;"></div>
+          <div class="skeleton skeleton-line w-55"></div>
+        </div>
+        <div style="background:#fff;border:1px solid #E2E8F0;border-radius:16px;padding:20px;" aria-hidden="true">
+          <div class="skeleton skeleton-line w-90" style="height:18px;margin-bottom:10px;"></div>
+          <div class="skeleton skeleton-line w-65" style="margin-bottom:6px;"></div>
+          <div class="skeleton skeleton-line w-75"></div>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div id="wiki-empty" class="hidden" style="text-align:center;padding:60px 20px;background:#fff;border-radius:16px;border:1px solid #E2E8F0;margin-top:16px;">
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#CBD5E1" stroke-width="1.5" style="margin:0 auto 16px;" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        <h3 style="color:#94A3B8;margin-bottom:8px;">No wikis found</h3>
+        <p style="color:#CBD5E1;font-size:0.875rem;margin-bottom:16px;">Be the first to contribute knowledge!</p>
+        <a href="/write" class="btn btn-primary btn-sm">Write a Wiki</a>
+      </div>
+
+      <!-- Load More -->
+      <div id="wiki-load-more" class="hidden load-more-wrapper">
+        <button class="btn btn-outline" id="wiki-load-more-btn">Load More Wikis</button>
+      </div>
+    </main>
+  </div>
+</div>
+
+<footer class="footer" role="contentinfo">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <svg width="40" height="40" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+        <rect width="36" height="36" rx="8" fill="#006A4E"/>
+        <text x="18" y="25" font-family="Inter,sans-serif" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">B</text>
+      </svg>
+      <div>
+        <div class="footer-brand-name">BSDC</div>
+        <div class="footer-brand-tagline">Bangladesh Software Development Community</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Bangladesh Software Development Community (BSDC). Founded by Rizwan Rahim Chowdhury 🇧🇩</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast-container" id="toast-container" aria-live="assertive"></div>
+
+<script type="module" src="/assets/js/firebase-init.js"></script>
+<script type="module" src="/assets/js/auth.js"></script>
+<script type="module">
+import { db, timeAgo, sanitizeHTML, formatNum } from '/assets/js/firebase-init.js';
+import {
+  collection, query, where, orderBy, limit,
+  getDocs, startAfter, getCountFromServer
+} from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
+
+let lastDoc = null;
+let currentCat = 'all';
+let currentSort = 'latest';
+let searchTimeout;
+const LIMIT = 12;
+
+async function loadWikis(reset = false) {
+  const grid = document.getElementById('wiki-grid');
+  const emptyEl = document.getElementById('wiki-empty');
+  const loadMore = document.getElementById('wiki-load-more');
+
+  if (reset) {
+    lastDoc = null;
+    grid.innerHTML = getSkeletons();
+    emptyEl.classList.add('hidden');
+    loadMore.classList.add('hidden');
+  }
+
+  const postsRef = collection(db, 'posts');
+  const constraints = [where('type', '==', 'wiki'), where('status', '==', 'published')];
+
+  if (currentCat !== 'all') constraints.push(where('tags', 'array-contains', currentCat));
+
+  const sortMap = {
+    latest: ['createdAt', 'desc'],
+    popular: ['viewCount', 'desc'],
+    updated: ['updatedAt', 'desc']
+  };
+  const [sf, sd] = sortMap[currentSort] || ['createdAt', 'desc'];
+  constraints.push(orderBy(sf, sd));
+
+  let q = query(postsRef, ...constraints, limit(LIMIT));
+  if (lastDoc) q = query(postsRef, ...constraints, limit(LIMIT), startAfter(lastDoc));
+
+  const snap = await getDocs(q);
+  if (reset) grid.innerHTML = '';
+
+  if (snap.empty && reset) {
+    emptyEl.classList.remove('hidden');
+    return;
+  }
+
+  snap.forEach(d => {
+    const w = { id: d.id, ...d.data() };
+    grid.insertAdjacentHTML('beforeend', renderWikiCard(w));
+  });
+
+  lastDoc = snap.docs[snap.docs.length - 1];
+  loadMore.classList.toggle('hidden', snap.docs.length < LIMIT);
+
+  // Load stats
+  try {
+    const countSnap = await getCountFromServer(query(postsRef, where('type', '==', 'wiki'), where('status', '==', 'published')));
+    document.getElementById('total-wikis').textContent = countSnap.data().count;
+  } catch(e) {}
+}
+
+function renderWikiCard(wiki) {
+  const tags = (wiki.tags || []).slice(0, 3).map(t =>
+    `<a href="/tag?name=${encodeURIComponent(t)}" class="tag-pill" style="font-size:0.7rem;">${sanitizeHTML(t)}</a>`
+  ).join('');
+
+  return `
+    <article style="background:#fff;border:1px solid #E2E8F0;border-radius:16px;padding:22px;transition:all 0.2s;box-shadow:0 1px 3px rgba(0,0,0,0.05);display:flex;flex-direction:column;gap:12px;"
+      onmouseenter="this.style.borderColor='#006A4E';this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 25px rgba(0,106,78,0.12)'"
+      onmouseleave="this.style.borderColor='#E2E8F0';this.style.transform='none';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.05)'"
+      role="listitem" itemscope itemtype="https://schema.org/TechArticle">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;">
+        <div style="width:40px;height:40px;background:#E8F5F0;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#006A4E" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <div style="font-size:0.7rem;color:#94A3B8;">${timeAgo(wiki.createdAt)}</div>
+      </div>
+      <div>
+        <a href="/post?slug=${encodeURIComponent(wiki.slug)}" itemprop="url" style="text-decoration:none;">
+          <h2 style="font-size:1rem;font-weight:700;color:#1E293B;line-height:1.4;margin-bottom:6px;" itemprop="headline">${sanitizeHTML(wiki.title)}</h2>
+        </a>
+        <p style="font-size:0.825rem;color:#64748B;line-height:1.6;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;" itemprop="description">
+          ${sanitizeHTML(wiki.excerpt || wiki.body?.substring(0, 120) || '')}
+        </p>
+      </div>
+      <div style="display:flex;gap:4px;flex-wrap:wrap;">${tags}</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid #F1F5F9;">
+        <a href="/profile?uid=${wiki.authorId}" style="display:flex;align-items:center;gap:6px;text-decoration:none;" itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <img src="${wiki.authorPhoto || '/assets/img/avatar-placeholder.svg'}" alt="${sanitizeHTML(wiki.authorName || 'Author')}" width="24" height="24" style="border-radius:50%;" loading="lazy" itemprop="image" />
+          <span itemprop="name" style="font-size:0.8rem;font-weight:600;color:#1E293B;">${sanitizeHTML(wiki.authorName || 'Anonymous')}</span>
+        </a>
+        <div style="display:flex;gap:10px;font-size:0.75rem;color:#94A3B8;">
+          <span>${formatNum(wiki.viewCount || 0)} views</span>
+          <span>${formatNum(wiki.voteCount || 0)} votes</span>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function getSkeletons() {
+  return Array(6).fill('').map(() => `
+    <div style="background:#fff;border:1px solid #E2E8F0;border-radius:16px;padding:22px;" aria-hidden="true">
+      <div class="skeleton skeleton-line w-80" style="height:16px;margin-bottom:10px;"></div>
+      <div class="skeleton skeleton-line w-90" style="margin-bottom:6px;"></div>
+      <div class="skeleton skeleton-line w-60"></div>
+    </div>
+  `).join('');
+}
+
+// Category filter
+document.querySelectorAll('[data-cat]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-cat]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentCat = btn.dataset.cat;
+    loadWikis(true);
+  });
+});
+
+// Sort
+document.getElementById('wiki-sort').addEventListener('change', (e) => {
+  currentSort = e.target.value;
+  loadWikis(true);
+});
+
+// Search
+document.getElementById('wiki-search').addEventListener('input', (e) => {
+  clearTimeout(searchTimeout);
+  searchTimeout = setTimeout(() => {
+    const val = e.target.value.trim();
+    if (val.length >= 2) {
+      window.location.href = `/search?q=${encodeURIComponent(val)}&filter=wiki`;
+    } else if (!val) {
+      loadWikis(true);
+    }
+  }, 400);
+});
+
+// Load more
+document.getElementById('wiki-load-more-btn').addEventListener('click', () => loadWikis(false));
+
+loadWikis(true);
+</script>
+
+<style>
+@media(max-width:768px){
+  [style*="grid-template-columns:220px 1fr"]{grid-template-columns:1fr!important;}
+  aside[role="complementary"]{display:none;}
+}
+</style>
+</body>
+</html>
