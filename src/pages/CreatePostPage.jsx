@@ -860,6 +860,9 @@ const highlighted = getHighlighted();
                       </span>
                     </div>
                   </div>
+                </div>
+                }}
+                
     {/* Code editor */}
 {(type === 'snippet' || type === 'qa') && (
   <div style={{ borderTop: '1px solid var(--gray-2)', background: '#0d1117' }}>
