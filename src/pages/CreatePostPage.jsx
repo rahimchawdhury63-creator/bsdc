@@ -856,7 +856,11 @@ const highlighted = getHighlighted();
                     <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', borderTop: '1px solid var(--gray-2)', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
                       <span>{readingTime(body)} min read · {charCount} chars</span>
                       <span style={{ color: charCount > 300 ? 'var(--success)' : 'var(--text-muted)' }}>
-                        {charCount < 100 ? 'Add more detail' : charCount < 300 ? 'Getting better' {/* Code editor */}
+                        {charCount < 100 ? 'Add more detail' : charCount < 300 ? 'Getting better' : charCount < 800 ? 'Good length' : 'Excellent!'}
+                      </span>
+                    </div>
+                  </div>
+    {/* Code editor */}
 {(type === 'snippet' || type === 'qa') && (
   <div style={{ borderTop: '1px solid var(--gray-2)', background: '#0d1117' }}>
     {/* Code toolbar */}
