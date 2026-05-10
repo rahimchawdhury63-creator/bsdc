@@ -859,8 +859,7 @@ const highlighted = getHighlighted();
                         {charCount < 100 ? 'Add more detail' : charCount < 300 ? 'Getting better' : charCount < 800 ? 'Good length' : 'Excellent!'}
                       </span>
                     </div>
-                  </div>
-                </div>
+                  </div
                 }}
                 
     {/* Code editor */}
