@@ -8,7 +8,7 @@ const BSDCLogo = () => (
     <rect width="36" height="36" rx="8" fill="#006A4E"/>
     <text x="4" y="26" fontFamily="Inter,sans-serif" fontSize="18" fontWeight="900" fill="white">BS</text>
     <rect x="0" y="30" width="36" height="6" rx="0" fill="#004d38"/>
-    <text x="3" y="35" fontFamily="Inter,sans-serif" fontSize="7" fontWeight="700" fill="#6EE7B7" letterSpacing="1">DC.BD</text>
+    <text x="3" y="35" fontFamily="Inter,sans-serif" fontSize="7" fontWeight="700" fill="#6EE7B7" letterSpacing="1">DC.INFO.BD</text>
   </svg>
 );
 
@@ -70,7 +70,7 @@ export default function Navbar() {
         <div className="navbar-inner">
           <Link to="/" className="navbar-logo" aria-label="BSDC Home">
             <BSDCLogo />
-            <span>BSDC<span className="logo-bd">.BD</span></span>
+            <span>BSDC<span className="logo-bd">.INFO.BD</span></span>
           </Link>
 
           <div className="navbar-search-wrap">
