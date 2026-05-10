@@ -167,16 +167,24 @@ export async function getPostBySlug(slug) {
   return { id: snap.docs[0].id, ...snap.docs[0].data() };
 }
 
+/* ── FIXED createPost — returns doc ref reliably ── */
 export async function createPost(data) {
-  return addDoc(collection(db, 'posts'), {
-    ...data,
-    upvotes: 0,
-    upvotedBy: [],
-    views: 0,
-    solved: false,
-    createdAt: serverTimestamp(),
-    updatedAt: serverTimestamp(),
-  });
+  try {
+    const ref = await addDoc(collection(db, 'posts'), {
+      ...data,
+      upvotes:      0,
+      upvotedBy:    [],
+      views:        0,
+      commentCount: 0,
+      solved:       false,
+      createdAt:    serverTimestamp(),
+      updatedAt:    serverTimestamp(),
+    });
+    return ref;
+  } catch (err) {
+    console.error('[createPost] Firestore error:', err);
+    throw err; /* re-throw so caller can handle */
+  }
 }
 
 export async function upvotePost(postId, userId) {
@@ -236,3 +244,14 @@ export {
   orderBy,
   limit,
 };
+// Add these exports if not already present
+export {
+  signInWithPopup,
+  fetchSignInMethodsForEmail,
+  linkWithPopup,
+  linkWithCredential,
+  GoogleAuthProvider,
+  GithubAuthProvider,
+  OAuthProvider,
+  EmailAuthProvider,
+} from 'firebase/auth';
