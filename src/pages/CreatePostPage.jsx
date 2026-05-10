@@ -649,10 +649,24 @@ export default function CreatePostPage() {
   /* ── Active type config ────────────────────── */
   const activeType = POST_TYPES.find(t => t.key === type) || POST_TYPES[0];
 
-  /* ── Highlight preview code ────────────────── */
-  const highlighted = code && Prism.languages[lang]
-    ? Prism.highlight(code, Prism.languages[lang], lang)
-    : code;
+  /* ── Highlight preview code 2.0.0.0 ────────────────── */
+  const getHighlighted = () => {
+  try {
+    if (code && Prism.languages && Prism.languages[lang]) {
+      return Prism.highlight(code, Prism.languages[lang], lang);
+    }
+    return code
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  } catch (err) {
+    return code
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+};
+const highlighted = getHighlighted();
 
   /* ─────────────────────────────────────────
      RENDER
@@ -842,61 +856,85 @@ export default function CreatePostPage() {
                     <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', borderTop: '1px solid var(--gray-2)', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
                       <span>{readingTime(body)} min read · {charCount} chars</span>
                       <span style={{ color: charCount > 300 ? 'var(--success)' : 'var(--text-muted)' }}>
-                        {charCount < 100 ? 'Add more detail' : charCount < 300 ? 'Getting better' : charCount < 800 ? 'Good length' : 'Excellent!'}
+                        {charCount < 100 ? 'Add more detail' : charCount < 300 ? 'Getting better' {/* Code editor */}
+{(type === 'snippet' || type === 'qa') && (
+  <div style={{ borderTop: '1px solid var(--gray-2)', background: '#0d1117' }}>
+    {/* Code toolbar */}
+    <div style={{
+      display: 'flex', alignItems: 'center',
+      justifyContent: 'space-between',
+      padding: '8px 16px',
+      borderBottom: '1px solid #21262d',
+    }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+        <div style={{ display: 'flex', gap: 6 }}>
+          <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#FF5F57' }} />
+          <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#FFBD2E' }} />
+          <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#28C840' }} />
+        </div>
+        <select
+          value={lang}
+          onChange={e => setLang(e.target.value)}
+          style={{
+            background: '#21262d',
+            color: '#8b949e',
+            border: '1px solid #30363d',
+            borderRadius: 4,
+            padding: '3px 8px',
+            fontSize: '0.78rem',
+            cursor: 'pointer',
+          }}
+        >
+          {LANGUAGES.map(l => (
+            <option key={l} value={l}>{l}</option>
+          ))}
+        </select>
+      </div>
+      <span style={{ fontSize: '0.72rem', color: '#484f58' }}>
+        {type === 'snippet' ? 'Code *' : 'Code (optional)'}
+      </span>
+    </div>
+
+    {/* FIXED textarea — no onKeyDown Tab handler */}
+    <textarea
+      value={code}
+      onChange={e => {
+        try {
+          setCode(e.target.value);
+        } catch (err) {
+          console.error('Code input error:', err);
+        }
+      }}
+      placeholder={`// Write your ${lang} code here...`}
+      spellCheck={false}
+      autoComplete="off"
+      autoCorrect="off"
+      autoCapitalize="off"
+      style={{
+        width: '100%',
+        minHeight: 220,
+        background: '#0d1117',
+        color: '#c9d1d9',
+        border: 'none',
+        outline: 'none',
+        fontFamily: '"JetBrains Mono", "Fira Code", monospace',
+        fontSize: '0.875rem',
+        lineHeight: 1.7,
+        padding: 16,
+        resize: 'vertical',
+        display: 'block',
+        boxSizing: 'border-box',
+      }}
+    />
+    aria-label="Code editor"
+  </div>
+)}: charCount < 800 ? 'Good length' : 'Excellent!'}
                       </span>
                     </div>
                   </div>
                 )}
 
-                {/* Code editor */}
-                {(type === 'snippet' || type === 'qa') && (
-                  <div style={{ borderTop: '1px solid var(--gray-2)', background: '#0d1117' }}>
-                    {/* Code toolbar */}
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 16px', borderBottom: '1px solid #21262d' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                        <div style={{ display: 'flex', gap: 6 }}>
-                          <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#FF5F57' }} />
-                          <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#FFBD2E' }} />
-                          <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#28C840' }} />
-                        </div>
-                        <select
-                          value={lang}
-                          onChange={e => setLang(e.target.value)}
-                          style={{
-                            background: '#21262d', color: '#8b949e',
-                            border: '1px solid #30363d', borderRadius: 4,
-                            padding: '3px 8px', fontSize: '0.78rem',
-                            cursor: 'pointer',
-                          }}
-                        >
-                          {LANGUAGES.map(l => (
-                            <option key={l} value={l}>{l}</option>
-                          ))}
-                        </select>
-                      </div>
-                      <span style={{ fontSize: '0.72rem', color: '#484f58' }}>
-                        {type === 'snippet' ? 'Code *' : 'Code (optional)'} · Tab = 2 spaces
-                      </span>
-                    </div>
-                    <textarea
-                      value={code}
-                      onChange={e => setCode(e.target.value)}
-                      onKeyDown={handleCodeKeyDown}
-                      placeholder={`// Write your ${lang} code here...\n// Paste or type your code snippet\n\n// আপনার কোড এখানে লিখুন`}
-                      spellCheck={false}
-                      style={{
-                        width: '100%', minHeight: 220,
-                        background: '#0d1117', color: '#c9d1d9',
-                        border: 'none', outline: 'none',
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: '0.875rem', lineHeight: 1.7,
-                        padding: 16, resize: 'vertical',
-                        tabSize: 2,
-                      }}
-                      aria-label="Code editor"
-                    />
-                  </div>
-                )}
+                
 
                 {/* Image upload (blog/project) */}
                 {(type === 'blog' || type === 'project' || type === 'wiki') && (
