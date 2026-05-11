@@ -273,7 +273,6 @@ STATIC_ROUTES.forEach(route => {
   writeRoute(route.path, html);
 });
 
-generateSitemap();
 generateLLMsTxt();
 generateRobots();
 
@@ -286,6 +285,5 @@ console.log('   dist/blog/index.html       → bsdc.info.bd/blog');
 console.log('   dist/about/index.html      → bsdc.info.bd/about');
 console.log('   dist/login/index.html      → bsdc.info.bd/login');
 console.log('   dist/register/index.html   → bsdc.info.bd/register');
-console.log('   dist/sitemap.xml           → bsdc.info.bd/sitemap.xml');
 console.log('   dist/robots.txt            → bsdc.info.bd/robots.txt');
 console.log('   dist/llms.txt              → bsdc.info.bd/llms.txt');
