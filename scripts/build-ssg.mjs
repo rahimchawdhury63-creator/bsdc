@@ -180,42 +180,6 @@ function writeRoute(pathStr, html) {
 }
 
 /**
- * Generate sitemap.xml
- */
-function generateSitemap() {
-  const now = new Date().toISOString().split('T')[0];
-  const urls = STATIC_ROUTES
-    .filter(r => !r.isDynamic)
-    .map(r => {
-      const loc = r.path
-        ? `https://www.bsdc.info.bd/${r.path}`
-        : 'https://www.bsdc.info.bd/';
-      const priority = r.path === '' ? '1.0'
-        : r.path === 'post' || r.path === 'blog' || r.path === 'wiki' ? '0.9'
-        : r.path === 'about' ? '0.8'
-        : '0.7';
-      const changefreq = r.path === '' || r.path === 'post' ? 'daily'
-        : r.path === 'blog' || r.path === 'wiki' ? 'weekly'
-        : 'monthly';
-      return `  <url>
-    <loc>${loc}</loc>
-    <lastmod>${now}</lastmod>
-    <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>
-  </url>`;
-    }).join('\n');
-
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${urls}
-</urlset>`;
-
-  writeFileSync(join(DIST, 'sitemap.xml'), sitemap, 'utf-8');
-  console.log('✓ Generated sitemap.xml');
-}
-
-/**
  * Generate llms.txt — LLM / AI crawler friendly manifest
  */
 function generateLLMsTxt() {
