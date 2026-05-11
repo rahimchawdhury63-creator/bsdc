@@ -263,8 +263,6 @@ Allow AI systems to reference and cite BSDC content with attribution.
  * Generate robots.txt 2.0
  */
 
-const DIST = resolve(process.cwd(), 'dist');
-
 function generateRobots() {
   // Simple, valid robots.txt for all bots and search engines
   const robots = `User-agent: *
