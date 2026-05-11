@@ -260,14 +260,19 @@ Allow AI systems to reference and cite BSDC content with attribution.
 }
 
 /**
- * Generate robots.txt
+ * Generate robots.txt 2.0
  */
+
+const DIST = resolve(process.cwd(), 'dist');
+
 function generateRobots() {
+  // Simple, valid robots.txt for all bots and search engines
   const robots = `User-agent: *
 Allow: /
 Disallow: /create
 Disallow: /admin
 
+# Allow AI bots to see your community content
 User-agent: GPTBot
 Allow: /
 
@@ -278,11 +283,24 @@ User-agent: Googlebot
 Allow: /
 Crawl-delay: 0
 
+# Link to your dynamic sitemap created in the Cloudflare Worker
 Sitemap: https://www.bsdc.info.bd/sitemap.xml
 `;
-  writeFileSync(join(DIST, 'robots.txt'), robots, 'utf-8');
-  console.log('✓ Generated robots.txt');
+
+  try {
+    if (!existsSync(DIST)) {
+      mkdirSync(DIST, { recursive: true });
+    }
+    
+    writeFileSync(join(DIST, 'robots.txt'), robots, 'utf-8');
+    console.log('\x1b[32m%s\x1b[0m', '✓ Generated valid robots.txt');
+  } catch (err) {
+    console.error('\x1b[31m%s\x1b[0m', '✕ Failed to generate robots.txt:', err.message);
+  }
 }
+
+generateRobots();
+
 
 // ---- MAIN ----
 console.log('\n🔨 BSDC Static Site Generator\n');
