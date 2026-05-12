@@ -58,9 +58,6 @@ export const yahooProvider = new OAuthProvider('yahoo.com');
 yahooProvider.addScope('profile');
 yahooProvider.addScope('email');
 
-export const appleProvider = new OAuthProvider('apple.com');
-appleProvider.addScope('email');
-appleProvider.addScope('name');
 
 // IMGBB
 export const IMGBB_API_KEY = 'fdbfbcfd3bc5189e50a50c574515298d';
@@ -100,9 +97,6 @@ export async function signInWithGithub() {
 }
 export async function signInWithYahoo() {
   return signInWithPopup(auth, yahooProvider);
-}
-export async function signInWithApple() {
-  return signInWithPopup(auth, appleProvider);
 }
 export async function signInEmail(email, password) {
   return signInWithEmailAndPassword(auth, email, password);
