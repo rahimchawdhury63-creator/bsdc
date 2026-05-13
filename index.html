@@ -1,6 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+(function() {
+  // Extract slug from URL on initial load
+  var path = window.location.pathname;
+  var match = path.match(/^\/post\/(.+?)\/?$/);
+
+  if (match && match[1]) {
+    var slug = match[1];
+
+    // Convert slug to readable title
+    var title = slug
+      .replace(/-[a-z0-9]{6,}$/i, '')  // remove suffix like -abc123
+      .split('-')
+      .map(function(w) {
+        return w.charAt(0).toUpperCase() + w.slice(1);
+      })
+      .join(' ');
+
+    // Set title before React loads
+    document.title = title + ' — BSDC | Bangladesh Software Development Community';
+
+    // Update meta description
+    var desc = document.querySelector('meta[name="description"]');
+    if (desc) {
+      desc.setAttribute('content', title + ' — Read this post on BSDC, Bangladesh Software Development Community. Q&A, blogs, code snippets, projects by Bangladeshi developers.');
+    }
+
+    // Update OG tags
+    var ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute('content', title + ' — BSDC');
+
+    var ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) ogUrl.setAttribute('content', 'https://www.bsdc.info.bd' + path);
+
+    // Add canonical
+    var canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.setAttribute('href', 'https://www.bsdc.info.bd' + path);
+  }
+
+  // Same for profile pages
+  var profileMatch = path.match(/^\/profile\/(.+?)\/?$/);
+  if (profileMatch) {
+    document.title = 'BSDC Developer Profile | Bangladesh Software Development Community';
+  }
+})();
+</script>
+
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
