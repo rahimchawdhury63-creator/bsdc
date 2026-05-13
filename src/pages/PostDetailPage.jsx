@@ -53,24 +53,48 @@ export default function PostDetailPage() {
   const [copied, setCopied] = useState(false);
   const [codeCopied, setCodeCopied] = useState(false);
   const codeRef = useRef(null);
+useEffect(() => {
+  const load = async () => {
+    setLoading(true);
 
-  useEffect(() => {
-    const load = async () => {
-      setLoading(true);
-      const p = await getPostBySlug(slug);
-      if (!p) { setLoading(false); return; }
-      setPost(p);
-      setUpvotes(p.upvotes || 0);
-      setHasUpvoted(p.upvotedBy?.includes(user?.uid) || false);
+    // Try sessionStorage cache FIRST (instant)
+    const cached = sessionStorage.getItem('post_' + slug);
+    if (cached) {
+      try {
+        const cachedPost = JSON.parse(cached);
+        setPost(cachedPost);
+        setUpvotes(cachedPost.upvotes || 0);
+        setLoading(false);
 
-      const cmts = await getComments(p.id);
-      setComments(cmts);
+        // Update title IMMEDIATELY
+        document.title = cachedPost.title + ' — BSDC | Bangladesh Software Development Community';
+      } catch (e) {}
+    }
 
-      await updateDoc(doc(db, 'posts', p.id), { views: increment(1) });
-      setLoading(false);
-    };
-    if (slug) load();
-  }, [slug, user?.uid]);
+    // Then fetch fresh data
+    const p = await getPostBySlug(slug);
+    if (!p) { setLoading(false); return; }
+
+    setPost(p);
+    setUpvotes(p.upvotes || 0);
+    setHasUpvoted(p.upvotedBy?.includes(user?.uid) || false);
+
+    // Cache for next visit
+    try {
+      sessionStorage.setItem('post_' + slug, JSON.stringify(p));
+    } catch (e) {}
+
+    // Set title immediately for SEO
+    document.title = p.title + ' — BSDC | Bangladesh Software Development Community';
+
+    const cmts = await getComments(p.id);
+    setComments(cmts);
+
+    await updateDoc(doc(db, 'posts', p.id), { views: increment(1) });
+    setLoading(false);
+  };
+  if (slug) load();
+}, [slug, user?.uid]);
 
   useEffect(() => {
     if (post?.code && codeRef.current) {
@@ -516,3 +540,23 @@ export default function PostDetailPage() {
     </>
   );
 }
+return (
+  <>
+    {/* Render Helmet IMMEDIATELY, even during loading */}
+    <Helmet>
+      <title>
+        {post ? post.title + ' — BSDC' : 'Loading post — BSDC | Bangladesh Software Development Community'}
+      </title>
+      <meta name="description" content={
+        post
+          ? post.body?.substring(0, 160)
+          : 'BSDC post — Bangladesh Software Development Community'
+      } />
+      <link rel="canonical" href={'https://www.bsdc.info.bd' + window.location.pathname} />
+    </Helmet>
+
+    {loading ? <SkeletonDetail /> : (
+      // your existing content
+    )}
+  </>
+);
