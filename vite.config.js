@@ -28,13 +28,16 @@ export default defineConfig({
   plugins: [react()],
 
   // Path aliases — keeps imports clean and refactor-safe.
+  // IMPORTANT: do NOT alias '@firebase' here — it collides with the
+  // official `firebase/...` package paths (firebase/database, firebase/auth)
+  // because Vite's alias matcher is prefix-based. The codebase uses
+  // relative imports for the firebase/ folder, so no alias is needed.
   resolve: {
     alias: {
       '@': '/src',
       '@components': '/src/components',
       '@hooks': '/src/hooks',
       '@utils': '/src/utils',
-      '@firebase': '/src/firebase',
       '@styles': '/src/styles',
       '@context': '/src/context',
       '@pages': '/src/pages',
