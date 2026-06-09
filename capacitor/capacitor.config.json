@@ -1,0 +1,40 @@
+{
+  "appId": "bd.info.bsdc.app",
+  "appName": "BSDC",
+  "webDir": "../dist",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https",
+    "hostname": "www.bsdc.info.bd",
+    "iosScheme": "https",
+    "allowNavigation": [
+      "www.bsdc.info.bd",
+      "bsdc-bd.firebaseapp.com",
+      "*.firebaseio.com",
+      "*.googleapis.com",
+      "api.imgbb.com",
+      "*.cloudinary.com",
+      "onesignal.com",
+      "*.onesignal.com"
+    ]
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 1200,
+      "backgroundColor": "#1a6b3a",
+      "androidSplashResourceName": "splash",
+      "androidScaleType": "CENTER_CROP",
+      "splashFullScreen": true,
+      "splashImmersive": false
+    },
+    "StatusBar": {
+      "style": "DEFAULT",
+      "backgroundColor": "#1a6b3a"
+    }
+  },
+  "android": {
+    "allowMixedContent": false,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": false
+  }
+}
