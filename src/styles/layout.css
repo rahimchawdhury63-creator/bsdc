@@ -1,0 +1,189 @@
+/* =============================================================================
+ * src/styles/layout.css
+ * BSDC — Layout primitives (container, grid, flex utilities, app shell).
+ *
+ * Design system:
+ *   - Mobile  : single column, header on top, bottom mobile nav
+ *   - Tablet  : header + left sidebar (icons only) + content
+ *   - Desktop : header + left sidebar (full) + content + right sidebar
+ *   - 4K+     : same 3-col layout but wider content + larger fonts
+ * ========================================================================= */
+
+/* ------- Container ------- */
+.bsdc-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+}
+@media (min-width: 768px) {
+  .bsdc-container { padding-left: var(--space-lg); padding-right: var(--space-lg); }
+}
+@media (min-width: 1920px) {
+  .bsdc-container { padding-left: var(--space-xl); padding-right: var(--space-xl); }
+}
+
+/* ------- App Shell ------- */
+.bsdc-app {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+}
+
+/* Main layout wrapper: header on top, three-column body below */
+.bsdc-shell {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-top: var(--nav-height);
+}
+
+/* Left sidebar */
+.bsdc-shell__sidebar {
+  display: none;
+  flex-shrink: 0;
+  width: var(--sidebar-width);
+  position: sticky;
+  top: var(--nav-height);
+  height: calc(100vh - var(--nav-height));
+  overflow-y: auto;
+  padding: var(--space-md);
+}
+@media (min-width: 768px) {
+  .bsdc-shell__sidebar { display: block; width: 72px; }
+}
+@media (min-width: 1024px) {
+  .bsdc-shell__sidebar { width: var(--sidebar-width); }
+}
+
+/* Main content column */
+.bsdc-shell__main {
+  flex: 1;
+  min-width: 0;                   /* CRITICAL: lets flex children shrink */
+  padding: var(--space-md);
+  padding-bottom: calc(var(--nav-height) + var(--space-xl)); /* room for mobile nav */
+}
+@media (min-width: 768px) {
+  .bsdc-shell__main { padding: var(--space-lg); padding-bottom: var(--space-xl); }
+}
+@media (min-width: 1920px) {
+  .bsdc-shell__main { padding: var(--space-xl); }
+}
+
+/* Right sidebar */
+.bsdc-shell__right {
+  display: none;
+  flex-shrink: 0;
+  width: var(--right-sidebar-width);
+  position: sticky;
+  top: var(--nav-height);
+  height: calc(100vh - var(--nav-height));
+  overflow-y: auto;
+  padding: var(--space-md);
+}
+@media (min-width: 1280px) {
+  .bsdc-shell__right { display: block; }
+}
+
+/* Content column inside main (used by feed) — max-readable width */
+.bsdc-content {
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+@media (min-width: 1920px) {
+  .bsdc-content { max-width: 760px; }
+}
+@media (min-width: 2560px) {
+  .bsdc-content { max-width: 820px; }
+}
+
+/* ------- Flex / Grid utility classes (Fabric-CSS-style) ------- */
+.bsdc-flex { display: flex; }
+.bsdc-inline-flex { display: inline-flex; }
+.bsdc-flex-col { display: flex; flex-direction: column; }
+.bsdc-flex-wrap { flex-wrap: wrap; }
+.bsdc-items-center { align-items: center; }
+.bsdc-items-start  { align-items: flex-start; }
+.bsdc-items-end    { align-items: flex-end; }
+.bsdc-justify-center  { justify-content: center; }
+.bsdc-justify-between { justify-content: space-between; }
+.bsdc-justify-around  { justify-content: space-around; }
+.bsdc-justify-end     { justify-content: flex-end; }
+.bsdc-flex-1 { flex: 1; min-width: 0; }
+.bsdc-flex-grow { flex-grow: 1; }
+.bsdc-flex-shrink-0 { flex-shrink: 0; }
+
+.bsdc-gap-xs  { gap: var(--space-xs); }
+.bsdc-gap-sm  { gap: var(--space-sm); }
+.bsdc-gap-md  { gap: var(--space-md); }
+.bsdc-gap-lg  { gap: var(--space-lg); }
+.bsdc-gap-xl  { gap: var(--space-xl); }
+
+.bsdc-grid { display: grid; }
+.bsdc-grid-2 { display: grid; grid-template-columns: 1fr; gap: var(--space-md); }
+.bsdc-grid-3 { display: grid; grid-template-columns: 1fr; gap: var(--space-md); }
+.bsdc-grid-4 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (min-width: 600px) {
+  .bsdc-grid-2 { grid-template-columns: 1fr 1fr; }
+  .bsdc-grid-4 { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1024px) {
+  .bsdc-grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .bsdc-grid-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ------- Spacing utilities ------- */
+.bsdc-m-0  { margin: 0; }
+.bsdc-mt-sm { margin-top: var(--space-sm); }
+.bsdc-mt-md { margin-top: var(--space-md); }
+.bsdc-mt-lg { margin-top: var(--space-lg); }
+.bsdc-mb-sm { margin-bottom: var(--space-sm); }
+.bsdc-mb-md { margin-bottom: var(--space-md); }
+.bsdc-mb-lg { margin-bottom: var(--space-lg); }
+.bsdc-p-0  { padding: 0; }
+.bsdc-p-sm { padding: var(--space-sm); }
+.bsdc-p-md { padding: var(--space-md); }
+.bsdc-p-lg { padding: var(--space-lg); }
+
+/* ------- Visibility utilities ------- */
+.bsdc-hide-mobile { display: none; }
+@media (min-width: 768px) { .bsdc-hide-mobile { display: block; } }
+
+.bsdc-hide-desktop { display: block; }
+@media (min-width: 768px) { .bsdc-hide-desktop { display: none; } }
+
+.bsdc-hide-tablet-down { display: none; }
+@media (min-width: 1024px) { .bsdc-hide-tablet-down { display: block; } }
+
+/* ------- Position utilities ------- */
+.bsdc-relative { position: relative; }
+.bsdc-absolute { position: absolute; }
+.bsdc-sticky   { position: sticky; }
+.bsdc-fixed    { position: fixed; }
+
+/* ------- Cards / Surfaces ------- */
+.bsdc-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-sm);
+}
+.bsdc-card--flat   { box-shadow: none; }
+.bsdc-card--raised { box-shadow: var(--shadow-md); }
+.bsdc-card--padless{ padding: 0; }
+.bsdc-card + .bsdc-card { margin-top: var(--space-md); }
+
+/* ------- Divider ------- */
+.bsdc-divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: var(--space-md) 0;
+  border: none;
+}

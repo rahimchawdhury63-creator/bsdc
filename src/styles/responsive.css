@@ -1,0 +1,134 @@
+/* =============================================================================
+ * src/styles/responsive.css
+ * BSDC — Responsive scaling rules from 250px to 5000px wide.
+ *
+ * Strategy:
+ *  - Mobile-first base styles are in the other CSS files.
+ *  - Here we add ONLY the responsive adjustments per breakpoint.
+ *  - We don't change layout structure (that's in layout.css) — only
+ *    font scaling, spacing scaling, and breakpoint-specific fixes.
+ * ========================================================================= */
+
+/* --- 250px : ultra-small phones (KaiOS, very old Androids) --- */
+@media (max-width: 319px) {
+  :root {
+    --space-md: 12px;
+    --space-lg: 16px;
+    --nav-height: 52px;
+  }
+  body { font-size: 14px; }
+  .bsdc-card { padding: var(--space-sm); border-radius: var(--radius-md); }
+  .bsdc-btn  { padding: 8px 12px; font-size: 0.85rem; min-height: 36px; }
+  .bsdc-avatar { width: 36px; height: 36px; }
+  .bsdc-input, .bsdc-textarea, .bsdc-select { padding: 8px 10px; font-size: 0.85rem; }
+}
+
+/* --- 320px-374px : small phones (iPhone SE 1st-gen) --- */
+@media (min-width: 320px) and (max-width: 374px) {
+  body { font-size: 14.5px; }
+}
+
+/* --- 375px-479px : standard phones (most Bangladeshi Androids) --- */
+@media (min-width: 375px) {
+  body { font-size: 15px; }
+}
+
+/* --- 480px-599px : large phones --- */
+@media (min-width: 480px) {
+  .bsdc-card { padding: var(--space-md); }
+}
+
+/* --- 600px-767px : phablets / small tablets --- */
+@media (min-width: 600px) {
+  .bsdc-content { padding: 0 var(--space-md); }
+}
+
+/* --- 768px : tablets — sidebar appears --- */
+@media (min-width: 768px) {
+  :root { --nav-height: 64px; }
+  body { font-size: 15px; }
+  h1 { font-size: 2.1rem; }
+  h2 { font-size: 1.7rem; }
+}
+
+/* --- 1024px : laptops — full sidebar + right sidebar appears --- */
+@media (min-width: 1024px) {
+  body { font-size: 15.5px; }
+}
+
+/* --- 1280px : standard desktops --- */
+@media (min-width: 1280px) {
+  body { font-size: 16px; }
+  :root { --content-max: 720px; }
+}
+
+/* --- 1536px : large desktops --- */
+@media (min-width: 1536px) {
+  body { font-size: 16.5px; }
+}
+
+/* --- 1920px : Full HD monitors --- */
+@media (min-width: 1920px) {
+  body { font-size: 17px; }
+  :root {
+    --sidebar-width: 280px;
+    --right-sidebar-width: 340px;
+    --content-max: 760px;
+    --container-max: 1600px;
+  }
+}
+
+/* --- 2560px : 2K / QHD monitors --- */
+@media (min-width: 2560px) {
+  body { font-size: 18px; }
+  :root {
+    --sidebar-width: 320px;
+    --right-sidebar-width: 380px;
+    --content-max: 820px;
+    --container-max: 2000px;
+    --nav-height: 72px;
+  }
+  .bsdc-btn { padding: 12px 22px; font-size: 1rem; }
+}
+
+/* --- 3840px : 4K UHD monitors --- */
+@media (min-width: 3840px) {
+  body { font-size: 22px; }
+  :root {
+    --sidebar-width: 380px;
+    --right-sidebar-width: 440px;
+    --content-max: 940px;
+    --container-max: 2800px;
+    --nav-height: 88px;
+    --space-md: 20px;
+    --space-lg: 32px;
+    --space-xl: 40px;
+  }
+  .bsdc-avatar { width: 52px; height: 52px; }
+  .bsdc-btn { padding: 16px 28px; font-size: 1.15rem; min-height: 52px; }
+}
+
+/* --- 5000px : ultra-wide / cinema displays --- */
+@media (min-width: 5000px) {
+  body { font-size: 26px; }
+  :root {
+    --sidebar-width: 460px;
+    --right-sidebar-width: 520px;
+    --content-max: 1100px;
+    --container-max: 3600px;
+    --nav-height: 104px;
+  }
+  .bsdc-avatar { width: 64px; height: 64px; }
+}
+
+/* --- Landscape phone adjustments --- */
+@media (max-width: 900px) and (orientation: landscape) {
+  .bsdc-modal { max-height: 100vh; }
+}
+
+/* --- Print --- */
+@media print {
+  .bsdc-header, .bsdc-mobile-nav, .bsdc-shell__sidebar, .bsdc-shell__right { display: none !important; }
+  .bsdc-shell { padding-top: 0; }
+  body { background: #fff; color: #000; }
+}

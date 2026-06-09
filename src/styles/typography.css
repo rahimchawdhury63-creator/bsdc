@@ -1,0 +1,127 @@
+/* =============================================================================
+ * src/styles/typography.css
+ * BSDC — Bilingual typography (English + Bangla).
+ *
+ * Font strategy:
+ *   - Inter for Latin/English (variable weights 400-800).
+ *   - Hind Siliguri for Bangla (400-700) — best free Bangla web font.
+ *   - JetBrains Mono for code.
+ *
+ * The :lang(bn) selector automatically picks Bangla-first stack for any
+ * element marked lang="bn". Components don't have to switch font manually.
+ * ========================================================================= */
+
+body {
+  font-family: var(--font-primary);
+  font-size: 15px;
+  line-height: 1.55;
+  font-weight: 400;
+}
+
+/* Bangla content gets Hind Siliguri first, then Inter as fallback for digits */
+:lang(bn),
+[data-lang="bn"] {
+  font-family: 'Hind Siliguri', 'Inter', system-ui, sans-serif;
+  line-height: 1.65;          /* Bangla needs slightly more vertical breathing */
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); }
+h2 { font-size: clamp(1.4rem, 3.2vw, 1.9rem); }
+h3 { font-size: clamp(1.2rem, 2.6vw, 1.5rem); }
+h4 { font-size: 1.15rem; }
+h5 { font-size: 1.0rem; }
+h6 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-light); }
+
+p {
+  margin: 0 0 var(--space-md);
+  color: var(--color-text);
+}
+
+small, .bsdc-text-sm { font-size: 0.85rem; }
+.bsdc-text-xs       { font-size: 0.75rem; }
+.bsdc-text-lg       { font-size: 1.1rem; }
+.bsdc-text-xl       { font-size: 1.25rem; }
+
+.bsdc-text-muted    { color: var(--color-text-muted); }
+.bsdc-text-light    { color: var(--color-text-light); }
+.bsdc-text-primary  { color: var(--color-primary); }
+.bsdc-text-danger   { color: var(--color-danger); }
+.bsdc-text-success  { color: var(--color-success); }
+.bsdc-text-center   { text-align: center; }
+.bsdc-text-right    { text-align: right; }
+.bsdc-text-bold     { font-weight: 700; }
+.bsdc-text-semibold { font-weight: 600; }
+.bsdc-text-uppercase{ text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* Inline code */
+code, kbd, samp {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--color-accent);
+  color: var(--color-primary-dark);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+/* Block code (full snippets handled by CodeSnippet component) */
+pre {
+  font-family: var(--font-mono);
+  background: var(--color-dark);
+  color: #e6edf3;
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+/* Blockquote (used by blog posts) */
+blockquote {
+  border-left: 4px solid var(--color-primary);
+  padding: var(--space-sm) var(--space-md);
+  margin: var(--space-md) 0;
+  background: var(--color-accent);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  color: var(--color-text);
+  font-style: italic;
+}
+
+/* Anchor tags inside prose */
+.bsdc-prose a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+.bsdc-prose a:hover {
+  color: var(--color-primary-dark);
+}
+
+/* Article-level prose container (blog posts, wiki) */
+.bsdc-prose {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--color-text);
+  max-width: 70ch;
+}
+.bsdc-prose h2 { margin: var(--space-xl) 0 var(--space-md); }
+.bsdc-prose h3 { margin: var(--space-lg) 0 var(--space-sm); }
+.bsdc-prose p  { margin: 0 0 var(--space-md); }
+.bsdc-prose ul, .bsdc-prose ol { padding-left: var(--space-lg); margin: 0 0 var(--space-md); }
+.bsdc-prose li { margin-bottom: var(--space-xs); }
+.bsdc-prose img { border-radius: var(--radius-md); margin: var(--space-md) 0; }
+
+/* Numbers in Bangla content stay readable in Latin where appropriate */
+.bsdc-num-en { font-family: 'Inter', sans-serif; font-feature-settings: 'tnum'; }

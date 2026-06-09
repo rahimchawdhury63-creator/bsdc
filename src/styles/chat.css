@@ -1,0 +1,124 @@
+/* =============================================================================
+ * src/styles/chat.css
+ * BSDC — Chat / Messenger styles (chat list, window, bubbles, typing).
+ * Full chat components implemented in Response 6.
+ * ========================================================================= */
+
+.bsdc-chat-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: calc(100vh - var(--nav-height));
+  background: var(--color-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .bsdc-chat-layout { grid-template-columns: 320px 1fr; }
+}
+
+.bsdc-chat-list {
+  border-right: 1px solid var(--color-border);
+  overflow-y: auto;
+}
+.bsdc-chat-list__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  cursor: pointer;
+  border-bottom: 1px solid var(--color-border);
+  transition: background 150ms ease;
+}
+.bsdc-chat-list__item:hover,
+.bsdc-chat-list__item--active {
+  background: var(--color-accent);
+}
+.bsdc-chat-list__body { flex: 1; min-width: 0; }
+.bsdc-chat-list__name { font-weight: 600; font-size: 0.9rem; }
+.bsdc-chat-list__preview {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bsdc-chat-window {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.bsdc-chat-window__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+.bsdc-chat-window__messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  background: var(--color-bg);
+}
+.bsdc-chat-window__input-bar {
+  display: flex;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  border-top: 1px solid var(--color-border);
+  align-items: flex-end;
+}
+
+.bsdc-message {
+  max-width: 80%;
+  padding: 8px 12px;
+  border-radius: var(--radius-lg);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+.bsdc-message--in {
+  background: var(--color-card);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  align-self: flex-start;
+  border-bottom-left-radius: var(--radius-sm);
+}
+.bsdc-message--out {
+  background: var(--color-primary);
+  color: #fff;
+  align-self: flex-end;
+  border-bottom-right-radius: var(--radius-sm);
+}
+.bsdc-message__time {
+  font-size: 0.65rem;
+  opacity: 0.75;
+  margin-top: 4px;
+  display: block;
+}
+.bsdc-message__seen {
+  font-size: 0.65rem;
+  margin-left: 4px;
+}
+
+.bsdc-typing {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  background: var(--color-card);
+  border-radius: var(--radius-lg);
+  align-self: flex-start;
+}
+.bsdc-typing__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-text-muted);
+  animation: bsdcBounce 1.4s infinite;
+}
+.bsdc-typing__dot:nth-child(2) { animation-delay: 0.15s; }
+.bsdc-typing__dot:nth-child(3) { animation-delay: 0.3s; }
