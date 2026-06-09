@@ -1,0 +1,15 @@
+# =============================================================================
+# Cloudflare Pages — _redirects
+# Single Page Application fallback: every unknown path serves /index.html
+# so React Router can take over. Status 200 (not 301) because the URL
+# the user typed IS the correct URL — we're just serving SPA shell.
+# =============================================================================
+
+# Preserve sitemap and rss as actual files (must be above the catch-all)
+/sitemap.xml    /sitemap.xml    200
+/rss.xml        /rss.xml        200
+/robots.txt     /robots.txt     200
+/manifest.json  /manifest.json  200
+
+# SPA catch-all
+/*    /index.html    200
