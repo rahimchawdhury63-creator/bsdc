@@ -98,6 +98,12 @@ export const IconVerified = (p) => (<Svg {...p} fill="currentColor" stroke="none
 export const IconText = (p) => (<Svg {...p}><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></Svg>);
 export const IconImage = (p) => (<Svg {...p}><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></Svg>);
 export const IconVideo = (p) => (<Svg {...p}><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></Svg>);
+export const IconPlay = ({ size = 20, color = 'currentColor', className = '', title, ...rest }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill={color} aria-hidden={title ? undefined : true} role={title ? 'img' : undefined} className={`bsdc-icon ${className}`.trim()} {...rest}>
+    {title ? <title>{title}</title> : null}
+    <polygon points="6 4 20 12 6 20 6 4" />
+  </svg>
+);
 export const IconQuestion = (p) => (<Svg {...p}><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></Svg>);
 export const IconBlog = (p) => (<Svg {...p}><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></Svg>);
 export const IconDoc = (p) => (<Svg {...p}><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></Svg>);
