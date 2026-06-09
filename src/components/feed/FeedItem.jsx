@@ -403,11 +403,4 @@ function schemaFor(type) {
   })[type] || 'Article';
 }
 
-// Small icon shim (not in Icons.jsx) — local fallback for IconPlay.
-function IconPlay({ size = 16, color = 'currentColor' }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill={color} aria-hidden="true">
-      <polygon points="6 4 20 12 6 20 6 4" />
-    </svg>
-  );
-}
+// (IconPlay is exported from Icons.jsx — no local shim needed.)
