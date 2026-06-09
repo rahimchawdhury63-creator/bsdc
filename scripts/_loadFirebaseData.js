@@ -17,7 +17,7 @@
 
 import { initializeApp } from 'firebase/app';
 import {
-  getFirestore, collection, query, where, orderBy, limit, getDocs
+  getFirestore, collection, query, orderBy, limit, getDocs
 } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -38,9 +38,15 @@ export async function loadIndexData({ postLimit = 2000, userLimit = 2000, commun
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
+    // NOTE: we intentionally do NOT add `where('status','==','active')` here.
+    // Doing so requires a composite index (status + createdAt). The build
+    // would then fail on first deploy before the developer has had a chance
+    // to create the index in Firebase Console.
+    //
+    // Instead we fetch a generous slice ordered by createdAt and filter the
+    // soft-deleted ones in JS — works without any index and is fast enough.
     const tasks = [
       getDocs(query(collection(db, 'posts'),
-        where('status', '==', 'active'),
         orderBy('createdAt', 'desc'),
         limit(postLimit)
       )),
@@ -56,7 +62,9 @@ export async function loadIndexData({ postLimit = 2000, userLimit = 2000, commun
 
     const [postSnap, userSnap, commSnap] = await Promise.all(tasks);
     cached = {
-      posts: postSnap.docs.map((d) => ({ id: d.id, ...d.data() })),
+      posts: postSnap.docs
+        .map((d) => ({ id: d.id, ...d.data() }))
+        .filter((p) => !p.status || p.status === 'active'),
       users: userSnap.docs.map((d) => ({ id: d.id, ...d.data() })),
       communities: commSnap.docs.map((d) => ({ id: d.id, ...d.data() }))
     };
