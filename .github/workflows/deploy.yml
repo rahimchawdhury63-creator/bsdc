@@ -2,6 +2,12 @@
 # .github/workflows/deploy.yml
 # Cloudflare Pages deploy — runs on every push to main.
 # Zero CLI needed locally; everything happens here.
+#
+# Notes:
+#   - actions/checkout@v5 and actions/setup-node@v5 run on Node 24
+#     (Node 20 actions are deprecated on June 16, 2026).
+#   - We use Node 22 LTS for the build runtime itself (matches Cloudflare
+#     Pages' default and is the most recent "even" LTS).
 # =============================================================================
 
 name: Deploy BSDC to Cloudflare Pages
@@ -24,12 +30,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
-      - name: Setup Node 20
-        uses: actions/setup-node@v4
+      - name: Setup Node 22
+        uses: actions/setup-node@v5
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
 
       - name: Install dependencies
