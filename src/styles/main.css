@@ -2,21 +2,36 @@
  * src/styles/main.css
  * BSDC — Global stylesheet entry point.
  *
- * ORDER MATTERS — keep it as:
- *   1. design tokens (CSS variables)
- *   2. reset
- *   3. typography
- *   4. animations
- *   5. layout primitives
- *   6. components (buttons, inputs, modal, etc.)
- *   7. shell (header/sidebar/footer/mobile nav)
- *   8. feature stylesheets (feed, chat, profile, admin)
- *   9. theming overrides (dark)
- *  10. responsive scaling (250→5000px)
- *  11. print (last so it can override anything)
+ * IMPORTANT: per CSS spec, all @import statements MUST come before any rule
+ * (other than @charset / empty @layer). Vite + esbuild will refuse the build
+ * if a rule sits above @import, so the partials are listed first below.
  *
- * Mobile-first throughout. No CSS-in-JS anywhere in the project.
+ * Order matters:
+ *   1. reset                  (so nothing else inherits browser defaults)
+ *   2. typography             (font stack + .bsdc-prose)
+ *   3. animations             (keyframes used by component CSS)
+ *   4. layout                 (container, grid, flex utilities)
+ *   5. components             (buttons, inputs, modal, etc.)
+ *   6. shell                  (header / sidebars / footer / mobile nav)
+ *   7. feature stylesheets    (feed / chat / profile / admin)
+ *   8. dark theme overrides
+ *   9. responsive scaling     (250 → 5000 px)
+ *  10. print                  (last so it can override anything above)
  * =========================================================================== */
+
+@import './reset.css';
+@import './typography.css';
+@import './animations.css';
+@import './layout.css';
+@import './components.css';
+@import './shell.css';
+@import './feed.css';
+@import './chat.css';
+@import './profile.css';
+@import './admin.css';
+@import './dark-theme.css';
+@import './responsive.css';
+@import './print.css';
 
 /* ---------- design tokens ---------- */
 :root {
@@ -64,21 +79,6 @@
   --content-max: 680px;
   --container-max: 1400px;
 }
-
-/* ---------- partials (load order matters) ---------- */
-@import './reset.css';
-@import './typography.css';
-@import './animations.css';
-@import './layout.css';
-@import './components.css';
-@import './shell.css';
-@import './feed.css';
-@import './chat.css';
-@import './profile.css';
-@import './admin.css';
-@import './dark-theme.css';
-@import './responsive.css';
-@import './print.css';
 
 /* ---------- shared icon class ---------- */
 .bsdc-icon {
