@@ -1,0 +1,4 @@
+import { onRequest } from 'firebase-functions/v2/https';
+import { getFirestore } from 'firebase-admin/firestore';
+/** Firebase Function that generates RSS XML from real public posts. */
+export const rss = onRequest(async (_request, response) => { const snap=await getFirestore().collection('posts').where('visibility','==','public').orderBy('createdAt','desc').limit(50).get(); response.set('Cache-Control','public, max-age=1800'); response.type('application/rss+xml').send(`<?xml version="1.0"?><rss version="2.0"><channel><title>BSDC</title><link>https://www.bsdc.info.bd/</link><description>Bangladesh Software Development Community feed</description>${snap.docs.map((d)=>`<item><title>${d.data().title||''}</title><link>https://www.bsdc.info.bd/post/${d.id}</link><description>${d.data().excerpt||''}</description></item>`).join('')}</channel></rss>`); });
