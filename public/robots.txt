@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /settings
+Disallow: /messenger
+Disallow: /notifications
+Disallow: /points/transfer
+Disallow: /*?preview=
+Disallow: /*?draft=
+Sitemap: https://www.bsdc.info.bd/sitemap.xml
