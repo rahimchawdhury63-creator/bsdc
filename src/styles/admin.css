@@ -1,0 +1,16 @@
+/* Admin layout primitives reserved for Response 9; present now so imports never fail. */
+.admin-shell { min-height: 100vh; background: var(--color-gray-50); }
+.admin-card { border: 1px solid var(--color-border); border-radius: var(--border-radius-xl); background: var(--color-white); padding: var(--spacing-lg); box-shadow: var(--shadow-sm); }
+.admin-kpi { display: grid; gap: 6px; }
+.admin-kpi__value { font-size: clamp(1.75rem, 5vw, 3rem); font-weight: 900; color: var(--color-primary); }
+
+/* Response 9 admin panel navigation, metrics, and tables. */
+.admin-panel { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: var(--spacing-lg); align-items: start; }
+.admin-nav { position: sticky; top: calc(var(--header-height) + 20px); border: 1px solid var(--color-border); border-radius: var(--border-radius-xl); background: var(--color-white); padding: var(--spacing-sm); display: grid; gap: 4px; }
+.admin-content { min-width: 0; display: grid; gap: var(--spacing-md); }
+.admin-metric-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--spacing-md); }
+.admin-table-wrap { overflow-x: auto; }
+.admin-table { width: 100%; border-collapse: collapse; min-width: 620px; }
+.admin-table td, .admin-table th { border-bottom: 1px solid var(--color-border); padding: 12px; text-align: left; }
+@media (max-width: 1023px) { .admin-panel { grid-template-columns: 1fr; } .admin-nav { position: static; } .admin-metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 479px) { .admin-metric-grid { grid-template-columns: 1fr; } }

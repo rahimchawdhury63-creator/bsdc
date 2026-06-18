@@ -1,0 +1,108 @@
+/*
+  BSDC Global Styles
+  -----------------------------------------------------------------------------
+  This file defines the platform-wide design tokens, resets, accessibility
+  defaults, base typography integration, and common utility classes. Layout-heavy
+  component styles live in components.css, responsive overrides live in
+  responsive.css, and the Fabric-inspired grid system lives in fabric.css.
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #1B4332;
+  --color-primary-light: #2D6A4F;
+  --color-primary-lighter: #40916C;
+  --color-accent: #FFD60A;
+  --color-white: #FFFFFF;
+  --color-gray-50: #F8F9FA;
+  --color-gray-100: #F1F3F4;
+  --color-gray-200: #E8EAED;
+  --color-gray-300: #DADCE0;
+  --color-gray-700: #3C4043;
+  --color-gray-900: #1A1A1A;
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #5F6368;
+  --color-border: #E8EAED;
+  --color-success: #34A853;
+  --color-error: #EA4335;
+  --color-warning: #FBBC04;
+  --color-info: #4285F4;
+  --font-bangla: 'Hind Siliguri', 'Noto Sans Bengali', system-ui, sans-serif;
+  --font-english: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+  --border-radius-2xl: 24px;
+  --border-radius-full: 9999px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.10);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-focus: 0 0 0 3px rgba(255, 214, 10, 0.55);
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms ease;
+  --header-height: 64px;
+  --bottom-nav-height: 68px;
+  --content-max-width: 1180px;
+  --safe-area-top: env(safe-area-inset-top, 0px);
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+* { box-sizing: border-box; }
+*::before, *::after { box-sizing: inherit; }
+html { min-width: 250px; scroll-behavior: smooth; text-size-adjust: 100%; background: var(--color-gray-50); }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-english);
+  color: var(--color-text-primary);
+  background: var(--color-gray-50);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+button, input, textarea, select { font: inherit; }
+button { cursor: pointer; }
+a { color: var(--color-primary-light); text-decoration-thickness: 0.08em; text-underline-offset: 0.2em; }
+a:hover { color: var(--color-primary); }
+img, svg, video, canvas { display: block; max-width: 100%; }
+:focus-visible { outline: none; box-shadow: var(--shadow-focus); }
+::selection { color: var(--color-primary); background: var(--color-accent); }
+#root { min-height: 100vh; isolation: isolate; }
+
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 9999;
+  transform: translateY(-140%);
+  border-radius: var(--border-radius-full);
+  background: var(--color-accent);
+  color: var(--color-primary);
+  padding: 10px 16px;
+  font-weight: 800;
+  transition: transform var(--transition-fast);
+}
+.skip-link:focus { transform: translateY(0); }
+
+.container { width: min(100% - 24px, var(--content-max-width)); margin-inline: auto; }
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}

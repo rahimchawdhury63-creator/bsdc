@@ -1,0 +1,9 @@
+/* Lightweight Fabric-inspired responsive grid helpers without external runtime CSS. */
+.fabric-grid { display: grid; gap: var(--spacing-md); grid-template-columns: repeat(12, minmax(0, 1fr)); }
+.fabric-col-12 { grid-column: span 12; }
+.fabric-col-8 { grid-column: span 8; }
+.fabric-col-6 { grid-column: span 6; }
+.fabric-col-4 { grid-column: span 4; }
+.fabric-stack { display: flex; flex-direction: column; gap: var(--spacing-md); }
+.fabric-cluster { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-sm); }
+@media (max-width: 767px) { .fabric-col-8, .fabric-col-6, .fabric-col-4 { grid-column: span 12; } }

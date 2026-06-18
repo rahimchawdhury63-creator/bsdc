@@ -1,0 +1,5 @@
+/* Professional micro-interactions; disabled automatically by responsive.css for reduced motion. */
+@keyframes bsdc-fade-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes bsdc-pulse-ring { 0% { box-shadow: 0 0 0 0 rgba(255,214,10,.5); } 100% { box-shadow: 0 0 0 18px rgba(255,214,10,0); } }
+.animate-fade-up { animation: bsdc-fade-up 500ms ease both; }
+.animate-pulse-ring { animation: bsdc-pulse-ring 1800ms ease infinite; }
