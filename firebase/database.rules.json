@@ -1,0 +1,50 @@
+{
+  "rules": {
+    "presence": {
+      "$uid": {
+        ".read": "auth != null",
+        ".write": "auth != null && auth.uid === $uid"
+      }
+    },
+    "conversation-members": {
+      "$conversationId": {
+        "$uid": {
+          ".read": "auth != null && auth.uid === $uid",
+          ".write": "auth != null && auth.uid === $uid"
+        }
+      }
+    },
+    "messages": {
+      "$conversationId": {
+        ".read": "auth != null && root.child('conversation-members').child($conversationId).child(auth.uid).val() === true",
+        ".write": "auth != null && root.child('conversation-members').child($conversationId).child(auth.uid).val() === true"
+      }
+    },
+    "typing": {
+      "$conversationId": {
+        "$uid": {
+          ".read": "auth != null",
+          ".write": "auth != null && auth.uid === $uid"
+        }
+      }
+    },
+    "notifications": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": "auth != null"
+      }
+    },
+    "points-live": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": "auth != null && auth.uid === $uid"
+      }
+    },
+    "stories-live": {
+      "$uid": {
+        ".read": "auth != null",
+        ".write": "auth != null && auth.uid === $uid"
+      }
+    }
+  }
+}

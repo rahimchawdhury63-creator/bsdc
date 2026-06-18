@@ -1,0 +1,19 @@
+{
+  "indexes": [
+    { "collectionGroup": "posts", "queryScope": "COLLECTION", "fields": [ { "fieldPath": "visibility", "order": "ASCENDING" }, { "fieldPath": "createdAt", "order": "DESCENDING" } ] },
+    { "collectionGroup": "posts", "queryScope": "COLLECTION", "fields": [ { "fieldPath": "visibility", "order": "ASCENDING" }, { "fieldPath": "type", "order": "ASCENDING" }, { "fieldPath": "createdAt", "order": "DESCENDING" } ] },
+    { "collectionGroup": "posts", "queryScope": "COLLECTION", "fields": [ { "fieldPath": "visibility", "order": "ASCENDING" }, { "fieldPath": "communityId", "order": "ASCENDING" }, { "fieldPath": "createdAt", "order": "DESCENDING" } ] },
+    { "collectionGroup": "posts", "queryScope": "COLLECTION", "fields": [ { "fieldPath": "visibility", "order": "ASCENDING" }, { "fieldPath": "viewsCount", "order": "DESCENDING" }, { "fieldPath": "createdAt", "order": "DESCENDING" } ] },
+    { "collectionGroup": "posts", "queryScope": "COLLECTION", "fields": [ { "fieldPath": "visibility", "order": "ASCENDING" }, { "fieldPath": "authorId", "order": "ASCENDING" }, { "fieldPath": "createdAt", "order": "DESCENDING" } ] },
+    { "collectionGroup": "stories", "queryScope": "COLLECTION", "fields": [ { "fieldPath": "expiresAt", "order": "ASCENDING" } ] },
+    { "collectionGroup": "savedPosts", "queryScope": "COLLECTION", "fields": [ { "fieldPath": "userId", "order": "ASCENDING" }, { "fieldPath": "createdAt", "order": "DESCENDING" } ] },
+    { "collectionGroup": "comments", "queryScope": "COLLECTION", "fields": [ { "fieldPath": "postId", "order": "ASCENDING" }, { "fieldPath": "createdAt", "order": "ASCENDING" } ] },
+    { "collectionGroup": "pointTransactions", "queryScope": "COLLECTION", "fields": [ { "fieldPath": "toUserId", "order": "ASCENDING" }, { "fieldPath": "createdAt", "order": "DESCENDING" } ] },
+    { "collectionGroup": "verifications", "queryScope": "COLLECTION", "fields": [ { "fieldPath": "userId", "order": "ASCENDING" }, { "fieldPath": "createdAt", "order": "DESCENDING" } ] },
+    { "collectionGroup": "communities", "queryScope": "COLLECTION", "fields": [ { "fieldPath": "createdAt", "order": "DESCENDING" } ] },
+    { "collectionGroup": "communities", "queryScope": "COLLECTION", "fields": [ { "fieldPath": "slug", "order": "ASCENDING" } ] },
+    { "collectionGroup": "courses", "queryScope": "COLLECTION", "fields": [ { "fieldPath": "createdAt", "order": "DESCENDING" } ] },
+    { "collectionGroup": "certificates", "queryScope": "COLLECTION", "fields": [ { "fieldPath": "certificateNumber", "order": "ASCENDING" } ] }
+  ],
+  "fieldOverrides": []
+}
