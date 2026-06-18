@@ -1,0 +1,3 @@
+import { NavLink, Outlet } from 'react-router-dom';
+/** Settings layout with section navigation. */
+export const SettingsShell = () => <section className="settings-shell"><nav className="sidebar-nav"><NavLink className="sidebar-link" to="/settings/account">Account</NavLink><NavLink className="sidebar-link" to="/settings/privacy">Privacy</NavLink><NavLink className="sidebar-link" to="/settings/notifications">Notifications</NavLink><NavLink className="sidebar-link" to="/settings/security">Security</NavLink><NavLink className="sidebar-link" to="/settings/appearance">Appearance</NavLink><NavLink className="sidebar-link" to="/settings/monetization">Monetization</NavLink></nav><Outlet /></section>;
