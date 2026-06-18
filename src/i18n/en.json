@@ -1,0 +1,11 @@
+{
+  "site.name": "Bangladesh Software Development Community",
+  "nav.feed": "Feed",
+  "nav.search": "Search",
+  "nav.communities": "Communities",
+  "auth.login": "Login",
+  "auth.register": "Register",
+  "feed.empty": "No posts found",
+  "courses.title": "Courses",
+  "settings.title": "Settings"
+}
